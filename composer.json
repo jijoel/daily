@@ -7,6 +7,9 @@
 		"laravel/framework": "4.0.*"
 	},
 	"autoload": {
+        "psr-0": {
+            "Days": "app/"
+        },
 		"classmap": [
 			"app/commands",
 			"app/controllers",
