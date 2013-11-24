@@ -1,0 +1,52 @@
+/* Main page styles ---------------*/
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #cfc;
+    background: url(/img/background.jpg) fixed;
+    padding-bottom: 300px;
+}
+.container {
+    padding: 40px 40px;
+    margin: 0px 100px;
+    background-color: rgba(255,255,255,0.6);
+    border: 1px solid #030;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 3px 3px 10px #999;
+}
+dt {
+    width: 60px;
+    float: left;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: verdana,arial,helvetica,sans-serif;
+    height: auto;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 12pt;
+    line-height: 180%;
+}
