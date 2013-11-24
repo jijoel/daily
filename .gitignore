@@ -1,6 +1,15 @@
+# Laravel
 /bootstrap/compiled.php
 /vendor
+
+# Composer
 composer.phar
 composer.lock
+
+# OS
 .DS_Store
-Thumbs.db
+
+# Configuration
+/app/config/staging
+/app/config/production
+
