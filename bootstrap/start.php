@@ -28,9 +28,17 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('your-machine-name'),
+    'local' => array('development', 'daily.dev'),
 
 ));
+
+if ($env==='local'
+    && isset($_SERVER['HTTP_USER_AGENT'])
+    && strpos($_SERVER['HTTP_USER_AGENT'], 'PhantomJS')) 
+{
+    $env = 'testing';
+}
+
 
 /*
 |--------------------------------------------------------------------------
