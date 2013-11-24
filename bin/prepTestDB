@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo > app/tests/codeception/_data/db.sqlite
+
+php artisan migrate --seed --database=codeception
+sqlite3 app/tests/codeception/_data/db.sqlite .dump > app/tests/codeception/_data/dump.sql
+chmod o+w app/tests/codeception/_data/db.sqlite
+
+for i in `find app/tests/codeception/_data -type f  | grep -v .gitignore`; do ls -l $i; done
