@@ -3,6 +3,8 @@
 
 class Roman
 {
+    const MAX_DECIMAL = 3999;
+
     private $map = array(
         1000 => 'M',
         900 => 'CM',
@@ -21,6 +23,10 @@ class Roman
 
     public function convertToRoman($decimal)
     {
+        if (($decimal) > self::MAX_DECIMAL) {
+            throw new \OutOfRangeException('The number you entered is too large. Please use a smaller number');
+        }
+
         $roman = '';
 
         foreach($this->map as $key=>$value) {

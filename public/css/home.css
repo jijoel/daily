@@ -50,3 +50,6 @@ p {
     font-size: 12pt;
     line-height: 180%;
 }
+.note {
+    font-style: italic;
+}
