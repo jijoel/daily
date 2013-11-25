@@ -13,6 +13,21 @@ class RomanTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $roman->convertToRoman($decimal));
     }
 
+    /**
+     * @expectedException OutOfRangeException
+     */
+    public function testValueOutOfRange()
+    {
+        $test = new Roman;
+        $test->convertToRoman(4000);
+    }
+
+    public function testNegativeNumberShouldReturnBlank()
+    {
+        $test = new Roman;
+        $this->assertEquals('', $test->convertToRoman(-5));
+    }
+
     public function getValueMap()
     {
         return array(

@@ -33,3 +33,11 @@ Route::post('/roman', array('as'=>'roman.store', function(){
             'roman'=>$roman, 
             'decimal'=>$decimal));
 }));
+
+// Day3 ---------------------------------------------------------
+Route::resource('/roman2', 'Days\Day003\RomanController', array(
+    'only'=>array('index', 'store')));
+
+
+
+
