@@ -38,6 +38,18 @@ Route::post('/roman', array('as'=>'roman.store', function(){
 Route::resource('/roman2', 'Days\Day003\RomanController', array(
     'only'=>array('index', 'store')));
 
-
-
+// Day 4 ---------------------------------------------------------
+Route::filter('day004_auth', function()
+{
+    if (Auth::guest()) return Redirect::guest('day004_login');
+});
+Route::get('day004_login', array('as'=>'day004_login', 
+    'uses'=>'Days\Day004\AuthController@getLogin'));
+Route::post('day004_login', array(
+    'uses'=>'Days\Day004\AuthController@postLogin'));
+Route::get('day004_logout', array('as'=>'day004_logout', 
+    'uses'=>'Days\Day004\AuthController@getLogout'));
+Route::get('day004_dashboard', array('as'=>'day004_dashboard',
+    'before'=>'day004_auth',
+    'uses'=>'Days\Day004\DashboardController@index'));
 
