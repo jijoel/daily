@@ -14,7 +14,7 @@ class RomanController extends \BaseController
     public function __construct(Roman $converter)
     {
         $this->converter = $converter; 
-        View::share(array('day'=>2, 'dayTitle'=>'Roman Revisited'));
+        View::share(array('day'=>3, 'dayTitle'=>'Roman Revisited'));
     }
     
     public function index()

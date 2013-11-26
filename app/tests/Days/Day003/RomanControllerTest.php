@@ -36,7 +36,6 @@ class RomanControllerTest extends TestCase
         if (!isset($test->$property)) {
             $this->assertTrue(False, "Property '$property' does not exist");
         }
-
     }
 
     protected function assertIsView($test)

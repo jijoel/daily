@@ -1,7 +1,7 @@
 <?php
 use \TestGuy;
 
-class RomanCest
+class Day002_RomanCest
 {
 
     public function _before()

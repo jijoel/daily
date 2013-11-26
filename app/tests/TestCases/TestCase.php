@@ -1,7 +1,14 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
+class TestCase extends Illuminate\Foundation\Testing\TestCase 
+{
+
+    public function tearDown()
+    {
+        Mockery::close();
+    }
+    
     /**
      * Creates the application.
      *
@@ -13,7 +20,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
         $testEnvironment = 'test-foo';
 
-        return require __DIR__.'/../../bootstrap/start.php';
+        return require __DIR__.'/../../../bootstrap/start.php';
     }
 
     protected function callProtectedMethod($test, $method, $args)

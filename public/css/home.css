@@ -16,9 +16,14 @@ body {
     border-radius: 0 0 10px 10px;
     box-shadow: 3px 3px 10px #999;
 }
+dt, dd {
+    padding-top: 10px;
+}
 dt {
     width: 60px;
     float: left;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 95%;
 }
 
 a {
