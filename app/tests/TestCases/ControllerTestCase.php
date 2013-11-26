@@ -15,6 +15,15 @@ class ControllerTestCase extends TestCase
         $this->assertInstanceOf('Illuminate\View\View', $test);
     }
 
+    protected function assertIsRedirect($test, $url=Null)
+    {
+        $this->assertInstanceOf('Illuminate\Http\RedirectResponse', $test);
+
+        if ($url) {
+            $this->assertEquals($url, $test->getTargetUrl());
+        }
+    }
+
     protected function setupLayout($test)
     {
         $this->callProtectedMethod($test, 'setupLayout', array());
