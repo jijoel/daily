@@ -1,9 +1,9 @@
 <?php
 
 return array( 
-    'default' => 'codeception',
+    'default' => 'sqlite',
     'connections' => array(
-        'codeception' => array(
+        'sqlite' => array(
             'driver'   => 'sqlite',
             'database' => ':memory:',
             'prefix'   => '',
