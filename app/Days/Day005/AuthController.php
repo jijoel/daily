@@ -36,6 +36,8 @@ class AuthController extends BaseController
         // if code is provided get user data and sign in
         if ( !empty( $code ) ) {
 
+            dd(Input::all());
+            
             // This was a callback request from google, get the token
             $token = $googleService->requestAccessToken( $code );
 
