@@ -54,7 +54,7 @@ class AuthController extends BaseController
         // if not ask for permission first
         else {
 
-            dd($result);
+            dd(Input::all());
 
             // get googleService authorization
             $url = $googleService->getAuthorizationUri();

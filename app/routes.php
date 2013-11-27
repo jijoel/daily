@@ -60,7 +60,7 @@ Route::filter('day005_auth', function()
 });
 Route::get('day005_login', array('as'=>'day005_login', 
     'uses'=>'Days\Day005\AuthController@getLogin'));
-Route::get('day005_google', array(
+Route::get('day005_login_google', array(
     'uses'=>'Days\Day005\AuthController@loginWithGoogle'));
 Route::get('day005_logout', array('as'=>'day005_logout', 
     'uses'=>'Days\Day005\AuthController@getLogout'));
