@@ -1,9 +1,7 @@
 <?php
 use \TestGuy;
 
-/**
- * @group now
- */
+
 class Day004_LoginCest
 {
 
@@ -31,8 +29,7 @@ class Day004_LoginCest
         $I->fillField('#username', 'foo');
         $I->fillField('#password', 'wrong password');
         $I->click('Login');
-        // TODO: Find out why this fails in codeception...
-        // $I->see('There were errors');
+        $I->see('There were errors');
     }
 
     public function testLogIn(TestGuy $I) 
