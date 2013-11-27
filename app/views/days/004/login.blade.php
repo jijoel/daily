@@ -1,3 +1,5 @@
+{{ $errors = Session::get('errors') }}
+
 @section('content')
     
     <p class="note">This is a simple login page. To see it work, you can use user: <b>foo</b>; password: <b>test</b>. See how it fails by using other credentials.</p>
