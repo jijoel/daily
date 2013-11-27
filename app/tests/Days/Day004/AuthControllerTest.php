@@ -3,9 +3,6 @@
 use Days\Day004\AuthController;
 
 
-/**
- * @group now
- */
 class AuthControllerTest extends ControllerTestCase
 {
     private $test;    
@@ -30,13 +27,13 @@ class AuthControllerTest extends ControllerTestCase
         $this->assertIsView($this->layout->content);
     }
 
-    // public function testAuthControllerCanPostLogin()
-    // {
-    //     Auth::shouldReceive('attempt')->once()->andReturn(True);
+    public function testAuthControllerCanPostLogin()
+    {
+        Auth::shouldReceive('attempt')->once()->andReturn(True);
 
-    //     $response = $this->test->postLogin();
-    //     $this->assertIsRedirect($response, URL::route('day004_login'));
-    // }
+        $response = $this->test->postLogin();
+        $this->assertIsRedirect($response, URL::route('day004_dashboard'));
+    }
 
     public function testAuthControllerCanReturnErrors()
     {
