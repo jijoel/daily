@@ -4,6 +4,7 @@ use Auth;
 use View;
 use Input;
 use OAuth;
+use Config;
 use Redirect;
 use Response;
 use BaseController;
@@ -28,35 +29,28 @@ class AuthController extends BaseController
         // get data from input
         $code = Input::get( 'code' );
 
-        // get google service
-        $googleService = OAuth::consumer( 'Google' );
+        $callback = Config::get('oauth-4-laravel::consumers.google.callback_url');
 
-        // check if code is valid
+        // get google service
+        $googleService = OAuth::consumer( 'google', $callback );
 
         // if code is provided get user data and sign in
         if ( !empty( $code ) ) {
 
-            dd(Input::all());
-            
             // This was a callback request from google, get the token
             $token = $googleService->requestAccessToken( $code );
 
             // Send a request with it
             $result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
-            $message = 'Your unique Google user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-            echo $message. "<br/>";
+            $this->layout->content = View::make('days.005.yay')
+                ->with('result', $result);
 
-            //Var_dump
-            //display whole array().
-            dd($result);
-
+            return;
         }
 
         // if not ask for permission first
         else {
-
-            dd(Input::all());
 
             // get googleService authorization
             $url = $googleService->getAuthorizationUri();
