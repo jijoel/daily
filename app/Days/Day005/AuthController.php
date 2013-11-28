@@ -26,39 +26,32 @@ class AuthController extends BaseController
 
     public function loginWithGoogle()
     {
-        // get data from input
-        $code = Input::get( 'code' );
-
-        $callback = Config::get('oauth-4-laravel::consumers.google.callback_url');
-
-        // get google service
-        $googleService = OAuth::consumer( 'google', $callback );
-
-        // if code is provided get user data and sign in
-        if ( !empty( $code ) ) {
-
-            // This was a callback request from google, get the token
-            $token = $googleService->requestAccessToken( $code );
-
-            // Send a request with it
-            $result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
-
-            $this->layout->content = View::make('days.005.yay')
-                ->with('result', $result);
-
+        if ($err = Input::get('error')) {
+            $this->layout->content = View::make('days.005.fail')
+                ->with('message', $err);
             return;
         }
 
-        // if not ask for permission first
-        else {
+        $code = Input::get( 'code' );
+        $callback = Config::get('oauth-4-laravel::consumers.google.callback_url');
+        $googleService = OAuth::consumer( 'google', $callback );
 
-            // get googleService authorization
-            $url = $googleService->getAuthorizationUri();
-
-            // return to google login url
+        if ( empty( $code ) ) {
+            // Ask for a code from google
+            $url = $googleService->getAuthorizationUri(['approval_prompt'=>'force']);
             return Response::make()->header( 'Location', (string)$url );
         }
 
+        // if code is provided get user data and sign in
+
+        // This was a callback request from google, get the token
+        $token = $googleService->requestAccessToken( $code );
+
+        // Send a request with it
+        $result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
+
+        $this->layout->content = View::make('days.005.yay')
+            ->with('result', $result);
     }
 
     public function postLogin()
