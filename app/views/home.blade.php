@@ -12,12 +12,16 @@
 
         <h1>Aloha!</h1>
 
-        <p>I'm Joel, and I'm very inspired by <a href="http://jenniferdewalt.com/">Jennifer Dewalt's</a> 180 web sites in 180 days project. I don't think I'm quite that ambitious--just a 100 day challenge. :-) This will be a playground for me to spend a little time each day experimenting with web tools and techniques (both client and server side). I'm generally only going to spend about an hour per day on these projects--it's a warm-up and test-bed more than anything, so they'll generally be pretty simple things. In some cases, I'll also revisit them when I come up with a better way to do something.</p>
+        <p>I'm Joel, and I'm very inspired by <a href="http://jenniferdewalt.com/">Jennifer Dewalt's</a> 180 web sites in 180 days project. I don't think I'm quite that ambitious--just a 100 day challenge. :-) This will be a playground for me to spend a little time each day experimenting with web tools and techniques (both client and server side). I'm generally only going to spend about an hour per day on these projects--it's a warm-up and test-bed more than anything, so they'll generally be pretty simple things. In some cases, I'll also revisit them when I come up with a better way to do something. The project source is available on <a href="https://github.com/jijoel/daily">github</a>.</p>
 
         <hr>
 
-        @include('days')
-
+        <dl>
+        @foreach($days as $day)
+            <a href="{{$day[2]}}"><dt>Day {{$day[0]}}</dt><dd>{{$day[1]}}</dd></a>
+        @endforeach
+        </dl>
+        
     </div><!-- .container -->
 </body>
 </html>

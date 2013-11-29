@@ -24,6 +24,20 @@ class AuthController extends BaseController
         $this->layout->content = View::make('days.005.login');
     }
 
+
+    public function postLogin()
+    {
+        return $this->loginWithGoogle();
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+
+        return Redirect::route('day005_login')
+            ->withMessage('You have been logged out');
+    }
+
     public function loginWithGoogle()
     {
         if ($err = Input::get('error')) {
@@ -47,24 +61,13 @@ class AuthController extends BaseController
         // This was a callback request from google, get the token
         $token = $googleService->requestAccessToken( $code );
 
-        // Send a request with it
+        // TODO: verify that it's valid...
+
+        // Send a request
         $result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
         $this->layout->content = View::make('days.005.yay')
             ->with('result', $result);
-    }
-
-    public function postLogin()
-    {
-        $this->loginWithGoogle();
-    }
-
-    public function getLogout()
-    {
-        Auth::logout();
-
-        return Redirect::route('day005_login')
-            ->withMessage('You have been logged out');
     }
 
 }

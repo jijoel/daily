@@ -68,3 +68,10 @@ Route::get('day005_dashboard', array('as'=>'day005_dashboard',
     'before'=>'day005_auth',
     'uses'=>'Days\Day005\DashboardController@index'));
 
+// Day 6 --------------------------------------------------------
+View::composer('home', 'Days\Support\HomeComposer');
+View::composer('layouts.main', 'Days\Support\DayComposer');
+Route::get('day006', function(){
+    return View::make('layouts.main')
+        ->nest('content', 'days.006.index');
+});
