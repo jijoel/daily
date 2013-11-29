@@ -16,8 +16,12 @@
 
         <hr>
 
-        @include('days')
-
+        <dl>
+        @foreach($days as $day)
+            <a href="{{$day[2]}}"><dt>Day {{$day[0]}}</dt><dd>{{$day[1]}}</dd></a>
+        @endforeach
+        </dl>
+        
     </div><!-- .container -->
 </body>
 </html>
