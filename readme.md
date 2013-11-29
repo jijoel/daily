@@ -1,21 +1,16 @@
-## Laravel PHP Framework
+## Daily Practice
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
+Hi! I'm practicing a lot of web development techniques, on both the client and server. My goal is to post something every day for 100 days. We'll see how that goes. :-) As much as possible, I'm only wanting to spend an hour per day on each project. The source is located here; the live site is http://daily.kumuwai.com.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+On the server, I'm using php with the [Laravel](http://laravel.com) framework. 
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+### Guidance?
 
-## Official Documentation
+Do you see something here that I'm doing the hard way? I would very much appreciate any input on easier, more effective ways to do things. I'm gradually learning how to do web development, but it's a bit of a hill to climb. 
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
 
-### Contributing To Laravel
+### Issues?
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+As much as possible, I'm trying to use [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development), and resolve any known issues before posting anything. I am, however, new to this process, and don't really know what I'm doing. If you come across an issue, bug reports (and pull requests) are definitely welcome. 
 
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
