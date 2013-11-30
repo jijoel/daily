@@ -5,6 +5,8 @@ class Day007_TodosTableSeeder extends Seeder
 {
     public function run()
     {
+        DB::table('day007_todos')->delete();
+
         $data = array(
             //  id, text
             array(1, 'Test Todo'),
