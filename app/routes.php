@@ -75,3 +75,10 @@ Route::get('day006', function(){
     return View::make('layouts.main')
         ->nest('content', 'days.006.index');
 });
+
+
+// Day 7 --------------------------------------------------------
+App::bind('Days\Day007\TodoInterface', 'Days\Day007\Todo');
+Route::resource('day007', 'Days\Day007\TodosController',
+    array('only'=>array('index','store','destroy')));
+
