@@ -18,8 +18,8 @@ class TodosController extends BaseController
 
     public function index()
     {
-        $this->layout->js = View::make('days.day007.scripts');
-        $this->layout->content = View::make('days.day007.index')
+        $this->layout->js = View::make('days.007.scripts');
+        $this->layout->content = View::make('days.007.index')
             ->with('items', $this->model->paginate(5));
     }
 
