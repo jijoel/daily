@@ -8,8 +8,16 @@
 		"artdarek/oauth-4-laravel": "dev-master"
 	},
 	"require-dev": {
+        "kalani/generator": "dev-master",
+        "way/laravel-test-helpers": "dev-master",
 		"mockery/mockery": "dev-master"
-	},
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/jijoel/generator"
+        }
+    ],
 	"autoload": {
         "psr-0": {
             "Days": "app/"
