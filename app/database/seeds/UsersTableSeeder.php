@@ -4,6 +4,8 @@ class UsersTableSeeder extends Seeder
 {
     public function run()
     {
+        DB::table('users')->delete();
+
         $data = array(
             //  id, username, password
             array(1, 'foo', 'test'),

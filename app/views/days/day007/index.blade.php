@@ -2,8 +2,6 @@
 
 @section('content')
 
-{{ var_dump(Session::all())}}
-
 <p class="note">A very simple to-do list. Enter a new item below, or click any item to mark it as done (and remove it)</p>
 
 <ul>
