@@ -19,5 +19,7 @@
         @yield('content')
 
     </div><!-- .container -->
+
+@yield('js')
 </body>
 </html>
