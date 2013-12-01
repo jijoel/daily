@@ -8,9 +8,10 @@
 		"artdarek/oauth-4-laravel": "dev-master"
 	},
 	"require-dev": {
-        "kalani/generator": "dev-master",
+        "mockery/mockery": "dev-master",
         "way/laravel-test-helpers": "dev-master",
-		"mockery/mockery": "dev-master"
+        "kalani/generator": "dev-master",
+        "kalani/facade-root": "dev-master"
     },
     "repositories": [
         {
