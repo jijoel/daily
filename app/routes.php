@@ -82,3 +82,9 @@ App::bind('Days\Day007\TodoInterface', 'Days\Day007\Todo');
 Route::resource('day007', 'Days\Day007\TodosController',
     array('only'=>array('index','store','destroy')));
 
+// Day 8 --------------------------------------------------------
+View::composer('days.008.template', 'Days\Support\DayComposer');
+App::bind('Days\Day008\TodoInterface', 'Days\Day008\Todo');
+Route::resource('day008', 'Days\Day008\TodosController');
+
+
