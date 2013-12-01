@@ -89,23 +89,4 @@ class TodosControllerTest extends ControllerTestCase
             URL::action(self::TODO_CONTROLLER.'@index'));
     }
 
-    protected function setupValidator($returnValue, $returnErrs=array())
-    {
-        Validator::shouldReceive('make')->once()
-            ->andReturn(Mockery::mock(array(
-                'passes'=>$returnValue, 
-                'errors'=>$returnErrs,
-            )));
-    }
-
-//     +'Method Days\Day007\TodosController::index does not exist
-// +Method Days\Day007\TodosController::create does not exist
-// +Method Days\Day007\TodosController::store does not exist
-// +Metho
-// d Days\Day007\TodosController::show does not exist
-// +Method Days\Day007\TodosController::edit does not exist
-// +Method Days\Day007\TodosController::update does not exist
-// +Method Days\Day007\TodosController::update does not exist
-// +Method Days\Day007\TodosController::destroy does not exist
-
 }
