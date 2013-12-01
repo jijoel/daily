@@ -3,6 +3,7 @@
 return array(
 
     //  Day #   Title               path
+    array('8', 'RESTful Todos',     'day008'),
     array('7', 'Todo List',         'day007'),
     array('6', 'View Composer',     'day006'),
     array('5', 'Login via Google',  'day005_login'),

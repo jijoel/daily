@@ -5,6 +5,7 @@ use Input;
 use Redirect;
 use Validator;
 use BaseController;
+use Days\Day007\TodoInterface;
 
 
 class TodosController extends BaseController
@@ -18,8 +19,8 @@ class TodosController extends BaseController
 
     public function index()
     {
-        $this->layout->js = View::make('days.day007.scripts');
-        $this->layout->content = View::make('days.day007.index')
+        $this->layout->js = View::make('days.007.scripts');
+        $this->layout->content = View::make('days.007.index')
             ->with('items', $this->model->paginate(5));
     }
 

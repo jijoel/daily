@@ -23,6 +23,24 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         return require __DIR__.'/../../../bootstrap/start.php';
     }
 
+
+    /**
+     * Assert an associative array has one or more keys
+     * 
+     * @param  string|array $keys 
+     */
+    protected function assertArrayHasKeys($keys, $array)
+    {
+        if (! is_array($keys)) {
+            $this->assertArrayHasKey($keys, $array);
+            return;
+        }
+
+        foreach($keys as $key) {
+            $this->assertArrayHasKeys($key, $array);
+        }
+    }
+
     protected function callProtectedMethod($test, $method, $args)
     {
         $class = new \ReflectionClass(get_class($test));
@@ -40,5 +58,5 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         $output = $protectedProperty->getValue($test);
         return $output;
     }
-
+    
 }
