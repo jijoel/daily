@@ -13,4 +13,16 @@ class Todo extends Eloquent implements TodoInterface
     public static $rules = array(
         'item' => 'required|max:80',
     );
+
+    public function scopeNotStartingWith($query, $letter)
+    {
+        return $query->where('item', 'not like', $letter.'%');
+    }
+
+    public function scopeNotEndingWith($query, $letter)
+    {
+        return $query->where('item', 'not like', '%'.$letter);
+    }
+
 }
+

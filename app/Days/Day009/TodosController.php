@@ -1,11 +1,11 @@
 <?php namespace Days\Day009;
 
-use Days\Day009\TodoInterface;
 use BaseController;
 use View;
 use Input;
 use Validator;
 use Redirect;
+use Days\Day009\TodosAdapterInterface;
 
 
 class TodosController extends BaseController 
@@ -19,7 +19,7 @@ class TodosController extends BaseController
      */
     protected $todo;
 
-    public function __construct(TodoInterface $todo)
+    public function __construct(TodosAdapterInterface $todo)
     {
         $this->todo = $todo;
     }
@@ -53,21 +53,15 @@ class TodosController extends BaseController
      * @return Response
      */
     public function store()
-    {
-        $input = array_only(Input::all(), array('item'));
-        $validation = Validator::make($input, Todo::$rules);
-
-        if ($validation->passes())
-        {
-            $this->todo->create($input);
-
+    {   
+        if ($this->todo->store()) {
             return Redirect::route('day009.index');
         }
 
         return Redirect::route('day009.create')
             ->withInput()
-            ->withErrors($validation)
-            ->with('message', 'There were validation errors.');
+            ->withErrors($this->todo->errors())
+            ->with('message', 'There were errors.');
     }
 
     /**
@@ -78,7 +72,10 @@ class TodosController extends BaseController
      */
     public function show($id)
     {
-        $todo = $this->todo->findOrFail($id);
+        if (! $todo = $this->todo->find($id)) {
+            return Redirect::route('day009.index')
+                ->with('message', "Record $id not found");
+        }
 
         $this->layout->content = View::make('days.009.show', compact('todo'));
     }
@@ -91,11 +88,9 @@ class TodosController extends BaseController
      */
     public function edit($id)
     {
-        $todo = $this->todo->find($id);
-
-        if (is_null($todo))
-        {
-            return Redirect::route('day009.index');
+        if (! $todo = $this->todo->find($id)) {
+            return Redirect::route('day009.index')
+                ->with('message', "Record $id not found");
         }
 
         $this->layout->content = View::make('days.009.edit', compact('todo'));
@@ -109,22 +104,14 @@ class TodosController extends BaseController
      */
     public function update($id)
     {
-        $input = array_only(Input::all(), array('item'));
-
-        $validation = Validator::make($input, Todo::$rules);
-
-        if ($validation->passes())
-        {
-            $todo = $this->todo->findOrFail($id);
-            $todo->update($input);
-
+        if ($this->todo->update($id)) {
             return Redirect::route('day009.show', $id);
         }
 
         return Redirect::route('day009.edit', $id)
             ->withInput()
-            ->withErrors($validation)
-            ->with('message', 'There were validation errors.');
+            ->withErrors($this->todo->errors())
+            ->with('message', 'There were errors.');
     }
 
     /**
@@ -135,9 +122,13 @@ class TodosController extends BaseController
      */
     public function destroy($id)
     {
-        $this->todo->findOrFail($id)->delete();
+        if ($this->todo->delete($id)) {
+            return Redirect::route('day009.index');
+        }
 
-        return Redirect::route('day009.index');
+        return Redirect::route('day009.show', $id)
+            ->withErrors($this->todo->errors())
+            ->with('message', 'There were errors.');
     }
 
 }

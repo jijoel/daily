@@ -1,8 +1,14 @@
 @section('content')
 
 
-<p class="note">This is another version of the todo application, based on a repository pattern (which is not something I'd ordinarily put in a simple app). Like yesterday's app, it also incorporates Twitter Bootstrap, pagination, and a RESTful controller.</p>
+<p class="note">This is another version of the todo application, based on Domain Driven Design (DDD), including a repository pattern (which is not something I'd ordinarily put into a simple app). Like yesterday's app, it also incorporates Twitter Bootstrap, pagination, and a RESTful controller. It also incorporates a domain object which stands apart from the Laravel framework. This domain object is called TodoBusinessRules, and it enforces some arbitrary business rules. These rules are:</p>
 
+<ul>
+    <li>Do not show todos starting with the letter 'B' or ending with the letter 's'</li>
+    <li>Only keep new todos starting with phrase 'Simon Says' (and remove 'Simon Says' from text before storing)</li>
+    <li>Do not keep todos that include the word "psych!" (it's a trick)</li>
+    <li>Do not delete todos that include the characters "!!!" (they're important)</li>
+</ul>
 
 <h2>All Todos</h2>
 

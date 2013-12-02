@@ -33,15 +33,26 @@ class FunctionalTodosControllerTest extends ControllerTestCase
 
     public function testStore()
     {
-        $input = array('item'=>'test new item');
+        $input = array('item'=>'Simon Says test new item');
         $this->call('POST', 'day009', $input);
 
         $this->assertRedirectedToRoute('day009.index');
     }
 
-    public function testStoreFails()
+    public function testStoreFailsDueToNoInput()
     {
         $this->call('POST', 'day009');  // fails: no input item
+
+        $this->assertRedirectedToRoute('day009.create');
+        $this->assertSessionHasErrors();
+        $this->assertSessionHas('_old_input');
+        $this->assertSessionHas('message');
+    }
+
+    public function testStoreFailsDueToBusinessRule()
+    {
+        $input = array('item'=>'test new item');
+        $this->call('POST', 'day009', $input);
 
         $this->assertRedirectedToRoute('day009.create');
         $this->assertSessionHasErrors();
@@ -80,7 +91,7 @@ class FunctionalTodosControllerTest extends ControllerTestCase
 
     public function testUpdateFails()
     {
-        $this->call('PATCH', 'day009/1');  // no input -- will fail validation
+        $this->call('PATCH', 'day009/1');
 
         $this->assertRedirectedTo('day009/1/edit');
         $this->assertSessionHasErrors();

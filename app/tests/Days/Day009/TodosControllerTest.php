@@ -7,16 +7,14 @@ use ControllerTestCase;
 use Days\Day009\TodosController;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-/**
- * @group now
- */
+
 class TodosControllerTest extends ControllerTestCase
 {
     protected $test;
     protected $layout;
 
+    const TODO_ADAPTER = 'Days\Day009\TodosAdapterInterface';
     // const TODO_REPOSITORY = 'Days\Day009\TodoRepositoryInterface';
-    const TODO_REPOSITORY = 'Days\Day009\TodoInterface';
     const TODO_CONTROLLER = 'Days\Day009\TodosController';
     const TODO_COLLECTION = 'Illuminate\Database\Eloquent\Collection';
 
@@ -24,7 +22,7 @@ class TodosControllerTest extends ControllerTestCase
     {
         parent::setUp();
 
-        $this->model = Mockery::mock(self::TODO_REPOSITORY);
+        $this->model = Mockery::mock(self::TODO_ADAPTER);
         $this->collection = Mockery::mock(self::TODO_COLLECTION)
             ->shouldDeferMissing(); 
         $this->test = new TodosController($this->model);
@@ -53,9 +51,9 @@ class TodosControllerTest extends ControllerTestCase
 
     public function testStoreShouldSaveData()
     {
-        $this->setupValidator(True);
-        $this->model->shouldReceive('create')->once()
-            ->with(array('item'=>'foo'));
+        // $this->setupValidator(True);
+        $this->model->shouldReceive('store')->once()
+            ->andReturn('foo');
         Input::replace(array('item'=>'foo', '_token'=>'x'));
 
         $response = $this->test->store();
@@ -65,7 +63,9 @@ class TodosControllerTest extends ControllerTestCase
 
     public function testStoreFailsForInvalidData()
     {
-        $this->setupValidator(False);
+        // $this->setupValidator(False);
+        $this->model->shouldReceive('store')->once()
+            ->shouldReceive('errors')->once();
         Input::replace(array('item'=>'foo'));
 
         $response = $this->test->store();
@@ -77,7 +77,7 @@ class TodosControllerTest extends ControllerTestCase
 
     public function testShow()
     {
-        $this->model->shouldReceive('findOrFail')
+        $this->model->shouldReceive('find')
             ->with(1)->once()->andReturn($this->model);
 
         $this->test->show(1);
@@ -107,10 +107,9 @@ class TodosControllerTest extends ControllerTestCase
 
     public function testUpdate()
     {
-        $this->setupValidator(True);
-        $this->model->shouldReceive('findOrFail')
-            ->with(2)->once()->andReturn($this->model)
-            ->shouldReceive('update')->once();
+        // $this->setupValidator(True);
+        $this->model->shouldReceive('update')
+            ->with(2)->once()->andReturn($this->model);
 
         $response = $this->test->update(2);
 
@@ -119,7 +118,10 @@ class TodosControllerTest extends ControllerTestCase
 
     public function testUpdateValidationFails()
     {
-        $this->setupValidator(False);
+        // $this->setupValidator(False);
+        $this->model->shouldReceive('update')
+            ->with(1)->once()
+            ->shouldReceive('errors')->once();
 
         $response = $this->test->update(1);
 
@@ -131,8 +133,7 @@ class TodosControllerTest extends ControllerTestCase
      */
     public function testUpdateModelNotFound()
     {
-        $this->setupValidator(True);
-        $this->model->shouldReceive('findOrFail')
+        $this->model->shouldReceive('update')
             ->with(1)->once()->andThrow(new ModelNotFoundException);
 
         $response = $this->test->update(1);
@@ -140,11 +141,21 @@ class TodosControllerTest extends ControllerTestCase
 
     public function testDelete()
     {
-        $this->model->shouldReceive('findOrFail')
-            ->with(1)->once()->andReturn($this->model)
-            ->shouldReceive('delete')->once();
+        $this->model->shouldReceive('delete')
+            ->with(1)->once()->andReturn(True);
 
         $response = $this->test->destroy(1);
+    }
+
+    public function testDeleteFails()
+    {
+        $this->model->shouldReceive('delete')
+            ->with(1)->once()->andReturn(False)
+            ->shouldReceive('errors')->once()->andReturn('foo');
+
+        $response = $this->test->destroy(1);
+        $this->assertIsRedirectToPage($response, 'show', 1);
+        $this->assertSessionHasErrors();
     }
 
 
