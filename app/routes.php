@@ -94,4 +94,6 @@ App::bind('Days\Day009\TodosAdapterInterface', 'Days\Day009\TodosAdapter');
 App::bind('Days\Day009\TodoRepositoryInterface', 'Days\Day009\TodoRepository');
 Route::resource('day009', 'Days\Day009\TodosController');
 
+// Day 10 --------------------------------------------------------
+Route::get('day010', 'Days\Day010\FontController@index');
 
