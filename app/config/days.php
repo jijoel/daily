@@ -3,6 +3,7 @@
 return array(
 
     //  Day #   Title               path
+    array('10', 'Playing with CSS', 'day010'),
     array('9', 'Repository Todo',   'day009'),
     array('8', 'RESTful Todos',     'day008'),
     array('7', 'Todo List',         'day007'),
