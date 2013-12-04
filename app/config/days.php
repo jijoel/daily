@@ -3,6 +3,7 @@
 return array(
 
     //  Day #   Title               path
+    array('11', 'Image Handling',   'day011'),
     array('10', 'Playing with CSS', 'day010'),
     array('9', 'Repository Todo',   'day009'),
     array('8', 'RESTful Todos',     'day008'),
@@ -13,6 +14,5 @@ return array(
     array('3', 'Roman Revisited',   'roman2'),
     array('2', 'Roman Numerals',    'roman'),
     array('1', 'Homepage',          ''),        
-
 
 );
