@@ -3,7 +3,7 @@
 return array(
 
     //  Day #   Title               path
-    array('11', 'Image Handling',   'day011'),
+    array('11', 'Image Cropping',   'day011'),
     array('10', 'Playing with CSS', 'day010'),
     array('9', 'Repository Todo',   'day009'),
     array('8', 'RESTful Todos',     'day008'),
