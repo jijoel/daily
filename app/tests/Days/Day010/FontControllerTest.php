@@ -2,9 +2,7 @@
 
 use Days\Day010\FontController;
 
-/**
- * @group now
- */
+
 class FontControllerTest extends ControllerTestCase
 {
     public function testIndexReturnsView()
