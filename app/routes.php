@@ -97,3 +97,7 @@ Route::resource('day009', 'Days\Day009\TodosController');
 // Day 10 --------------------------------------------------------
 Route::get('day010', 'Days\Day010\FontController@index');
 
+// Day 11 --------------------------------------------------------
+Route::resource('day011', 'Days\Day011\ImagesController',
+    array('only'=>array('index')));
+
