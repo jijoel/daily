@@ -101,3 +101,8 @@ Route::get('day010', 'Days\Day010\FontController@index');
 Route::resource('day011', 'Days\Day011\ImagesController',
     array('only'=>array('index')));
 
+// Day 12 --------------------------------------------------------
+View::composer('layouts.multipage', 'Days\Support\MultiPageComposer');
+Route::resource('day012', 'Days\Day012\ImagesController',
+    array('only'=>array('index', 'store', 'show')));
+
