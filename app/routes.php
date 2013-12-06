@@ -106,3 +106,8 @@ View::composer('layouts.multipage', 'Days\Support\MultiPageComposer');
 Route::resource('day012', 'Days\Day012\ImagesController',
     array('only'=>array('index', 'store', 'show')));
 
+// Day 13 --------------------------------------------------------
+Route::resource('day013', 'Days\Day013\ImagesController',
+    array('only'=>array('index', 'store', 'show')));
+Route::get('/day013/images/result.jpg', 'Days\Day013\ImagesController@getImage');
+
