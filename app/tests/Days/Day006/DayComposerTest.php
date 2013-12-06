@@ -85,9 +85,9 @@ class Day006_DayComposerTest extends TestCase
             ->andReturn($segment);
         Config::shouldReceive('get')
             ->andReturn(array(
-                array('8', 'Day8', 'day008'), 
-                array('6', 'Day6', 'day006'), 
-                array('4', 'Day4', 'day004')
+                array('8', 'day008', 'Day8'), 
+                array('6', 'day006', 'Day6'), 
+                array('4', 'day004', 'Day4')
             ));
     }
 
