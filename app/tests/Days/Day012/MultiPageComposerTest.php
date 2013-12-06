@@ -2,9 +2,7 @@
 
 use Days\Support\MultiPageComposer;
 
-/**
- * @group now
- */
+
 class MultiPageComposerTest extends TestCase
 {
     public function setUp()

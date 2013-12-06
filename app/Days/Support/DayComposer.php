@@ -7,8 +7,8 @@ use Request;
 class DayComposer
 {
     const DAY_NUMBER = 0;
-    const DAY_TITLE  = 1;
-    const DAY_PATH   = 2;
+    const DAY_PATH   = 1;
+    const DAY_TITLE  = 2;
 
     protected $view;
     protected $cachedConfigSettings;

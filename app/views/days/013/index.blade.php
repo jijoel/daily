@@ -1,10 +1,10 @@
 @section('content')
 
-<p class="note">This is a very simple test using <a href="http://deepliquid.com/content/Jcrop.html">jcrop</a>.</p>
+<p class="note">This will crop an image with <a href="http://deepliquid.com/content/Jcrop.html">jcrop</a>, then use a Session to return the image on the standard page template. At this point, it does not scale. I'm not sure how to prevent separate user images from colliding (eg, user1 can create an image then user2 can create a different image; if user1 wants to save the image, it will pull up user2's image).</p>
 
 <img id="main" src="/img/day.jpg">
 
-{{ Form::open(array('url'=>URL::route('day012.store'))) }}
+{{ Form::open(array('url'=>URL::route('day013.store'))) }}
     x: <input type="text" name="x" id="x" value="" />
     y: <input type="text" name="y" id="y" value="" />
     w: <input type="text" name="w" id="w" value="" />
