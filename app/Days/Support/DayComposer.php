@@ -10,37 +10,50 @@ class DayComposer
     const DAY_TITLE  = 1;
     const DAY_PATH   = 2;
 
+    protected $view;
+    protected $cachedConfigSettings;
+
     public function compose($view)
     {
-        $evt = $view->getEnvironment();
-        $day = $evt->shared('day');
-        $dayTitle = $evt->shared('dayTitle');
+        $this->view = $view;
 
-        if ($day && $dayTitle) {
+        $this->setPropertyForView('day', self::DAY_NUMBER);
+        $this->setPropertyForView('dayTitle', self::DAY_TITLE);
+    }
+
+    protected function setPropertyForView($name, $configField)
+    {
+        $evt = $this->view->getEnvironment();
+
+        if( $evt->shared($name)){
             return;
         }
 
-        $info = $this->getInfoForToday();
+        $this->view->with(
+            $name, 
+            $this->getConfigField($configField)
+        );
+    }
 
-        if (! $day) {
-            $view->with('day', $info[self::DAY_NUMBER]);
-        } 
-        if (! $dayTitle) {
-            $view->with('dayTitle', $info[self::DAY_TITLE]);
-        } 
+    protected function getConfigField($field)
+    {
+        $settings = $this->getConfigSettingsForToday();
+        return $settings[$field];
     }
 
     /**
-     * Returns the configuration settings for the current day
+     * Returns configuration settings for the current day
      * (based on the current day path)
      */
-    protected function getInfoForToday()
+    protected function getConfigSettingsForToday()
     {
         $allDays = Config::get('days');
         $page = Request::segment(1);
 
         // return the first item with the correct path
-        return array_first($allDays, function($key, $value) use ($page)
+        return array_first(
+            $allDays, 
+            function($key, $value) use ($page)
         {
             return $value[self::DAY_PATH] == $page;
         });

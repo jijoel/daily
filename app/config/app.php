@@ -116,6 +116,7 @@ return array(
 
         'RoutingServiceProvider',
         'Artdarek\OAuth\OAuthServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
 
     ),
 
@@ -183,6 +184,7 @@ return array(
         'View'            => 'Illuminate\Support\Facades\View',
 
         'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
+        'Image'           => 'Intervention\Image\Facades\Image'
 
     ),
 

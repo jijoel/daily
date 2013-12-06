@@ -1,6 +1,5 @@
 <?php namespace Days\Day005;
 
-use Auth;
 use View;
 use Input;
 use OAuth;
@@ -32,8 +31,6 @@ class AuthController extends BaseController
 
     public function getLogout()
     {
-        Auth::logout();
-
         return Redirect::route('day005_login')
             ->withMessage('You have been logged out');
     }
