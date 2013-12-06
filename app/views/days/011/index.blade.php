@@ -2,7 +2,7 @@
 
 <p class="note">This is a very simple test using <a href="http://deepliquid.com/content/Jcrop.html">jcrop</a>.</p>
 
-<img id="main" src="/img/day011.jpg">
+<img id="main" src="/img/day.jpg">
 
 <form action="crop.php" method="post">
   x: <input type="text" name="x" id="x" value="" />
@@ -14,7 +14,7 @@
 </form>
 
 <div id="preview-pane">
-    <img id="preview" src="/img/day011.jpg">
+    <img id="preview" src="/img/day.jpg">
 </div>
 
 @stop
