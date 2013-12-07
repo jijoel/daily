@@ -52,6 +52,8 @@ h3 {
     font-size: 18px;
 }
 
+h1 a { color: black;}
+
 p {
     font-size: 12pt;
     line-height: 180%;
@@ -59,3 +61,6 @@ p {
 .note {
     font-style: italic;
 }
+.error { color: red; font-style: italic; }
+
+form ul { margin-left: 0; list-style: none; }
