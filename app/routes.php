@@ -111,3 +111,7 @@ Route::resource('day013', 'Days\Day013\ImagesController',
     array('only'=>array('index', 'store', 'show')));
 Route::get('/day013/images/result.jpg', 'Days\Day013\ImagesController@getImage');
 
+// Day 14 --------------------------------------------------------
+Route::resource('day014', 'Days\Day014\StrController',
+    array('only'=>array('index', 'store')));
+
