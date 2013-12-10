@@ -7,6 +7,7 @@
     @section('css')
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="/css/home.css" type="text/css" rel="stylesheet" />
+        @yield('styles')
     @show
 
 </head>

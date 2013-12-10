@@ -15,6 +15,7 @@ body {
     border-top: none;
     border-radius: 0 0 10px 10px;
     box-shadow: 3px 3px 10px #999;
+    width: auto;
 }
 
 dt, dd { display: block; float: left; margin-bottom: 10px; }
