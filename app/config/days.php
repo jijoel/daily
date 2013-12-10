@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path              Title                    
+    array('15',  'day015',        'Diamond Kata'),
     array('14',  'day014',        'Laravel Str Class Results'),
     array('13',  'day013',        'Image Cropping III'),
     array('12',  'day012',        'Image Cropping II'),
