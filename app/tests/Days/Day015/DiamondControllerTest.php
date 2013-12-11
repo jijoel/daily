@@ -3,9 +3,7 @@
 use Days\Day015\Diamond;
 use Days\Day015\DiamondController;
 
-/**
- * @group now
- */
+
 class DiamondControllerTest extends ControllerTestCase
 {
     public function setUp()
