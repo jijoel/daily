@@ -119,3 +119,7 @@ Route::resource('day014', 'Days\Day014\StrController',
 Route::resource('day015', 'Days\Day015\DiamondController',
     array('only'=>array('index', 'store')));
 
+// Day 16 --------------------------------------------------------
+Route::resource('day016', 'Days\Day016\BowlingGameController',
+    array('only'=>array('index', 'store')));
+
