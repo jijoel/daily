@@ -1,16 +1,16 @@
 <?php
 
-use Days\Day015\Diamond;
-use Days\Day015\DiamondController;
+use Days\Day016\BowlingGame\BowlingGame;
+use Days\Day016\BowlingGameController;
 
 
-class DiamondControllerTest extends ControllerTestCase
+class BowlingGameControllerTest extends ControllerTestCase
 {
     public function setUp()
     {
         parent::setUp();
 
-        $this->test = new DiamondController(new Diamond);
+        $this->test = new BowlingGameController(new BowlingGame);
         $this->setupLayout($this->test);
         $this->layout = $this->getLayout($this->test);
     }
@@ -20,8 +20,6 @@ class DiamondControllerTest extends ControllerTestCase
     public function testIndexReturnsView()
     {
         $this->test->index();
-
-        $this->assertLayoutHas('content', 'diamond');
     }
 
 }
