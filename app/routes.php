@@ -125,5 +125,4 @@ Route::resource('day016', 'Days\Day016\BowlingGameController',
 
 // Day 17 --------------------------------------------------------
 Route::resource('day017', 'Days\Day017\FieldTypesController',
-    array('only'=>array('index', 'store')));
-
+    array('only'=>array('index')));
