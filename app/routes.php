@@ -123,3 +123,6 @@ Route::resource('day015', 'Days\Day015\DiamondController',
 Route::resource('day016', 'Days\Day016\BowlingGameController',
     array('only'=>array('index', 'store')));
 
+// Day 17 --------------------------------------------------------
+Route::resource('day017', 'Days\Day017\FieldTypesController',
+    array('only'=>array('index')));
