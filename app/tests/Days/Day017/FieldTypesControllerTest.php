@@ -3,9 +3,6 @@
 use Days\Day017\FieldTypesController;
 
 
-/**
- * @group now
- */
 class FieldTypesControllerTest extends ControllerTestCase
 {
     public function testCreateController()
