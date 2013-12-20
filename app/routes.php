@@ -126,3 +126,8 @@ Route::resource('day016', 'Days\Day016\BowlingGameController',
 // Day 17 --------------------------------------------------------
 Route::resource('day017', 'Days\Day017\FieldTypesController',
     array('only'=>array('index')));
+
+// Day 18 --------------------------------------------------------
+Route::get('day018', 'Days\Day018\AjaxFieldController@index');
+Route::get('day018/states', 'Days\Day018\AjaxFieldController@getStates');
+
