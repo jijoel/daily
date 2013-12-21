@@ -2,6 +2,7 @@
 #@obj:Controller to create (eg, PurchaseRequest)
 #[obj]=Illuminate\Support\Str::snake([obj])
 #[objs]=Illuminate\Support\Str::plural([obj])
+#[Class]=Illuminate\Support\Str::studly([obj]))
 #[Classes]=Illuminate\Support\Str::studly([objs]))
 #
 #>app/tests/Days/Day[day]/[Classes]ControllerTest.php
@@ -36,7 +37,7 @@ class [Classes]Controller extends BaseController
      */
     public function index()
     {
-        return View::make('days.[day].index');
+        $this->layout->content = View::make('days.[day].index');
     }
 }
 
