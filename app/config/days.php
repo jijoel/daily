@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path              Title                    
+    array('19',  'day019',        'Date/Time Fields'),
     array('18',  'day018',        'Autocomplete (AJAX)'),
     array('17',  'day017',        'Field Types'),
     array('16',  'day016',        'Bowling Game Kata'),

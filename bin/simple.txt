@@ -1,0 +1,50 @@
+#@day:Day Number (eg, 012)
+#@obj:Controller to create (eg, PurchaseRequest)
+#[obj]=Illuminate\Support\Str::snake([obj])
+#[objs]=Illuminate\Support\Str::plural([obj])
+#[Class]=Illuminate\Support\Str::studly([obj]))
+#[Classes]=Illuminate\Support\Str::studly([objs]))
+#
+#>app/tests/Days/Day[day]/[Classes]ControllerTest.php
+<?php
+
+/**
+ * @group now
+ */
+class [Classes]ControllerTest extends TestCase
+{
+    public function testIndex()
+    {
+        $this->call('GET', '/day[day]');
+        $this->assertResponseOk();
+    }
+}
+
+#>app/Days/Day[day]/[Classes]Controller.php
+<?php namespace Days\Day[day];
+
+use View;
+use BaseController;
+
+class [Classes]Controller extends BaseController 
+{
+    protected $layout = 'layouts.multipage';
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $this->layout->content = View::make('days.[day].index');
+    }
+}
+
+#>app/views/days/[day]/index.blade.php
+@section('content')
+
+<p class="note">This is ...</p>
+
+@stop
+
