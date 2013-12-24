@@ -2,6 +2,7 @@
 
 /**
  * @group functional
+ * @group routes
  */
 class RoutesTest extends TestCase 
 {

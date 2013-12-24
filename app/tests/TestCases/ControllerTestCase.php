@@ -3,6 +3,21 @@
 
 class ControllerTestCase extends TestCase
 {
+
+    /**
+     * Assert that a given string can be found in the current page
+     * 
+     * @param  string $seeWhat string to find
+     * @param  string $inTag   css or xpath filter in which to search
+     */
+    protected function assertSee($seeWhat, $inTag='html')
+    {
+        $crawler = $this->client->getCrawler();
+        $this->assertTrue(
+            $crawler->filter("$inTag:contains({$seeWhat})")->count() > 0,
+            "'$seeWhat' not seen within '$inTag' tag in response (case-sensitive)");
+    }
+
     /**
      * Assert the controller layout has a given
      * named section, and (optionally) that section
