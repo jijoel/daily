@@ -133,3 +133,11 @@ Route::get('day018/states', 'Days\Day018\AjaxFieldController@getStates');
 
 // Day 19 --------------------------------------------------------
 Route::get('day019', 'Days\Day019\DateTimeFieldsController@index');
+
+// Day 20 ---------------------------------------------------------
+View::composer('days.020.index', 'Days\Day020\IndexComposer');
+View::composer('days.020.dashboard', 'Days\Day020\DashboardsComposer');
+Route::get('day020', array('as'=>'day020', 
+    'uses'=>'Days\Day020\DashboardsController@index'));
+Route::get('day020/logout', 'Days\Day020\AuthController@getLogout');
+Route::post('day020/login', 'Days\Day020\AuthController@postLogin');
