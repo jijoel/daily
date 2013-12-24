@@ -17,11 +17,11 @@ class DayComposer
     {
         $this->view = $view;
 
-        $this->setPropertyForView('day', self::DAY_NUMBER);
-        $this->setPropertyForView('dayTitle', self::DAY_TITLE);
+        $this->loadPropertyFromConfig('day', self::DAY_NUMBER);
+        $this->loadPropertyFromConfig('dayTitle', self::DAY_TITLE);
     }
 
-    protected function setPropertyForView($name, $configField)
+    protected function loadPropertyFromConfig($name, $configField)
     {
         $evt = $this->view->getEnvironment();
 
@@ -37,7 +37,8 @@ class DayComposer
 
     protected function getConfigField($field)
     {
-        $settings = $this->getConfigSettingsForToday();
+        $settings = $this->getConfigSettingsForCurrentDay();
+
         return $settings[$field];
     }
 
@@ -45,7 +46,7 @@ class DayComposer
      * Returns configuration settings for the current day
      * (based on the current day path)
      */
-    protected function getConfigSettingsForToday()
+    protected function getConfigSettingsForCurrentDay()
     {
         $allDays = Config::get('days');
         $page = Request::segment(1);
