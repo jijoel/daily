@@ -12,14 +12,14 @@ class MultiPageComposer extends DayComposer
     {
         parent::compose($view);
 
-        $this->setPropertyForView('dayPath', self::DAY_PATH);
+        $this->loadPropertyFromConfig('dayPath', self::DAY_PATH);
 
         $this->view->with('dayLink', $this->getDayLink());
     }
 
     protected function getDayLink()
     {
-        $settings = $this->getConfigSettingsForToday();
+        $settings = $this->getConfigSettingsForCurrentDay();
 
         return URL::to($settings[self::DAY_PATH]);
     }
