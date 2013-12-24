@@ -9,6 +9,10 @@ class UsersTableSeeder extends Seeder
         $data = array(
             //  id, username, password
             array(1, 'foo', 'test'),
+            array(1, 'bar', 'test'),
+            array(1, 'fizz', 'test'),
+            array(1, 'buzz', 'test'),
+            array(1, 'bazz', 'test'),
         );
 
         $items = array();
