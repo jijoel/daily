@@ -3,7 +3,6 @@
 
 class ControllerTestCase extends TestCase
 {
-
     /**
      * Assert that a given string can be found in the current page
      * 
@@ -13,9 +12,10 @@ class ControllerTestCase extends TestCase
     protected function assertSee($seeWhat, $inTag='html')
     {
         $crawler = $this->client->getCrawler();
+        
         $this->assertTrue(
-            $crawler->filter("$inTag:contains({$seeWhat})")->count() > 0,
-            "'$seeWhat' not seen within '$inTag' tag in response (case-sensitive)");
+            $crawler->filter("$inTag:contains('{$seeWhat}')")->count() > 0,
+            "'$seeWhat' not found in tag '$inTag' of the response");
     }
 
     /**
