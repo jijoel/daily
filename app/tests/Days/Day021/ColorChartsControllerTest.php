@@ -3,7 +3,7 @@
 /**
  * @group now
  */
-class ColorChartsControllerTest extends TestCase
+class ColorChartsControllerTest extends ControllerTestCase
 {
     public function testIndex()
     {
@@ -25,6 +25,7 @@ class ColorChartsControllerTest extends TestCase
 
         $this->call('POST', '/day021', $input);
         $this->assertRedirectedToRoute('day021.index');
+        $this->assertSessionHas('errors');
     }
     
 }
