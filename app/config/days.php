@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path              Title                    
+    array('21',  'day021',        'Color Chart'),
     array('20',  'day020',        'Single Page Login'),
     array('19',  'day019',        'Date/Time Fields'),
     array('18',  'day018',        'Autocomplete (AJAX)'),
