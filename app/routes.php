@@ -143,6 +143,8 @@ Route::get('day020/logout', 'Days\Day020\AuthController@getLogout');
 Route::post('day020/login', 'Days\Day020\AuthController@postLogin');
 
 // Day 21 --------------------------------------------------------
+App::bind('Days\Day021\ColorChartAdapterInterface', 
+    'Days\Day021\ColorChartAdapter');
 Route::resource('day021', 'Days\Day021\ColorChartsController',
     array('only'=>array('index', 'store')));
 

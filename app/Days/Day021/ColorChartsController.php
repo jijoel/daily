@@ -13,7 +13,7 @@ class ColorChartsController extends BaseController
 
     public function index()
     {
-        $chart = Session::get('chart') ?: array();
+        $chart = Session::get('chart') ?: (new ColorChart)->make('AC');
 
         $this->layout->content = View::make('days.021.index')
             ->withChart($chart);
@@ -22,7 +22,7 @@ class ColorChartsController extends BaseController
     public function store()
     {
         $rules = array(
-            'colors' => 'required|max:4|regex:"^[0-9A-Fa-f]+$"',
+            'colors' => 'max:16|regex:"^[0-9A-Fa-f]+$"',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -33,9 +33,11 @@ class ColorChartsController extends BaseController
                 ->withErrors($validator->errors());
         }
 
+        $chart = new ColorChart;
+
         return Redirect::route('day021.index')
             ->withInput()
-            ->withChart(array(array('foo', 'bar')));
+            ->withChart($chart->make(Input::get('colors')));
     }
 }
 

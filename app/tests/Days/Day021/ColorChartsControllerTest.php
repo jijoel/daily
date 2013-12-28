@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @group now
- */
+
 class ColorChartsControllerTest extends ControllerTestCase
 {
     public function testIndex()
