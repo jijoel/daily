@@ -2,7 +2,8 @@
 
 return array(
 
-    //  Day #    path              Title                    
+    //  Day #    path             Title
+    array('22',  'day022',        'Prime Factors'),
     array('21',  'day021',        'Color Chart'),
     array('20',  'day020',        'Single Page Login'),
     array('19',  'day019',        'Date/Time Fields'),
