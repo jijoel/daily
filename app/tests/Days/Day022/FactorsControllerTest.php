@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @group now
- */
+
 class FactorsControllerTest extends ControllerTestCase
 {
     public function testIndex()
