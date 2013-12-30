@@ -150,4 +150,9 @@ Route::resource('day021', 'Days\Day021\ColorChartsController',
 Route::resource('day022', 'Days\Day022\FactorsController',
     array('only'=>array('index', 'store')));
 
+// Day 23 --------------------------------------------------------
+View::composer('days.023.index', 'Days\Support\MultiPageComposer');
+Route::resource('day023', 'Days\Day023\HelloAngularController',
+    array('only'=>array('index')));
+
 
