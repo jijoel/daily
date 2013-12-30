@@ -18,11 +18,10 @@ class FactorsTest extends PHPUnit_Framework_TestCase
     public function getNumbersToFactor()
     {
         return array(
-            array('', array('')),
-            array(-10, array(-1, 2, 5)),
-            array(-1, array(-1)),
-            array(0, array(0)),
-            array(1, array(1)),
+            array('', array()),
+            array(-1, array()),
+            array(0, array()),
+            array(1, array()),
             array(2, array(2)),
             array(3, array(3)),
             array(4, array(2,2)),
@@ -37,8 +36,9 @@ class FactorsTest extends PHPUnit_Framework_TestCase
             array(900, array(2,2,3,3,5,5)),
             array(984, array(2,2,2,3,41)),
             array(192892, array(2,2,7,83,83)),
-            // array(1934234891, array(17,113778523)),
-            // array(19342323423892, array(2,2,7,53,521,4691,5333)),
+            array(2*2*2*5*7*13*13*17, array(2,2,2,5,7,13,13,17)),
+            array(1934234891, array(17,113778523)),
+            array(19342323423892, array(2,2,7,53,521,4691,5333)),
         );
     }
 
