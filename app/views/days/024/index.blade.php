@@ -8,11 +8,13 @@
     <link href="/css/home.css" type="text/css" rel="stylesheet" />
 
     <style type="text/css">
-    input[type=checkbox] {
-        float: left;
-        margin-right: 0.4em;
-    }
-
+        input[type=checkbox] {
+            float: left;
+            margin-right: 0.4em;
+        }
+        .first-true {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -45,8 +47,21 @@
         <div ng-controller="PeopleController" ng-show="seePeople">
             <input type="search" ng-model="search" placeholder="Filter">
             <ul>
-                <li ng-repeat="person in people | filter:search">@{{person.name}}</li>
+                <li ng-repeat="person in people | filter:search" class="first-@{{$first}}">
+                    @{{person.name}}
+                    <button ng-click="delPerson(person)">x</button>
+                    <span ng-show="$first">(first)</span>
+                    <span ng-show="$last">(last)</span>
+                    <span ng-show="$middle">(middle)</span>
+                    <span>@{{$index}}
+                </li>
             </ul>
+            <p>There are @{{(people|filter:search).length}} people currently shown</p>
+            <p>There are @{{people.length}} people in the full list</p>
+            <div>
+                <label>Name:</label><input ng-model="newName" placeholder="Add a new person's name">
+                <button ng-click="addPerson()">Add</button>
+            </div>
         </div>
 
     </div>
@@ -61,6 +76,18 @@
             {name: 'Fizz' },
             {name: 'Buzz' },
         ];
+        $scope.addPerson = function() {
+            $scope.people.push({
+                name: $scope.newName
+            });
+            $scope.newName = '';
+        };
+        $scope.delPerson = function(person) {
+            var index = $scope.people.indexOf(person);
+            if (index != -1) {
+                $scope.people.splice(index, 1);
+            }
+        };
     };
 </script>
 
