@@ -155,4 +155,9 @@ View::composer('days.023.index', 'Days\Support\MultiPageComposer');
 Route::resource('day023', 'Days\Day023\HelloAngularController',
     array('only'=>array('index')));
 
+// Day 24 --------------------------------------------------------
+View::composer('days.024.index', 'Days\Support\MultiPageComposer');
+Route::resource('day024', 'Days\Day024\AngularShowHideController',
+    array('only'=>array('index')));
+
 

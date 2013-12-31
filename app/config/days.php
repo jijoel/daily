@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('24',  'day024',        'Angular Show/Hide'),
     array('23',  'day023',        'Hello, Angular!'),
     array('22',  'day022',        'Prime Factors'),
     array('21',  'day021',        'Color Chart'),
