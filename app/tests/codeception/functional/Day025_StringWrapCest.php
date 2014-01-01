@@ -2,9 +2,6 @@
 use \TestGuy;
 
 
-/**
- * @group now
- */
 class Day025_StringWrapCest
 {
 

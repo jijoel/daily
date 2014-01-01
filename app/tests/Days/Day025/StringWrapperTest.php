@@ -21,6 +21,7 @@ class StringWrapperTest extends TestCase
             array(Null, Null, ''),
             array(1,    'x',  'x'),
             array(1,    'xx',  'x\nx'),
+            array(1,    'xxx',  'x\nx\nx'),
             array(2,    'x x',  'x\nx'),
             array(3,    'x xx', 'x\nxx'),
             array(3,    'x x x', 'x x\nx'),
