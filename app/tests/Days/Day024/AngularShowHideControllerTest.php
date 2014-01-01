@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @group now
- */
+
 class AngularShowHideControllerTest extends TestCase
 {
     public function testIndex()
