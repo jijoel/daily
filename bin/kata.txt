@@ -25,7 +25,7 @@ class Day[day]_[Class]Cest
     public function testIndexIsOnCorrectPage(TestGuy $I) 
     {
         $I->amOnPage('/day[day]');
-        $I->see('Title of Page', 'h1');
+        $I->see('Day ', 'h1');
     }
 
     public function testFailForInvalidData(TestGuy $I)
@@ -43,7 +43,7 @@ class Day[day]_[Class]Cest
 
         $I->fillField('#field', 'goodData');
         $I->click('input[type=submit]');
-        $I->see('success indicator');
+        $I->see('goodData');    // success indicator
     }
 
 
@@ -75,16 +75,16 @@ class [Class]AdapterTest extends AdapterTestCase
     {
         $principal = Mockery::mock('Principal')
             ->shouldReceive('store')->once()
-        //    ->andReturn('before_translation')
+            // ->andReturn('before_translation')
             ->getMock();
 
         $listener = Mockery::mock('Listener')
             ->shouldReceive('storeSucceeded')->once()
-        //    ->with('after_translation')
+            // ->with('after_translation')
             ->getMock();
         
-        $adapter = new [Class]Adapter($listener, $principal);
-        // Input::replace(array('required_properties'=>'foo'));
+        $adapter = new TestKataAdapter($listener, $principal);
+        Input::replace(array('field'=>'foo'));
         $this->setupValidator(True);
 
         $adapter->store();
@@ -168,7 +168,7 @@ class [Class]Controller extends BaseController
     public function index()
     {
         $result = Session::get('result') ?: '';
-        $result = Session::get('result') ?: array();
+        // $result = Session::get('result') ?: array();
 
         $this->layout->content = View::make('days.[day].index')
             ->with('result', $result);
@@ -201,9 +201,9 @@ class [Class]Controller extends BaseController
 
 class [Class]
 {
-    public function store()
+    public function store($data)
     {
-        return '';
+        return $data;
     }
 }
 
@@ -238,7 +238,7 @@ class [Class]Adapter
             return $this->listener->storeFailed($validator->errors());
         }
 
-        $result = $this->principal->store();
+        $result = $this->principal->store($input['field']);
         
         return $this->listener->storeSucceeded($result);
     }
