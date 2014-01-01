@@ -1,0 +1,270 @@
+#@day:Day Number (eg, 012)
+#@obj:Controller to create (eg, PurchaseRequest)
+#[obj]=Illuminate\Support\Str::snake([obj])
+#[Class]=Illuminate\Support\Str::studly([obj]))
+#
+#[ns]=Illuminate\Support\Str::studly([ns])
+#[path]=str_replace([\],[/],[ns])
+#
+#[viewpath]=Illuminate\Support\Str::snake([view])
+#[viewdot]=str_replace([/],[.],[view])
+#
+#
+#
+#>app/tests/codeception/functional/Day[day]_[Class]Cest.php
+<?php
+use \TestGuy;
+
+
+/**
+ * @group now
+ */
+class Day[day]_[Class]Cest
+{
+
+    public function testIndexIsOnCorrectPage(TestGuy $I) 
+    {
+        $I->amOnPage('/day[day]');
+        $I->see('Title of Page', 'h1');
+    }
+
+    public function testFailForInvalidData(TestGuy $I)
+    {
+        $I->amOnPage('/day[day]');
+
+        $I->fillField('#field', 'badData');
+        $I->click('input[type=submit]');
+        $I->see('There were errors', '.error');
+    }
+
+    public function testSubmitValidData(TestGuy $I) 
+    {
+        $I->amOnPage('/day[day]');
+
+        $I->fillField('#field', 'goodData');
+        $I->click('input[type=submit]');
+        $I->see('success indicator');
+    }
+
+
+}
+
+#>app/tests/Days/Day[day]/[Class]AdapterTest.php
+<?php
+
+use Days\Day[day]\[Class]Adapter;
+
+/**
+ * @group now
+ */
+class [Class]AdapterTest extends AdapterTestCase
+{
+    public function testSendFailMessageWhenValidationFails()
+    {
+        $this->setupValidator(False);
+
+        $listener = Mockery::mock('Listener');
+        $listener->shouldReceive('storeFailed')->once();
+
+        $adapter = new [Class]Adapter($listener);
+
+        $adapter->store();
+    }
+
+    public function testRunPrincipalAndSendSuccessMessage()
+    {
+        $principal = Mockery::mock('Principal')
+            ->shouldReceive('store')->once()
+        //    ->andReturn('before_translation')
+            ->getMock();
+
+        $listener = Mockery::mock('Listener')
+            ->shouldReceive('storeSucceeded')->once()
+        //    ->with('after_translation')
+            ->getMock();
+        
+        $adapter = new [Class]Adapter($listener, $principal);
+        // Input::replace(array('required_properties'=>'foo'));
+        $this->setupValidator(True);
+
+        $adapter->store();
+    }
+}
+
+#>app/tests/Days/Day[day]/[Class]Test.php
+<?php
+
+use Days\Day[day]\[Class];
+
+/**
+ * @group now
+ */
+class [Class]Test extends PHPUnit_Framework_TestCase
+{
+    public $test;
+
+    public function setUp()
+    {
+        $this->test = new [Class];
+    }
+
+    public function testExists(){}
+
+}
+#>app/tests/Days/Day[day]/[Class]ControllerTest.php
+<?php
+
+/**
+ * @group now
+ */
+class [Class]ControllerTest extends ControllerTestCase
+{
+    public function testIndex()
+    {
+        $this->call('GET', '/day[day]');
+        $this->assertResponseOk();
+    }
+
+    public function testStoreFails()
+    {
+        $this->setupValidator(False);
+
+        $this->call('POST', '/day[day]');
+
+        $this->assertRedirectedToRoute('day[day].index');
+        $this->assertHasOldInput();
+        $this->assertSessionHas('errors');
+    }
+
+    public function testStore()
+    {
+        $data = array('number'=>'200');
+
+        $this->call('POST', '/day022', $data);
+
+        $this->assertRedirectedToRoute('day022.index');
+    }
+}
+
+#>app/Days/Day[day]/[Class]Controller.php
+<?php namespace Days\Day[day];
+
+use View;
+use Redirect;
+use Session;
+use BaseController;
+use Days\Day[day]\[Class]Adapter;
+
+class [Class]Controller extends BaseController 
+{
+    protected $layout = 'layouts.multipage';
+    private $adapter;
+
+    public function __construct()
+    {
+        $this->adapter = new [Class]Adapter($this);
+    }
+    
+    public function index()
+    {
+        $result = Session::get('result') ?: '';
+        $result = Session::get('result') ?: array();
+
+        $this->layout->content = View::make('days.[day].index')
+            ->with('result', $result);
+    }
+
+    public function store()
+    {
+        return $this->adapter->store();
+    }
+
+    public function storeFailed($errors)
+    {
+        return Redirect::route('day[day].index')
+            ->withInput()
+            ->withErrors($errors);
+    }
+
+    public function storeSucceeded($result)
+    {
+        return Redirect::route('day[day].index')
+            ->with('result', $result)
+            ->withInput();
+    }
+
+}
+
+#>app/Days/Day[day]/[Class].php
+<?php namespace Days\Day[day];
+
+
+class [Class]
+{
+    public function store()
+    {
+        return '';
+    }
+}
+
+#>app/Days/Day[day]/[Class]Adapter.php
+<?php namespace Days\Day[day];
+
+use Input;
+use Validator;
+use Days\Day[day]\[Class];
+
+
+class [Class]Adapter
+{
+    private $listener;
+    private $principal;
+
+    private $rules = array(
+    );
+
+    public function __construct($listener, $principal=Null)
+    {
+        $this->listener = $listener;
+        $this->principal = $principal ?: new [Class];
+    }
+
+    public function store()
+    {
+        $input = Input::except('_token');
+
+        $validator = Validator::make($input, $this->rules);
+        if (! $validator->passes()) {
+            return $this->listener->storeFailed($validator->errors());
+        }
+
+        $result = $this->principal->store();
+        
+        return $this->listener->storeSucceeded($result);
+    }
+
+}
+
+#>app/views/days/[day]/index.blade.php
+@section('content')
+
+<p class="note">This is...</p>
+
+{{ Form::open(array('url'=>URL::route('day[day].store'))) }}
+
+    <p>
+        {{Form::label('field', 'Label:') }}
+        {{Form::text('field', Null, array(
+            'placeholder'=>'Field Description')) }}
+    </p>
+
+    <p>
+        {{ Form::submit() }}
+    </p>
+
+{{ Form::close() }}
+
+<hr>
+<p>{{ $result }}</p>
+@stop
+
