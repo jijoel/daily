@@ -1,22 +1,65 @@
-@section('content')
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Day {{ $day }} - {{ $dayTitle }}</title>
 
-<p class="note">This is...</p>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="/css/home.css" type="text/css" rel="stylesheet" />
 
-{{ Form::open(array('url'=>URL::route('day026.store'))) }}
+    <style type="text/css">
+    </style>
+</head>
+<body>
 
-    <p>
-        {{Form::label('field', 'Label:') }}
-        {{Form::text('field', Null, array(
-            'placeholder'=>'Field Description')) }}
-    </p>
+    <div class="container">
+        <a href="/" class="home">Home</a>
 
-    <p>
-        {{ Form::submit() }}
-    </p>
+        <h1><a href="{{$dayLink}}">{{ 'Day ' . $day . ': ' . $dayTitle }}</a></h1>
 
-{{ Form::close() }}
+        <p class="note">This is an example of using an Angular resource to tie in to a Laravel back-end.</p>
 
-<hr>
-<p>{{ $result }}</p>
-@stop
+        <div ng-controller="TodosController">
+            <input type="search" ng-model="search" placeholder="Filter">
+            <ul>
+                <li ng-repeat="todo in todos | filter:search" >
+                    @{{todo.item}}
+                    <button ng-click="delTodo(todo)">x</button>
+                </li>
+            </ul>
+            <p>There are @{{(todos|filter:search).length}} todos currently shown
+            <br>There are @{{todos.length}} todos in the full list</p>
+            <div>
+                <label>New Todo:</label><input ng-model="newItem" placeholder="Add a new todo item">
+                <button ng-click="addTodo()">Add</button>
+            </div>
+        </div>
+
+    </div>
+
+<script type="text/javascript" src="/js/angular.min.js"></script>
+<script type="text/javascript">
+    var TodosController = function($scope) {
+        $scope.todos = [
+            {item: 'item1' },
+            {item: 'item2' },
+            {item: 'item3' },
+        ];
+        $scope.addTodo = function() {
+            $scope.todos.push({
+                item: $scope.newItem
+            });
+            $scope.newItem = '';
+        };
+        $scope.delTodo = function(todo) {
+            var index = $scope.todos.indexOf(todo);
+            if (index != -1) {
+                $scope.todos.splice(index, 1);
+            }
+        };
+    };
+</script>
+
+</body>
+</html>
 

@@ -8,7 +8,6 @@ use Days\Day026\AngularTodoAdapter;
 
 class AngularTodoController extends BaseController 
 {
-    protected $layout = 'layouts.multipage';
     private $adapter;
 
     public function __construct()
@@ -18,11 +17,7 @@ class AngularTodoController extends BaseController
     
     public function index()
     {
-        $result = Session::get('result') ?: '';
-        // $result = Session::get('result') ?: array();
-
-        $this->layout->content = View::make('days.026.index')
-            ->with('result', $result);
+        return View::make('days.026.index');
     }
 
     public function store()

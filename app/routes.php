@@ -165,6 +165,7 @@ Route::resource('day025', 'Days\Day025\StringWrapController',
     array('only'=>array('index', 'store')));
 
 // Day 26 ---------------------------------------------------------
+View::composer('days.026.index', 'Days\Support\MultiPageComposer');
 Route::resource('day026', 'Days\Day026\AngularTodoController',
     array('only'=>array('index', 'store')));
 
