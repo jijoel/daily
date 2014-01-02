@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="todos">
 <head>
     <meta charset="UTF-8">
     <title>Day {{ $day }} - {{ $dayTitle }}</title>
@@ -41,9 +41,9 @@
 <script type="text/javascript" src="/js/angular-resource.min.js"></script>
 <script type="text/javascript">
     angular.module('todos', ['ngResource'])
-    .controller('TodosController', function($scope, $resource) {
-        var Todo = $resource('/day026/api/index');
-        // $scope.todos = [];
+        .controller('TodosController', function($scope, $resource) {
+            var Todo = $resource('/day026/api/:id');
+            $scope.todos = Todo.query();
     });
     // var TodosController = function($scope) {
     //     $scope.todos = [
