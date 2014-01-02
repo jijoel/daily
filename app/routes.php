@@ -164,3 +164,7 @@ Route::resource('day024', 'Days\Day024\AngularShowHideController',
 Route::resource('day025', 'Days\Day025\StringWrapController',
     array('only'=>array('index', 'store')));
 
+// Day 26 ---------------------------------------------------------
+Route::resource('day026', 'Days\Day026\AngularTodoController',
+    array('only'=>array('index', 'store')));
+
