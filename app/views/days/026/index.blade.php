@@ -38,26 +38,32 @@
     </div>
 
 <script type="text/javascript" src="/js/angular.min.js"></script>
+<script type="text/javascript" src="/js/angular-resource.min.js"></script>
 <script type="text/javascript">
-    var TodosController = function($scope) {
-        $scope.todos = [
-            {item: 'item1' },
-            {item: 'item2' },
-            {item: 'item3' },
-        ];
-        $scope.addTodo = function() {
-            $scope.todos.push({
-                item: $scope.newItem
-            });
-            $scope.newItem = '';
-        };
-        $scope.delTodo = function(todo) {
-            var index = $scope.todos.indexOf(todo);
-            if (index != -1) {
-                $scope.todos.splice(index, 1);
-            }
-        };
-    };
+    angular.module('todos', ['ngResource'])
+    .controller('TodosController', function($scope, $resource) {
+        var Todo = $resource('/day026/api/index');
+        // $scope.todos = [];
+    });
+    // var TodosController = function($scope) {
+    //     $scope.todos = [
+    //         {item: 'item1' },
+    //         {item: 'item2' },
+    //         {item: 'item3' },
+    //     ];
+    //     $scope.addTodo = function() {
+    //         $scope.todos.push({
+    //             item: $scope.newItem
+    //         });
+    //         $scope.newItem = '';
+    //     };
+    //     $scope.delTodo = function(todo) {
+    //         var index = $scope.todos.indexOf(todo);
+    //         if (index != -1) {
+    //             $scope.todos.splice(index, 1);
+    //         }
+    //     };
+    // };
 </script>
 
 </body>

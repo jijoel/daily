@@ -20,6 +20,11 @@ class AngularTodoController extends BaseController
         return View::make('days.026.index');
     }
 
+    public function indexApi()
+    {
+        return $this->adapter->index();
+    }
+
     public function store()
     {
         return $this->adapter->store();

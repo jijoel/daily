@@ -1,5 +1,6 @@
 <?php namespace Days\Day026;
 
+use App;
 use Input;
 use Validator;
 use Days\Day026\AngularTodo;
@@ -17,7 +18,12 @@ class AngularTodoAdapter
     public function __construct($listener, $principal=Null)
     {
         $this->listener = $listener;
-        $this->principal = $principal ?: new AngularTodo;
+        $this->principal = $principal ?: App::make('Days\Day026\AngularTodo');
+    }
+
+    public function index()
+    {
+        return $this->principal->all();
     }
 
     public function store()

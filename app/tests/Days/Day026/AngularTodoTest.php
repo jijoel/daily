@@ -11,7 +11,7 @@ class AngularTodoTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->test = new AngularTodo;
+        $this->test = new AngularTodo(Mockery::mock('Days\Day026\TodoInterface'));
     }
 
     public function testExists(){}
