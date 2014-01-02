@@ -32,7 +32,8 @@ class Day[day]_[Class]Cest
     {
         $I->amOnPage('/day[day]');
 
-        $I->fillField('#field', 'badData');
+        // Fill the field with bad data; in this case, empty (but required)
+        $I->fillField('#field', '');
         $I->click('input[type=submit]');
         $I->see('There were errors', '.error');
     }
@@ -83,7 +84,7 @@ class [Class]AdapterTest extends AdapterTestCase
             // ->with('after_translation')
             ->getMock();
         
-        $adapter = new TestKataAdapter($listener, $principal);
+        $adapter = new [Class]Adapter($listener, $principal);
         Input::replace(array('field'=>'foo'));
         $this->setupValidator(True);
 
@@ -221,6 +222,7 @@ class [Class]Adapter
     private $principal;
 
     private $rules = array(
+        'field' => 'required',
     );
 
     public function __construct($listener, $principal=Null)
