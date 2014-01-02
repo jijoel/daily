@@ -4,15 +4,15 @@ use View;
 use Redirect;
 use Session;
 use BaseController;
-use Days\Day026\AngularTodoAdapter;
+use Days\Day026\TodoInterface;
 
 class AngularTodoController extends BaseController 
 {
-    private $adapter;
+    private $todos;
 
-    public function __construct()
+    public function __construct(TodoInterface $todos)
     {
-        $this->adapter = new AngularTodoAdapter($this);
+        $this->todos = $todos;
     }
     
     public function index()
@@ -22,26 +22,11 @@ class AngularTodoController extends BaseController
 
     public function indexApi()
     {
-        return $this->adapter->index();
+        return $this->todos->all();
     }
 
     public function store()
     {
-        return $this->adapter->store();
-    }
-
-    public function storeFailed($errors)
-    {
-        return Redirect::route('day026.index')
-            ->withInput()
-            ->withErrors($errors);
-    }
-
-    public function storeSucceeded($result)
-    {
-        return Redirect::route('day026.index')
-            ->with('result', $result)
-            ->withInput();
     }
 
 }
