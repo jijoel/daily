@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('26',  'day026',        'Angular Todos'),
     array('25',  'day025',        'String Wrap Kata'),
     array('24',  'day024',        'Angular Show/Hide'),
     array('23',  'day023',        'Hello, Angular!'),
