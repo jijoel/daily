@@ -11,25 +11,39 @@ class AngularTodoControllerTest extends ControllerTestCase
         $this->assertResponseOk();
     }
 
-    // TODO: Test storing
-    // public function testStoreFails()
-    // {
-    //     $this->setupValidator(False);
+    public function testDestroy()
+    {
+        $model = $this->setupModel('Days\Day026\TodoInterface');
+        $model->shouldReceive('findOrFail')->once()->andReturn($model)
+            ->shouldReceive('delete')->once();
 
-    //     $this->call('POST', '/day026');
+        $this->call('DELETE', '/day026/api/1');
+    }
 
-    //     $this->assertRedirectedToRoute('day026.index');
-    //     $this->assertHasOldInput();
-    //     $this->assertSessionHas('errors');
-    // }
+    protected function setupModel($interface)
+    {
+        $model = Mockery::mock($interface);
+        $this->app->instance($interface, $model);
+        return $model;
+    }
 
-    // public function testStore()
-    // {
-    //     $data = array('number'=>'200');
+    public function testStoreFails()
+    {
+        $this->setupValidator(False);
 
-    //     $this->call('POST', '/day022', $data);
+        $this->call('POST', '/day026/api', array());
+        $this->assertResponseStatus(400);
+    }
 
-    //     $this->assertRedirectedToRoute('day022.index');
-    // }
+    public function testStore()
+    {
+        $model = $this->setupModel('Days\Day026\TodoInterface');
+        $model->shouldReceive('create')->once();
+
+        $data = array('todo'=>'foo');
+
+        $this->call('POST', '/day026/api', $data);
+        $this->assertResponseOk();
+    }
 }
 

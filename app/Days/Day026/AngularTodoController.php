@@ -3,8 +3,10 @@
 use View;
 use Input;
 use Redirect;
+use Response;
 use Session;
 use BaseController;
+use Validator;
 use Days\Day026\TodoInterface;
 
 class AngularTodoController extends BaseController 
@@ -28,8 +30,19 @@ class AngularTodoController extends BaseController
 
     public function store()
     {
-        $this->todos->create(array('item'=>Input::get('todo')));
+        $rules = array('todo' => 'required|max:80');
+        $v = Validator::make(Input::all(), $rules);
+
+        if ($v->passes()) {
+            return $this->todos->create(array('item'=>Input::get('todo')));
+        }
+        return Response::make($v->errors(), 400);
     }
 
+    public function destroy($id)
+    {
+        $found = $this->todos->findOrFail($id);
+        $found->delete();
+    }
 }
 

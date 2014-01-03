@@ -42,24 +42,31 @@
 <script type="text/javascript">
     angular.module('todos', ['ngResource'])
         .controller('TodosController', function($scope, $resource) {
-            var Todo = $resource('/day026/api/:id');
+            var Todo = $resource('/day026/api/:id', {id:'@id'});
             $scope.todos = Todo.query();
 
             $scope.addTodo = function() {
                 var newTodo = new Todo({todo: $scope.newItem});
-                newTodo.$save();
-                $scope.todos.push({
-                    item: $scope.newItem
+                newTodo.$save(function(response, header){
+                    $scope.todos.push(response);
                 });
-
-                // console.log($scope.newItem);
-                // $resource.$save(function(){});
             }
 
             $scope.delTodo = function(todo) {
-                console.log('del');
-                console.log(todo);
+                todo.$delete(function(result, header){
+                    var index = $scope.todos.indexOf(todo);
+                    if (index > -1)
+                        $scope.todos.splice(index, 1);
+                });
             }
+
+
+
+    //     $scope.delTodo = function(todo) {
+    //         var index = $scope.todos.indexOf(todo);
+    //         if (index != -1) {
+    //             $scope.todos.splice(index, 1);
+    //         }
 
             // $scope.addTodo = function() {
             //     $scope.$resource.save(function(){
