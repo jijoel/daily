@@ -44,6 +44,28 @@
         .controller('TodosController', function($scope, $resource) {
             var Todo = $resource('/day026/api/:id');
             $scope.todos = Todo.query();
+
+            $scope.addTodo = function() {
+                var newTodo = new Todo({todo: $scope.newItem});
+                newTodo.$save();
+                $scope.todos.push({
+                    item: $scope.newItem
+                });
+
+                // console.log($scope.newItem);
+                // $resource.$save(function(){});
+            }
+
+            $scope.delTodo = function(todo) {
+                console.log('del');
+                console.log(todo);
+            }
+
+            // $scope.addTodo = function() {
+            //     $scope.$resource.save(function(){
+            //         item: $scope.newItem,
+            //     });
+            // }
     });
     // var TodosController = function($scope) {
     //     $scope.todos = [

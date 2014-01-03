@@ -167,6 +167,6 @@ Route::resource('day025', 'Days\Day025\StringWrapController',
 // Day 26 ---------------------------------------------------------
 App::bind('Days\Day026\TodoInterface', 'Days\Day026\Todo');
 View::composer('days.026.index', 'Days\Support\MultiPageComposer');
-Route::get('day026/api', 'Days\Day026\AngularTodoController@indexApi');
-Route::resource('day026', 'Days\Day026\AngularTodoController',
-    array('only'=>array('index', 'store')));
+Route::resource('day026/api', 'Days\Day026\AngularTodoController',
+    array('only'=>array('index','store')));
+Route::get('day026', 'Days\Day026\AngularTodoController@getContainer');

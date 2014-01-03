@@ -1,6 +1,7 @@
 <?php namespace Days\Day026;
 
 use View;
+use Input;
 use Redirect;
 use Session;
 use BaseController;
@@ -15,18 +16,19 @@ class AngularTodoController extends BaseController
         $this->todos = $todos;
     }
     
-    public function index()
+    public function getContainer()
     {
         return View::make('days.026.index');
     }
 
-    public function indexApi()
+    public function index()
     {
         return $this->todos->all();
     }
 
     public function store()
     {
+        $this->todos->create(array('item'=>Input::get('todo')));
     }
 
 }
