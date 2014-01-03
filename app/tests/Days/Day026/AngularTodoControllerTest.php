@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @group now
- */
+
 class AngularTodoControllerTest extends ControllerTestCase
 {
     public function testIndex()

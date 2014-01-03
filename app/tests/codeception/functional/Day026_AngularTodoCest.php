@@ -2,9 +2,6 @@
 use \TestGuy;
 
 
-/**
- * @group now
- */
 class Day026_AngularTodoCest
 {
 

@@ -59,40 +59,7 @@
                         $scope.todos.splice(index, 1);
                 });
             }
-
-
-
-    //     $scope.delTodo = function(todo) {
-    //         var index = $scope.todos.indexOf(todo);
-    //         if (index != -1) {
-    //             $scope.todos.splice(index, 1);
-    //         }
-
-            // $scope.addTodo = function() {
-            //     $scope.$resource.save(function(){
-            //         item: $scope.newItem,
-            //     });
-            // }
-    });
-    // var TodosController = function($scope) {
-    //     $scope.todos = [
-    //         {item: 'item1' },
-    //         {item: 'item2' },
-    //         {item: 'item3' },
-    //     ];
-    //     $scope.addTodo = function() {
-    //         $scope.todos.push({
-    //             item: $scope.newItem
-    //         });
-    //         $scope.newItem = '';
-    //     };
-    //     $scope.delTodo = function(todo) {
-    //         var index = $scope.todos.indexOf(todo);
-    //         if (index != -1) {
-    //             $scope.todos.splice(index, 1);
-    //         }
-    //     };
-    // };
+        });
 </script>
 
 </body>
