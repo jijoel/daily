@@ -141,9 +141,9 @@ class [Class]ControllerTest extends ControllerTestCase
     {
         $data = array('number'=>'200');
 
-        $this->call('POST', '/day022', $data);
+        $this->call('POST', '/day[day]', $data);
 
-        $this->assertRedirectedToRoute('day022.index');
+        $this->assertRedirectedToRoute('day[day].index');
     }
 }
 
