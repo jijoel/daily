@@ -171,3 +171,7 @@ Route::resource('day026/api', 'Days\Day026\AngularTodoController',
     array('only'=>array('index','store', 'destroy')));
 Route::get('day026', 'Days\Day026\AngularTodoController@getContainer');
 
+// Day 27 --------------------------------------------------------
+View::composer('days.027.index', 'Days\Support\MultiPageComposer');
+Route::resource('day027', 'Days\Day027\AngularListDetailController',
+    array('only'=>array('index')));
