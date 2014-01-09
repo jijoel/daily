@@ -12,7 +12,7 @@ class StringWrapAdapter
 
     private $rules = array(
         'length' => 'required|numeric|max:120',
-        'text'   => 'required|max:5000',
+        'text'   => 'required|max:2000',
     );
 
     public function __construct($listener, $principal=Null)
