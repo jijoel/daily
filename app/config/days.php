@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('28',  'day028',        'D3 Blocks'),
     array('27',  'day027',        'Angular List/Detail'),
     array('26',  'day026',        'Angular Todos'),
     array('25',  'day025',        'String Wrap Kata'),
