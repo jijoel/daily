@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @group now
- */
+
 class D3DemoControllerTest extends TestCase
 {
     public function testIndex()

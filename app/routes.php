@@ -180,3 +180,11 @@ Route::resource('day027', 'Days\Day027\AngularListDetailController',
 Route::resource('day028', 'Days\Day028\D3DemoController',
     array('only'=>array('index')));
 
+// Day 29 ---------------------------------------------------------
+View::composer('layouts.angular', 'Days\Support\MultiPageComposer');
+Route::get('day029', 'Days\Day029\AngularGridController@getContainer');
+
+// Day 30 --------------------------------------------------------
+Route::resource('day030', 'Days\Day030\D3TestController',
+    array('only'=>array('index')));
+
