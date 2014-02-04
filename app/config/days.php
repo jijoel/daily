@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('31',  'day031',        'Option Group Splitter'),
     array('30',  'day030',        'D3 Test'),
     array('29',  'day029',        'Angular SVG'),
     array('28',  'day028',        'D3 Blocks'),
