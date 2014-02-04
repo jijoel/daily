@@ -72,9 +72,9 @@ class [Class]AdapterTest extends AdapterTestCase
         $adapter->store();
     }
 
-    public function testRunPrincipalAndSendSuccessMessage()
+    public function testRunInteractorAndSendSuccessMessage()
     {
-        $principal = Mockery::mock('Principal')
+        $interactor = Mockery::mock('MockInteractor')
             ->shouldReceive('store')->once()
             // ->andReturn('before_translation')
             ->getMock();
@@ -84,7 +84,7 @@ class [Class]AdapterTest extends AdapterTestCase
             // ->with('after_translation')
             ->getMock();
         
-        $adapter = new [Class]Adapter($listener, $principal);
+        $adapter = new [Class]Adapter($listener, $interactor);
         Input::replace(array('field'=>'foo'));
         $this->setupValidator(True);
 
@@ -219,16 +219,16 @@ use Days\Day[day]\[Class];
 class [Class]Adapter
 {
     private $listener;
-    private $principal;
+    private $interactor;
 
     private $rules = array(
         'field' => 'required',
     );
 
-    public function __construct($listener, $principal=Null)
+    public function __construct($listener, $interactor=Null)
     {
         $this->listener = $listener;
-        $this->principal = $principal ?: new [Class];
+        $this->interactor = $interactor ?: new [Class];
     }
 
     public function store()
@@ -240,7 +240,7 @@ class [Class]Adapter
             return $this->listener->storeFailed($validator->errors());
         }
 
-        $result = $this->principal->store($input['field']);
+        $result = $this->interactor->store($input['field']);
         
         return $this->listener->storeSucceeded($result);
     }
