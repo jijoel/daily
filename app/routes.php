@@ -188,3 +188,7 @@ Route::get('day029', 'Days\Day029\AngularGridController@getContainer');
 Route::resource('day030', 'Days\Day030\D3TestController',
     array('only'=>array('index')));
 
+// Day 31 --------------------------------------------------------
+Route::resource('day031', 'Days\Day031\OptGroupSplitterController',
+    array('only'=>array('index')));
+
