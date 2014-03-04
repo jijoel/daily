@@ -192,3 +192,7 @@ Route::resource('day030', 'Days\Day030\D3TestController',
 Route::resource('day031', 'Days\Day031\OptGroupSplitterController',
     array('only'=>array('index')));
 
+// Day 32 --------------------------------------------------------
+Route::resource('day032', 'Days\Day032\MailerController',
+    array('only'=>array('index','store')));
+
