@@ -4,6 +4,9 @@ use View;
 use Input;
 use Mail;
 use Session;
+use Config;
+use Redirect;
+use Validator;
 use BaseController;
 
 class MailerController extends BaseController 
@@ -17,12 +20,27 @@ class MailerController extends BaseController
 
     public function store()
     {
-        Mail::send('days.032.mail', Input::all(), function($message){
-            $message->to('joel@kalani.com')
+        $rules = array(
+            'subject' => 'required|max:80',
+            'body'    => 'required|max:1000',
+        );
+
+        $validation = Validator::make(Input::all(), $rules);
+
+        if ($validation->fails()) {
+            return Redirect::back()
+                ->withErrors($validation->errors())
+                ->withInput();
+        }
+
+        $recipient = Config::get('kumuwai.email');
+
+        Mail::queue('days.032.mail', Input::all(), function($message) use ($recipient) {
+            $message->to($recipient)
                 ->subject(Input::get('subject'));
         });
 
-        Session::put('message', 'Mail has been sent');
+        Session::flash('message', 'Mail has been sent');
         $this->layout->content = View::make('days.032.index');
     }
 }
