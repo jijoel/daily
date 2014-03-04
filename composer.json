@@ -1,18 +1,18 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "jijoel/daily",
+    "description": "My Daily Practice ground",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "laravel/framework": "4.0.*",
+        "laravel/framework": "4.1.*",
         "artdarek/oauth-4-laravel": "dev-master",
-        "intervention/image": "dev-master"
+        "intervention/image": "dev-master",
+        "pda/pheanstalk": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "dev-master",
         "way/laravel-test-helpers": "dev-master",
-        "kalani/generator": "dev-master",
-        "kalani/facade-root": "dev-master"
+        "kalani/generator": "dev-master"
     },
     "repositories": [
         {
