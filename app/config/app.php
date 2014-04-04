@@ -110,6 +110,7 @@ return array(
         'RoutingServiceProvider',
         'Artdarek\OAuth\OAuthServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        'Kalani\FormBuilder\FormBuilderServiceProvider', 
 
     ),
 
@@ -178,7 +179,8 @@ return array(
         'View'            => 'Illuminate\Support\Facades\View',
 
         'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
-        'Image'           => 'Intervention\Image\Facades\Image'
+        'Image'           => 'Intervention\Image\Facades\Image',
+        'KForm'           => 'Kalani\FormBuilder\FormBuilderFacade', 
 
     ),
 
