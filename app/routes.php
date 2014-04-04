@@ -196,3 +196,8 @@ Route::resource('day031', 'Days\Day031\OptGroupSplitterController',
 Route::resource('day032', 'Days\Day032\MailerController',
     array('only'=>array('index','store')));
 
+// Day 33 --------------------------------------------------------
+View::composer('layouts.bootstrap3', 'Days\Support\MultiPageComposer');
+Route::resource('day033', 'Days\Day033\Bootstrap1Controller',
+    array('only'=>array('index','store')));
+
