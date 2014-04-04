@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('33',  'day033',        'Bootstrap Forms 1'),
     array('32',  'day032',        'Laravel Queued Mail'),
     array('31',  'day031',        'Option Group Splitter'),
     array('30',  'day030',        'D3 Test'),

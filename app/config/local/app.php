@@ -34,6 +34,7 @@ return array(
         'RoutingServiceProvider',
         'Artdarek\OAuth\OAuthServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        'Kalani\FormBuilder\FormBuilderServiceProvider', 
 
         'Kalani\Generator\GeneratorServiceProvider', 
     ),
