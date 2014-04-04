@@ -7,7 +7,8 @@
         "laravel/framework": "4.1.*",
         "artdarek/oauth-4-laravel": "dev-master",
         "intervention/image": "dev-master",
-        "pda/pheanstalk": "dev-master"
+        "pda/pheanstalk": "dev-master",
+        "kalani/form-builder": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "dev-master",
@@ -18,6 +19,10 @@
         {
             "type": "vcs",
             "url":  "https://github.com/jijoel/generator"
+        },
+        {
+            "type": "vcs",
+            "url":  "https://github.com/jijoel/bootstrap3-form-builder"
         }
     ],
     "autoload": {

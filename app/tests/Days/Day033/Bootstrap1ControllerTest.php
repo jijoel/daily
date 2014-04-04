@@ -1,11 +1,11 @@
 <?php
 
 
-class MailerControllerTest extends TestCase
+class Bootstrap1ControllerTest extends TestCase
 {
     public function testIndex()
     {
-        $this->call('GET', '/day032');
+        $this->call('GET', '/day033');
         $this->assertResponseOk();
     }
 }
