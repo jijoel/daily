@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a test of a Bootstrap form. It uses the contact form from <a href="http://bootsnipp.com/snippets/featured/simplest-contact-form">http://bootsnipp.com/snippets/featured/simplest-contact-form</a></p>
+<p class="note">This is a test of a Bootstrap form. It uses the contact form from <a href="http://bootsnipp.com/snippets/featured/simplest-contact-form">http://bootsnipp.com/snippets/featured/simplest-contact-form</a>. This is a test of my FormBuilder class, to make sure it can intelligently display forms and do validation. Compare it to the manual Bootstrap form below.</p>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
