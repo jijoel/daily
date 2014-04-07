@@ -201,3 +201,7 @@ View::composer('layouts.bootstrap3', 'Days\Support\MultiPageComposer');
 Route::resource('day033', 'Days\Day033\Bootstrap1Controller',
     array('only'=>array('index','store')));
 
+// Day 34 --------------------------------------------------------
+Route::resource('day034', 'Days\Day034\Bootstrap2Controller',
+    array('only'=>array('index','store')));
+
