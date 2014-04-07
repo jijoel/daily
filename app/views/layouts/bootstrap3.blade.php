@@ -25,7 +25,9 @@
     </div><!-- .container -->
 
 @section('script')
-    <script type="text/javascript" url="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/angular.min.js"></script>
     @yield('js')
 @show
 
