@@ -3,8 +3,9 @@
 return array(
 
     //  Day #    path             Title
-    array('34',  'day034',        'Bootstrap Forms 2'),
-    array('33',  'day033',        'Bootstrap Forms 1'),
+    array('35',  'day035',        'Bootstrap Forms 3 - Grid'),
+    array('34',  'day034',        'Bootstrap Forms 2 - Form v Form-Horizontal'),
+    array('33',  'day033',        'Bootstrap Forms 1 - Manual v FormBuilder Contact'),
     array('32',  'day032',        'Laravel Queued Mail'),
     array('31',  'day031',        'Option Group Splitter'),
     array('30',  'day030',        'D3 Test'),

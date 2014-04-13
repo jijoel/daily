@@ -35,6 +35,7 @@ return array(
         'Artdarek\OAuth\OAuthServiceProvider',
         'Intervention\Image\ImageServiceProvider',
         'Kalani\FormBuilder\FormBuilderServiceProvider', 
+        'Former\FormerServiceProvider',
 
         'Kalani\Generator\GeneratorServiceProvider', 
     ),

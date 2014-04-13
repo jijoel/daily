@@ -111,6 +111,7 @@ return array(
         'Artdarek\OAuth\OAuthServiceProvider',
         'Intervention\Image\ImageServiceProvider',
         'Kalani\FormBuilder\FormBuilderServiceProvider', 
+        'Former\FormerServiceProvider',
 
     ),
 
@@ -181,6 +182,7 @@ return array(
         'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
         'Image'           => 'Intervention\Image\Facades\Image',
         'KForm'           => 'Kalani\FormBuilder\FormBuilderFacade', 
+        'Former'          => 'Former\Facades\Former',
 
     ),
 
