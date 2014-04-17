@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a study on Bootstrap forms, to show the effects of small, particular changes. </p>
+<p class="note">This is a study on Bootstrap forms, to show the effects of small, particular changes. See the source on <a href="https://github.com/jijoel/daily/blob/master/app/views/days/036/index.blade.php">Github</a>.</p>
 
 <p>Form with help block, no label or control widths specified:</p>
 <form class="form">
