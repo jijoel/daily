@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('38',  'day038',        'Bootstrap Forms 6 - Nested Grids'),
     array('37',  'day037',        'Bootstrap Forms 5 - Former Form Layout'),
     array('36',  'day036',        'Bootstrap Forms 4 - Form Layout'),
     array('35',  'day035',        'Bootstrap Forms 3 - Grid'),
