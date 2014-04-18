@@ -220,3 +220,8 @@ Route::resource('day037', 'Days\Day037\Bootstrap5Controller',
 // Day 38 --------------------------------------------------------
 Route::resource('day038', 'Days\Day038\Bootstrap6Controller',
     array('only'=>array('index')));
+
+// Day 39 --------------------------------------------------------
+Route::resource('day039', 'Days\Day039\Bootstrap7Controller',
+    array('only'=>array('index','store','show')));
+
