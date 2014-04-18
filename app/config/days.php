@@ -4,10 +4,10 @@ return array(
 
     //  Day #    path             Title
     array('37',  'day037',        'Bootstrap Forms 5 - Former Form Layout'),
-    array('36',  'day036',        'Bootstrap Forms 4 - Form Layout'),
+    array('36',  'day036',        'Bootstrap Forms 4 - Manual Form Layout'),
     array('35',  'day035',        'Bootstrap Forms 3 - Grid'),
-    array('34',  'day034',        'Bootstrap Forms 2 - Form v Form-Horizontal'),
-    array('33',  'day033',        'Bootstrap Forms 1 - Manual v FormBuilder Contact'),
+    array('34',  'day034',        'Bootstrap Forms 2 - Form vs Form-Horizontal'),
+    array('33',  'day033',        'Bootstrap Forms 1 - Manual vs FormBuilder Contact'),
     array('32',  'day032',        'Laravel Queued Mail'),
     array('31',  'day031',        'Option Group Splitter'),
     array('30',  'day030',        'D3 Test'),
