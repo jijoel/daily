@@ -11,28 +11,23 @@
             <li class="active"><a href="#first" data-toggle="tab">First</a></li>
             <li><a href="#second" data-toggle="tab">Second</a></li>
             <li><a href="#third" data-toggle="tab">Third</a></li>
-            <li class="alert-danger"><a class="alert-link" href="#fourth" data-toggle="tab">Fourth</a></li>
+            <li><a href="#fourth" data-toggle="tab">Fourth</a></li>
             <li><a href="#last" data-toggle="tab">Last</a></li>
         </ul>
     </div><!-- /nav block -->
 
     <div class="tab-content col-md-10"><!-- content block -->
         <div class="tab-pane active" id="first">
-            {{ Former::horizontal_open(Url::full())}}
-                {{ Former::text('f1')->label('Field1')->help('this is help text') }}
-                {{ Former::text('f2')->label('Field2')->help('this is more help text') }}
-                {{ Former::text('f3')->label('Field3') }}
-                {{ Former::text('f4')->label('Field4') }}
-                {{ Former::text('f5')->label('Field5') }}
-            {{ Former::close() }}
-
+            <div class="content">
+                @include('days.039.first')
+            </div>
             @include('partials.wizard-pager')
         </div>
 
         <div class="tab-pane" id="second">
-            {{ Former::horizontal_open(Url::full()) }}
-                {{ Former::text('f1')->label('Foo')->help('this is help text') }}
-            {{ Former::close() }}
+            <div class="content">
+                @include('days.039.second')
+            </div>
             @include('partials.wizard-pager')
         </div>
 
@@ -70,7 +65,14 @@
                 if($current >= $total) {
                     $('#wizard').find('.pager .next').hide();
                     $('#wizard').find('.pager .finish').show();
-                    $('#wizard').find('.pager .finish').removeClass('disabled');
+                    var errors = navigation.find('.alert-danger');
+                    if (errors.length) {
+                        $('#wizard').find('.pager .finish').addClass('disabled');                        
+                        $('#wizard').find('.pager .finish').removeClass('enabled');                        
+                    } else {
+                        $('#wizard').find('.pager .finish').removeClass('disabled');
+                        $('#wizard').find('.pager .finish').addClass('enabled');
+                    }
                 } else {
                     $('#wizard').find('.pager .next').show();
                     $('#wizard').find('.pager .finish').hide();
@@ -79,44 +81,31 @@
             'onTabChange': function(tab, navigation, fromIndex) {
                 var cardName = tab.find('a').attr('href');
                 var card = $(cardName);
-                form = card.find('form');
+                var form = card.find('form');
                 if (form.length) {
                     cardName = cardName.substring(1);
                     $.post(form.attr('action')+'?page='+cardName, form.serialize(), function(data){
-                        card.html( data );
+                        card.find('.content').html( data );
+                        var errs = card.find('.has-error');
+                        if (errs.length) {
+                            tab.addClass('alert-danger');
+                            tab.removeClass('alert-success');
+                            tab.find('a').addClass('alert-link');
+                        } else {
+                            tab.removeClass('alert-danger');
+                            tab.addClass('alert-success');
+                        }
                     });
                 }
-
-                // a = tab;
-                // b = navigation;
-                // c = fromIndex;
-                // // console.log(navigation.find('li'))
-                // // $.post()
-                // console.log(tab);
-                // console.log(b);
-                // console.log(c);
             },
         });
         
         $('#wizard .finish').click(function() {
-            alert('Finished!, Starting over!');
-            $('#wizard').find("a[href*='tab1']").trigger('click');
+            if ($('#wizard').find('.pager .finish').hasClass('enabled')) {
+                alert('Finished!');
+            }
         });
     });
 </script>
 @stop
 
-
-
-    // // $('.btn.next').click(function(e){
-    // //     page = getParentTabContentPane(e);
-    // //     $.post('/apply?page='+page.attr('id'), page.find('form').serialize(), function(data){
-    // //         page.html( data );
-    // //     });
-    // //     // e.preventDefault();
-    // //     showPane(page.next());
-    // // });
-    // // $('.btn.back').click(function(e){
-    // //     // e.preventDefault();
-    // //     showPane(getParentTabContentPane(e).prev());
-    // // });
