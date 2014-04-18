@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @group now
- */
+
 class AngularGridControllerTest extends TestCase
 {
     public function testIndex()

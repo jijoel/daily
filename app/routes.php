@@ -188,3 +188,40 @@ Route::get('day029', 'Days\Day029\AngularGridController@getContainer');
 Route::resource('day030', 'Days\Day030\D3TestController',
     array('only'=>array('index')));
 
+// Day 31 --------------------------------------------------------
+Route::resource('day031', 'Days\Day031\OptGroupSplitterController',
+    array('only'=>array('index')));
+
+// Day 32 --------------------------------------------------------
+Route::resource('day032', 'Days\Day032\MailerController',
+    array('only'=>array('index','store')));
+
+// Day 33 --------------------------------------------------------
+View::composer('layouts.bootstrap3', 'Days\Support\MultiPageComposer');
+Route::resource('day033', 'Days\Day033\Bootstrap1Controller',
+    array('only'=>array('index','store')));
+
+// Day 34 --------------------------------------------------------
+Route::resource('day034', 'Days\Day034\Bootstrap2Controller',
+    array('only'=>array('index','store')));
+
+// Day 35 --------------------------------------------------------
+Route::resource('day035', 'Days\Day035\Bootstrap3Controller',
+    array('only'=>array('index')));
+
+// Day 36 --------------------------------------------------------
+Route::resource('day036', 'Days\Day036\Bootstrap4Controller',
+    array('only'=>array('index')));
+
+// Day 37 --------------------------------------------------------
+Route::resource('day037', 'Days\Day037\Bootstrap5Controller',
+    array('only'=>array('index')));
+
+// Day 38 --------------------------------------------------------
+Route::resource('day038', 'Days\Day038\Bootstrap6Controller',
+    array('only'=>array('index')));
+
+// Day 39 --------------------------------------------------------
+Route::resource('day039', 'Days\Day039\Bootstrap7Controller',
+    array('only'=>array('index','store','show')));
+
