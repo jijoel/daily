@@ -1,5 +1,7 @@
 @section('content')
 
+<p class="note">This is a study of several different field types, created with the Laravel form class. @include('partials.github')</p>
+
     {{ Form::open() }}
     <p>
         {{ Form::label('text', 'Standard Text') }}

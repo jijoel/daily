@@ -2,7 +2,8 @@
 
 <div ng-app ng-controller="MyController">
 
-<p class="note">This is a second demo of a bootstrap form. I'm working on the differences between form and form-horizontal. We're also including some basic Angular stuff</p>
+<p class="note">This is a second study of a bootstrap form. I'm working on the differences between form and form-horizontal. It also includes some basic Angular stuff.  
+@include('partials.github')</p>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">

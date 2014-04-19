@@ -1,6 +1,7 @@
 @section('content')
 
-<p class="note">Enter a number below to find the prime factors of that number</p>
+<p class="note">Enter a number below to find the prime factors of that number.  
+@include('partials.github')</p>
 
 {{ Form::open(array('url'=>URL::route('day022.store'))) }}
 <p>

@@ -1,0 +1,1 @@
+Source code for <a href="https://github.com/jijoel/daily/tree/master/app/Days/Day{{$day3}}">logic objects</a> (eg, controllers, interactors, etc.), <a href="https://github.com/jijoel/daily/tree/master/app/tests/Days/Day{{$day3}}">tests</a>, and <a href="https://github.com/jijoel/daily/tree/master/app/views/days/{{$day3}}">views</a> for this project is available on github. 

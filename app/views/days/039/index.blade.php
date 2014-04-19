@@ -1,14 +1,12 @@
 @section('content')
 
-<p class="note">This is a study on creating a wizard for a Bootstrap form, with a Laravel back-end. It uses the <a href="http://vadimg.com/twitter-bootstrap-wizard-example/">Twitter Bootstrap Wizard Plugin</a>.<p>
-
-{{ Former::framework('TwitterBootstrap3') }}
+<p class="note">This is a study on creating a wizard for a Bootstrap form, with a Laravel back-end. It uses the <a href="http://vadimg.com/twitter-bootstrap-wizard-example/">Twitter Bootstrap Wizard Plugin</a>. @include('partials.github')</p>
 
 <div id="wizard">
 
     <div class="col-md-2"><!-- nav block -->
         <ul class="nav nav-pills nav-stacked" id="tabs">
-            <li class="active"><a href="#first" data-toggle="tab">First</a></li>
+            <li><a href="#first" data-toggle="tab">First</a></li>
             <li><a href="#second" data-toggle="tab">Second</a></li>
             <li><a href="#third" data-toggle="tab">Third</a></li>
             <li><a href="#fourth" data-toggle="tab">Fourth</a></li>
@@ -17,7 +15,7 @@
     </div><!-- /nav block -->
 
     <div class="tab-content col-md-10"><!-- content block -->
-        <div class="tab-pane active" id="first">
+        <div class="tab-pane" id="first">
             <div class="content">
                 @include('days.039.first')
             </div>

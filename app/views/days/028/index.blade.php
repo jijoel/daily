@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a simple demo of the D3 library.</p>
+<p class="note">This is a simple study of the D3 library.  @include('partials.github')</p>
 
 <div id="workspace"></div>
 
