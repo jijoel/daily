@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a test of Bootstrap's grid sizing.</p>
+<p class="note">This is a study of Bootstrap's grid sizing.  @include('partials.github')</p>
 
       <form class="form-horizontal" action="" method="post">
 

@@ -1,5 +1,7 @@
 @section('content')
 
+<p class="note">This is an arabic to roman numeral converter. Enter an arabic (decimal) value below, then click Convert to see the Roman equivalent.  @include('partials.github')</p>
+
     {{ Form::open(array('url'=>URL::route('roman.store'), 'method'=>'POST')) }}
 
     <p>

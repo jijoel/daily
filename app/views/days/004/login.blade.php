@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <p class="note">This is a simple login page. To see it work, you can use user: <b>foo</b>; password: <b>test</b>. See how it fails by using other credentials.</p>
+    <p class="note">This is a simple login page. To see it work, you can use user: <b>foo</b>; password: <b>test</b>. See how it fails by using other credentials.  @include('partials.github')</p>
 
     @if(count($errors)>0)
     <div class="messages">

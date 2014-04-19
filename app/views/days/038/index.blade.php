@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a study on how to nest Bootstrap grids.</p>
+<p class="note">This is a study on how to nest Bootstrap grids.  @include('partials.github')</p>
 
 <p>Horizontal form with help block and label and control widths specified:</p>
 <div class="row">

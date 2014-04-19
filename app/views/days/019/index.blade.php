@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a demonstration of date/time fields. It uses the <a href="http://trentrichardson.com/examples/timepicker/">jquery-ui-timepicker addon</a> for jQuery UI. I like it, but so far, I have some issues with it:</p> 
+<p class="note">This is a demonstration of date/time fields. It uses the <a href="http://trentrichardson.com/examples/timepicker/">jquery-ui-timepicker addon</a> for jQuery UI.  @include('partials.github') I like it, but so far, I have some issues with it:</p> 
 
 <ul>
 <li>First, if the browser window is too small, the popup comes up underneath the "Calendar" field.</li>
