@@ -1,6 +1,6 @@
 @section('content')
 
-    <p class="note">This version of the roman numeral exercise looks and acts the same on the front end, but is very different on the back end. It uses a Laravel controller, a layout, and other interesting things like that. Check it out on <a href="https://github.com/jijoel/daily">github</a>.</p>
+    <p class="note">This version of the roman numeral exercise looks and acts the same on the front end, but is very different on the back end. It uses a Laravel controller, a layout, and other interesting things like that.  @include('partials.github').</p>
 
     @if(count($errors)>0)
     <div class="messages">

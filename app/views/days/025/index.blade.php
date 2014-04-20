@@ -1,6 +1,7 @@
 @section('content')
 
-<p class="note">This is a version of the string wrap kata.</p>
+<p class="note">This is a version of the string wrap kata.
+ @include('partials.github')</p>
 
 {{ Form::open(array('url'=>URL::route('day025.store'))) }}
 

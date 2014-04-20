@@ -24,6 +24,9 @@
 
         <h1><a href="{{$dayLink}}">{{ 'Day ' . $day . ': ' . $dayTitle }}</a></h1>
 
+        <p class="note">This is a study of showing and hiding elements with AngularJS. 
+        @include('partials.github')</p>
+
         <label>
             Set Name
             <input type="checkbox" ng-model="setName">

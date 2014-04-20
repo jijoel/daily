@@ -1,7 +1,7 @@
 @section('content')
 
 
-<p class="note">This is a somewhat more sophisticated (though not as easy-to-use) version of a todo application. It incorporates Twitter Bootstrap, pagination, and a RESTful controller. It's based loosely on a scaffold from Jeffrey Way's <a href="https://github.com/JeffreyWay/Laravel-4-Generators">Laravel-4-Generators</a> project, but testing is done differently. I'm splitting up the controller unit tests from the controller functional tests. This helps me find where the break happens, if something breaks. It should be a nice launching pad to more interesting projects.</p>
+<p class="note">This is a somewhat more sophisticated (though not as easy-to-use) version of a todo application. It incorporates Twitter Bootstrap, pagination, and a RESTful controller. It's based loosely on a scaffold from Jeffrey Way's <a href="https://github.com/JeffreyWay/Laravel-4-Generators">Laravel-4-Generators</a> project, but testing is done differently. I'm splitting up the controller unit tests from the controller functional tests. This helps me find where the break happens, if something breaks. It should be a nice launching pad to more interesting projects.  @include('partials.github')</p>
 
 
 <h2>All Todos</h2>

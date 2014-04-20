@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a very simple test using <a href="http://deepliquid.com/content/Jcrop.html">jcrop</a>.</p>
+<p class="note">This is a very simple test using <a href="http://deepliquid.com/content/Jcrop.html">jcrop</a>. @include('partials.github')</p>
 
 <img id="main" src="/img/day.jpg">
 

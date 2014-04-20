@@ -9,7 +9,7 @@
     }
 </style>
 
-<p class="note">This is a take on the classic <a href="http://codingdojo.org/cgi-bin/wiki.pl?KataBowling">Bowling Game kata</a>, with some minor variations. It should handle partials and intermediate frames.</p>
+<p class="note">This is a take on the classic <a href="http://codingdojo.org/cgi-bin/wiki.pl?KataBowling">Bowling Game kata</a>, with some minor variations. It should handle partials and intermediate frames.  @include('partials.github')</p>
 
 @if($error)
     <p class="error">{{ $error }}</p>

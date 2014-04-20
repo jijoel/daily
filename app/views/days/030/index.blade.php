@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a test of the D3 library. The script is copied almost verbatim from <a href="http://jsfiddle.net/robdodson/KWRxW/">http://jsfiddle.net/robdodson/KWRxW/</a></p>
+<p class="note">This is a test of the D3 library. The script is copied almost verbatim from <a href="http://jsfiddle.net/robdodson/KWRxW/">http://jsfiddle.net/robdodson/KWRxW/</a>.  @include('partials.github')</p>
 
 <div class="d3"></div>
 
