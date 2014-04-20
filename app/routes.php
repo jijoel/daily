@@ -225,3 +225,8 @@ Route::resource('day038', 'Days\Day038\Bootstrap6Controller',
 Route::resource('day039', 'Days\Day039\Bootstrap7Controller',
     array('only'=>array('index','store','show')));
 
+// Day 40 --------------------------------------------------------
+View::composer('partials.github', 'Days\Support\PaddedDayComposer');
+Route::resource('day040', 'Days\Day040\Bootstrap8Controller',
+    array('only'=>array('index','store','show')));
+
