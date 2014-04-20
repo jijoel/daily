@@ -40,13 +40,14 @@ class Bootstrap8Controller extends BaseController
 
     public function store()
     {
-        sleep(1);
         $page = Input::get('page');
 
         if (!isset($this->rules[$page]))
             return;
 
         $valid = Validator::make(Input::get($page), $this->rules[$page]);
+
+        // This is where you would save data (if you want to store data at each step)
 
         $url = URL::action(get_class($this).'@show', $page);
         return Redirect::to($url)->withInput()->withErrors($valid);

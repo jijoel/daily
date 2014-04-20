@@ -46,7 +46,9 @@
     ];
 
     $(function(){
-        $('#wizard').scope().init(wizard_steps);
+        $('#wizard').scope().init(wizard_steps, function(){
+            alert('submitted!!!');
+        });
     });
 
 
@@ -56,8 +58,10 @@
         $scope.steps = [];
         $scope.step = 0;
         $scope.submitText = '';
+        $scope.submissionResult = function(){};
 
-        $scope.init = function(steps) {
+        $scope.init = function(steps, submissionResult) {
+            $scope.submissionResult = submissionResult;
             $scope.steps = steps;
             $scope.$apply();
 
@@ -175,7 +179,7 @@
             if(! $scope.isLastStep()) 
                 return $scope.setCurrentStep($scope.step + 1);
 
-            alert ('submitted!');
+            $scope.submissionResult();
         };
     });
 </script>
