@@ -17,7 +17,7 @@
     </fieldset>
 </form>
 
-<p>Form with help block and label and control widths specified:</p>
+<p>Form with help block and label and control widths specified (WRONG):</p>
 <form class="form">
     <fieldset>
         <div class="form-group">
@@ -245,7 +245,7 @@
     </fieldset>
 </form>
 
-<p>Horizontal form with inline fields; help block in same div as input:</p>
+<p>Horizontal form with inline fields; various help blocks:</p>
 <form class="form-horizontal">
     <fieldset>
         <div class="form-group">
@@ -272,6 +272,52 @@
     </fieldset>
 </form>
 
+<p>Horizontal form with inline fields and help block in same div:</p>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-3" for="field">Field</label>
+            <div class="col-md-10 col-sm-9">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                        <span class="help-block">This is a help block</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                        <span class="help-block">This is a help block</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                        <span class="help-block">This is a help block</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<p>Horizontal form with inline fields and no help block:</p>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-3" for="field">Field</label>
+            <div class="col-md-10 col-sm-9">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
 
 <p>Horizontal form with radio buttons and a label:</p>
 <form class="form-horizontal">
