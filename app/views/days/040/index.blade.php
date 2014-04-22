@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is an attempt at a cleaner Bootstrap form wizard (using Angular). 
+<p class="note">This is an attempt at a cleaner Bootstrap form wizard (using Angular and Laravel form macros). Much of the Angular code for the wizard is adapted from <a href="http://onehungrymind.com/ng-animate-first-look-with-angularjs-wizard/">onehungrymind</a>.  
 @include('partials.github')</p>
 
 <div id="wizard" ng-app="App" ng-controller="WizardController">

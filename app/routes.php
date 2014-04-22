@@ -206,20 +206,16 @@ Route::resource('day034', 'Days\Day034\Bootstrap2Controller',
     array('only'=>array('index','store')));
 
 // Day 35 --------------------------------------------------------
-Route::resource('day035', 'Days\Day035\Bootstrap3Controller',
-    array('only'=>array('index')));
+Route::get('day035', 'Days\Day035\Bootstrap3Controller@index');
 
 // Day 36 --------------------------------------------------------
-Route::resource('day036', 'Days\Day036\Bootstrap4Controller',
-    array('only'=>array('index')));
+Route::get('day036', 'Days\Day036\Bootstrap4Controller@index');
 
 // Day 37 --------------------------------------------------------
-Route::resource('day037', 'Days\Day037\Bootstrap5Controller',
-    array('only'=>array('index')));
+Route::get('day037', 'Days\Day037\Bootstrap5Controller@index');
 
 // Day 38 --------------------------------------------------------
-Route::resource('day038', 'Days\Day038\Bootstrap6Controller',
-    array('only'=>array('index')));
+Route::get('day038', 'Days\Day038\Bootstrap6Controller@index');
 
 // Day 39 --------------------------------------------------------
 Route::resource('day039', 'Days\Day039\Bootstrap7Controller',
@@ -229,4 +225,7 @@ Route::resource('day039', 'Days\Day039\Bootstrap7Controller',
 View::composer('partials.github', 'Days\Support\PaddedDayComposer');
 Route::resource('day040', 'Days\Day040\Bootstrap8Controller',
     array('only'=>array('index','store','show')));
+
+// Day 41 --------------------------------------------------------
+Route::get('day041', 'Days\Day041\Bootstrap9Controller@index');
 

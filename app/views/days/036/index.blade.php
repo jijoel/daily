@@ -17,7 +17,22 @@
     </fieldset>
 </form>
 
-<p>Horizontal form with help block, no label or control widths specified:</p>
+<p>Form with help block and label and control widths specified (WRONG):</p>
+<form class="form">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-3" for="field">Field</label>
+            <div class="col-md-10 col-sm-9">
+                <input type="text" id="field" name="field" class="form-control">
+            </div>
+            <div class="col-md-10 col-sm-9 col-md-offset-2 col-sm-offset-3">
+                <span class="help-block">This is a help block</span>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<p>Horizontal form with help block, no label or control widths specified (WRONG):</p>
 <form class="form-horizontal">
     <fieldset>
         <div class="form-group">
@@ -47,15 +62,32 @@
     </fieldset>
 </form>
 
-<p>Horizontal form with help block in same div as input:</p>
+<p>Horizontal form with narrow field and help block in wrapper:</p>
 <form class="form-horizontal">
     <fieldset>
         <div class="form-group">
             <label class="control-label col-md-2 col-sm-3" for="field">Field</label>
-            <div class="col-md-10 col-sm-9">
+            <div class="col-md-4 col-sm-4"><!-- note that this is NOT the full width -->
                 <input type="text" id="field" name="field" class="form-control">
-                <span class="help-block">This is a help block</span>
             </div>
+            <div class="col-md-10 col-sm-9 col-md-offset-2 col-sm-offset-3">
+                <span class="help-block">This is a help block with text that extends the entire length of the control and just a little bit further to demonstrate wrapping (multiple lines are an interesting topic; let's see how they're done).</span>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<p>Horizontal form with narrow field and help block without wrapper:</p>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="field">Field</label>
+            <div class="col-md-4"><!-- note that this is NOT the full width -->
+                <input type="text" id="field" name="field" class="form-control">
+            </div>
+            <!-- note the help wrapper class is missing -->
+                <span class="help-block">This is a help block with text that extends the entire length of the control and just a little bit further to demonstrate wrapping (multiple lines are an interesting topic; let's see how they're done).</span>
+            <!-- /note -->
         </div>
     </fieldset>
 </form>
@@ -67,7 +99,20 @@
             <label class="control-label col-md-2 col-sm-3" for="field">Field</label>
             <div class="col-md-4 col-sm-4">
                 <input type="text" id="field" name="field" class="form-control">
-                <span class="help-block">This is a help block with text that extends the entire length of the control</span>
+                <span class="help-block">This is a help block with text that extends the entire length of the control and just a little bit further to demonstrate wrapping (multiple lines are an interesting topic; let's see how they're done).</span>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<p>Horizontal form with help block in same div as input:</p>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-3" for="field">Field</label>
+            <div class="col-md-10 col-sm-9">
+                <input type="text" id="field" name="field" class="form-control">
+                <span class="help-block">This is a help block</span>
             </div>
         </div>
     </fieldset>
@@ -200,7 +245,7 @@
     </fieldset>
 </form>
 
-<p>Horizontal form with inline fields; help block in same div as input:</p>
+<p>Horizontal form with inline fields; various help blocks:</p>
 <form class="form-horizontal">
     <fieldset>
         <div class="form-group">
@@ -227,6 +272,52 @@
     </fieldset>
 </form>
 
+<p>Horizontal form with inline fields and help block in same div:</p>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-3" for="field">Field</label>
+            <div class="col-md-10 col-sm-9">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                        <span class="help-block">This is a help block</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                        <span class="help-block">This is a help block</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                        <span class="help-block">This is a help block</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<p>Horizontal form with inline fields and no help block:</p>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-3" for="field">Field</label>
+            <div class="col-md-10 col-sm-9">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" id="field" name="field" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
 
 <p>Horizontal form with radio buttons and a label:</p>
 <form class="form-horizontal">
