@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('42',  'day042',        'Bootstrap Forms 10 - FormBuilder Form Wizard'),
     array('41',  'day041',        'Bootstrap Forms 9 - FormBuilder Form Layout'),
     array('40',  'day040',        'Bootstrap Forms 8 - DRY Form Wizard'),
     array('39',  'day039',        'Bootstrap Forms 7 - Laravel / Bootstrap Form Wizard'),
