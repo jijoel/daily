@@ -37,7 +37,7 @@ class Bootstrap7Controller extends BaseController
     public function store()
     {
         $page = Input::get('page');
-        if (!$this->rules[$page])
+        if (!isset($this->rules[$page]))
             return;
 
         $valid = Validator::make(Input::get($page), $this->rules[$page]);

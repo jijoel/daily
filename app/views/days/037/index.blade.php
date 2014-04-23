@@ -1,6 +1,7 @@
 @section('content')
 
-<p class="note">This is a study on creating forms using the <a href="http://anahkiasen.github.io/former/">Former</a> package with the TwitterBootstrap3 framework. See the source on <a href="https://github.com/jijoel/daily/blob/master/app/views/days/037/index.blade.php">Github</a>.</p>
+<p class="note">This is a study on creating forms using the <a href="http://anahkiasen.github.io/former/">Former</a> package with the TwitterBootstrap3 framework.
+@include('partials.github')</p>
 
 {{ Former::framework('TwitterBootstrap3') }}
 

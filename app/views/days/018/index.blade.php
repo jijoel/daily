@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is an input form featuring autocomplete.</p>
+<p class="note">This is an input form featuring autocomplete.  @include('partials.github')</p>
 
 <p>
     {{ Form::label('autocomplete', 'Autocomplete Text') }}

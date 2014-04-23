@@ -2,7 +2,8 @@
 
 @section('content')
 
-<p class="note">A very simple to-do list. Enter a new item below, or click any item to mark it as done (and remove it)</p>
+<p class="note">A very simple to-do list. Enter a new item below, or click any item to mark it as done (and remove it).
+ @include('partials.github')</p>
 
 <ul>
 @foreach($items as $item)

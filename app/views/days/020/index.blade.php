@@ -1,6 +1,8 @@
 @section('content')
 
-<p class="note">This is an attempt to log in with different users (but using the same routes). {{ $authInfo }}</p>
+<p class="note">This is an attempt to log in with different users (but using the same routes). @include('partials.github')</p> 
+
+<p>{{ $authInfo }}</p>
 
 @if(Session::has('errors'))
 <div class="messages">

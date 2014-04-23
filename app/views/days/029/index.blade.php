@@ -1,6 +1,6 @@
 @section('content')
 
-<p class="note">This is a test</p>
+<p class="note">This is a test of rendering svg via angular.  @include('partials.github')</p>
 
 <div ng-controller="GridController">
 

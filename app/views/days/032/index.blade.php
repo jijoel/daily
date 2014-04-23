@@ -1,6 +1,7 @@
 @section('content')
 
-<p class="note">This is a test to see if we can send email via a queued interface.</p>
+<p class="note">This is a test to see if we can send email via a queued interface.
+ @include('partials.github')</p>
 
 {{ Form::open() }}
 
