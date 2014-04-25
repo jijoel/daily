@@ -238,5 +238,5 @@ Route::get('day043', 'Days\Day043\Select2Controller@index');
 
 // Day 44 --------------------------------------------------------
 Route::resource('day044', 'Days\Day044\FileUploadController',
-    array('only'=>array('index','store','show')));
+    array('only'=>array('index','store')));
 
