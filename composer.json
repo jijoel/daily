@@ -8,7 +8,7 @@
         "artdarek/oauth-4-laravel": "dev-master",
         "intervention/image": "dev-master",
         "pda/pheanstalk": "dev-master",
-        "kalani/form-builder": "dev-master",
+        "kalani/form-builder": "dev-dev",
         "anahkiasen/former": "dev-master"
     },
     "require-dev": {
