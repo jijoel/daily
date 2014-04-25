@@ -65,3 +65,9 @@ p {
 .error { color: red; font-style: italic; }
 
 form ul { margin-left: 0; list-style: none; }
+
+.bordered {
+    padding: 20px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+}
