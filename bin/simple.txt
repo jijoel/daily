@@ -26,7 +26,7 @@ use BaseController;
 
 class [Class]Controller extends BaseController 
 {
-    protected $layout = 'layouts.multipage';
+    protected $layout = 'layouts.bootstrap3';
     
     public function index()
     {
@@ -42,7 +42,8 @@ class [Class]Controller extends BaseController
 #>app/views/days/[day]/index.blade.php
 @section('content')
 
-<p class="note">This is ...</p>
+<p class="note">This is ...
+@include('partials.github')</p>
 
 @stop
 

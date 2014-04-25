@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('44',  'day044',        'File Uploading'),
     array('43',  'day043',        'Select2 Selection Controls'),
     array('42',  'day042',        'Bootstrap Forms 10 - FormBuilder Form Wizard'),
     array('41',  'day041',        'Bootstrap Forms 9 - FormBuilder Form Layout'),
