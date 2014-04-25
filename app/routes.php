@@ -232,3 +232,7 @@ Route::get('day041', 'Days\Day041\Bootstrap9Controller@index');
 // Day 42 --------------------------------------------------------
 Route::resource('day042', 'Days\Day042\Bootstrap10Controller',
     array('only'=>array('index','store','show')));
+
+// Day 43 --------------------------------------------------------
+Route::get('day043', 'Days\Day043\Select2Controller@index');
+
