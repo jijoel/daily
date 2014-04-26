@@ -3,12 +3,13 @@
 
 class Factors
 {
-    public function make($n)
+    public function make($value)
     {
+        $n = $value;
         $factors = array();
 
-        for ($divisor = 2; ($n > 1) && ($divisor <= sqrt($n)); $divisor++) {
-            for (; $n % $divisor == 0; $n /= $divisor) {
+        for ($divisor = 2; ($n > 1) && ($divisor <= bcsqrt($n)); $divisor++) {
+            for (; bcmod($n, $divisor) == 0; $n = bcdiv($n,$divisor)) {
                 $factors[] = $divisor;
             }
         }

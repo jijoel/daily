@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * @group now
+ */
 class FactorsControllerTest extends ControllerTestCase
 {
     public function testIndex()
@@ -27,6 +29,12 @@ class FactorsControllerTest extends ControllerTestCase
         $this->call('POST', '/day022', $data);
 
         $this->assertRedirectedToRoute('day022.index');
+    }
+
+    public function testStoreHandlesWhitespace()
+    {
+        $this->call('POST', '/day022', array('number', '200 '));
+        $this->assertRedirectedToRoute('day022.index');        
     }
 }
 

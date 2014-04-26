@@ -1,6 +1,6 @@
 @section('content')
 
-<p>Today's exercise has some interesting work on the back-end, but you won't actually see anything special on the front-end.</p>
+<p>Today's exercise has some interesting work on the back-end, but you won't actually see anything special on the front-end. @include('partials.github')</p>
 
 <p>I have changed the way that I am storing the front-page menu. Instead of importing days.blade.php (with all of the html codes manually entered), I am  entering menu items as an array in the app/config/days.php. A view composer makes sure that the home page gets that array, so it can build the menu items. Ultimately, it will make the menu a lot more flexible, because I'll be able to change all of the styling for menu items in one place.</p>
 

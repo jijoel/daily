@@ -231,6 +231,7 @@
     <div class="class1">
         <a href="/">Home</a>
         <h1>And now for something completely different...</h1>
+        <p class="note">@include('partials.github')</p>
     </div>
     <div class="c2">
         <div class="class2"></div>

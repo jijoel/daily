@@ -17,7 +17,8 @@
 
         <h1><a href="{{$dayLink}}">{{ 'Day ' . $day . ': ' . $dayTitle }}</a></h1>
 
-        <p class="note">This is an example of using an Angular resource to tie in to a Laravel back-end.</p>
+        <p class="note">This is an example of using an Angular resource to tie in to a Laravel back-end. 
+        @include('partials.github')</p>
 
         <div ng-controller="TodosController">
             <input type="search" ng-model="search" placeholder="Filter">

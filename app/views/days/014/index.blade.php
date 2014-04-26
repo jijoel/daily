@@ -52,7 +52,7 @@
 
 @section('content')
 
-<p class="note">This app will display return values from methods of Laravel's Str class, so you can see exactly what you'll be getting.</p>
+<p class="note">This app will display return values from methods of Laravel's Str class, so you can see exactly what you'll be getting. @include('partials.github')</p>
 
 
 {{ Form::open(array('url'=>URL::route('day014.store'), 'method'=>'POST')) }}

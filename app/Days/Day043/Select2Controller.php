@@ -1,6 +1,7 @@
 <?php namespace Days\Day043;
 
 use View;
+use Redirect;
 use BaseController;
 
 class Select2Controller extends BaseController 
@@ -14,7 +15,7 @@ class Select2Controller extends BaseController
 
     public function store()
     {
-    
+        return Redirect::back()->withInput();
     }
 }
 

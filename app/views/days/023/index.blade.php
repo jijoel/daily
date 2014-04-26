@@ -15,6 +15,8 @@
 
         <h1><a href="{{$dayLink}}">{{ 'Day ' . $day . ': ' . $dayTitle }}</a></h1>
 
+        <p class="note">This is a very basic introduction to an Angular model. @include('partials.github')</p>
+
         <label>Name:</label>
         <input type="text" ng-model="yourName" placeholder="Enter a name here">
 
