@@ -47,15 +47,38 @@
     {{ KForm::closeGroup() }}
 {{ KForm::close() }}
 
-<p>Horizontal form with select field and help:</p>
+<p>Horizontal form with multiple narrow fields and labels:</p>
+{{ KForm::open()->horizontal() }}
+    {{ KForm::group('Fields') }}
+        {{ KForm::text('field1')->label('Field1')->help($longHelp)->width('sm',4)}}
+        {{ KForm::text('field2')->label('Field2')->help($longHelp)->width('sm',3)}}
+        {{ KForm::text('field2')->label('Field3')->help($longHelp)->width('sm',3)}}
+    {{ KForm::closeGroup() }}
+{{ KForm::close() }}
+
+<p>Horizontal form with narrow select field and help:</p>
 {{ KForm::open()->horizontal() }}
     {{ KForm::select('field')->options(array('foo','bar'))->help($longHelp)->width('sm',4)}}
+{{ KForm::close() }}
+
+<p>Horizontal form with multiple select fields:</p>
+{{ KForm::open()->horizontal() }}
+    {{ KForm::group('Fields') }}
+        {{ KForm::select('field1')->options(array('foo','bar'))->help($longHelp)->width('sm',4)->label('Field1')}}
+        {{ KForm::select('field2')->options(array('foo','bar'))->help($longHelp)->width('sm',4)->label('Field2')}}
+    {{ KForm::closeGroup() }}
 {{ KForm::close() }}
 
 <p>Horizontal form with textarea field and help:</p>
 {{ KForm::open()->horizontal() }}
     {{ KForm::textarea('field')->help($longHelp) }}
 {{ KForm::close() }}
+
+<p>Horizontal form with full-width textarea field:</p>
+{{ KForm::open()->horizontal() }}
+    {{ KForm::textarea('field')->help($longHelp)->fullWidth() }}
+{{ KForm::close() }}
+
 
 <p>Horizontal form with radio buttons</p>
 <p>Horizontal form with inline radio buttons</p>

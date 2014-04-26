@@ -32,6 +32,21 @@
     </fieldset>
 </form>
 
+<p>Form with help block and label; widths specified for control (WRONG):</p>
+<form class="form">
+    <fieldset>
+        <div class="form-group">
+            <label class="control-label" for="field">Field</label>
+            <div class="col-md-10 col-sm-9">
+                <input type="text" id="field" name="field" class="form-control">
+            </div>
+            <div class="col-md-10 col-sm-9">
+                <span class="help-block">This is a help block</span>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
 <p>Horizontal form with help block, no label or control widths specified (WRONG):</p>
 <form class="form-horizontal">
     <fieldset>
