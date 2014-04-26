@@ -17,7 +17,7 @@
 
         <h1><a href="{{$dayLink}}">{{ 'Day ' . $day . ': ' . $dayTitle }}</a></h1>
 
-        <p class="note">This is an example of using Angular for a list with a detail view, based on a jsfiddle at <a href="http://jsfiddle.net/viralpatel/JFYLH/">http://jsfiddle.net/viralpatel/JFYLH/</a>.</p>
+        <p class="note">This is an example of using Angular for a list with a detail view, based on a jsfiddle at <a href="http://jsfiddle.net/viralpatel/JFYLH/">http://jsfiddle.net/viralpatel/JFYLH/</a>. @include('partials.github')</p>
 
 
         <div ng-app="" ng-controller="ContactController">
