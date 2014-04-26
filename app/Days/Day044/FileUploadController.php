@@ -47,5 +47,13 @@ class FileUploadController extends BaseController
 
         return $this->index();
     }
+
+    public function destroy($id)
+    {
+        $found = Day044File::findOrFail($id);
+        unlink(public_path().'/day044_files/'.$found->thumbnail);
+
+        $found->delete();
+    }
 }
 
