@@ -241,3 +241,7 @@ Route::resource('day043', 'Days\Day043\Select2Controller',
 Route::resource('day044', 'Days\Day044\FileUploadController',
     array('only'=>array('index','store')));
 
+// Day 45 --------------------------------------------------------
+Route::resource('day045', 'Days\Day045\AjaxFormController',
+    array('only'=>array('index','store')));
+

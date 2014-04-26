@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('45',  'day045',        'Ajax Forms (jQuery vs Angular)'),
     array('44',  'day044',        'File Uploading'),
     array('43',  'day043',        'Select2 Selection Controls'),
     array('42',  'day042',        'Bootstrap Forms 10 - FormBuilder Form Wizard'),
