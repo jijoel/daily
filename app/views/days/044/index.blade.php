@@ -5,10 +5,13 @@
 
 <div class="row">
 @foreach($files as $file)
-    <div class="col-sm-3">
+    <div class="col-sm-3 uploaded-image">
         <div class="thumbnail">
             <img src="day044_files/{{$file->thumbnail}}" alt="{{$file->thumbnail}}">
             <div class="caption">
+                <p class="delete-button" style="float:right">
+                    <a href="#" data-id="{{$file->id}}">[x]</a>
+                </p>
                 <p>{{$file->title}}</p>
             </div>
         </div>
@@ -43,3 +46,22 @@
 
 @stop
 
+
+@section('js')
+<script type="text/javascript">
+$(document).ready(function()
+{
+    $('.delete-button a').click(function($evt){
+        $evt.preventDefault();
+        var $this = $(this);
+        $.ajax({
+            'type': 'DELETE',
+            'url':    '/day044/' + $this.data('id'),
+        }).success(function(){
+            $this.closest('.uploaded-image').remove();
+        });
+    });
+});
+
+</script>
+@stop
