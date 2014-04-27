@@ -1,5 +1,5 @@
 @section('styles')
 
-    <link href="/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="/vendor/css/themes/smoothness/jquery-ui.min.css" rel="stylesheet">
 
 @show

@@ -455,5 +455,5 @@ form
 
 
 @section('css')
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/css/font-awesome.min.css">
 @stop

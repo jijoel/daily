@@ -24,7 +24,7 @@ gulp.task('bower', ['clean', 'load'], function(){
         'jquery/dist/*',
         'jquery-autosize/*',
         'jquery-timepicker/dist/*',
-        'jqueryui/ui/minified/*',
+        'jquery-ui/ui/minified/*',
         'select2/*',
         'twitter-bootstrap-wizard/jquery*',
         'underscore/*',
@@ -50,7 +50,7 @@ gulp.task('bower', ['clean', 'load'], function(){
             .pipe(gulp.dest(dest+'js'));
     });
 
-    gulp.src(src+'jqueryui/themes/*')
+    gulp.src(src+'jquery-ui/themes/**/*')
         .pipe(gulp.dest(dest+'css/themes'));
 
     gulp.src(src+'bootstrap/dist/fonts/*')
