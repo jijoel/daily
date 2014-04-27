@@ -1,13 +1,14 @@
 var gulp = require('gulp');
-var bower = require('gulp-bower-files');
 var filter = require('gulp-filter');
 var flatten = require('gulp-flatten');
 var phpunit = require('gulp-phpunit');
 var plumber = require('gulp-plumber');
+var clean = require('gulp-clean');
+var bower = require('gulp-bower');
 var exec = require('child_process').exec;
 var sys = require('sys');
 
-gulp.task('bower', function(){
+gulp.task('bower', ['clean', 'load'], function(){
     var bowerFilesToMove = [
         'angular*/*',
         'bootstrap/dist/*',
@@ -22,10 +23,6 @@ gulp.task('bower', function(){
         'underscore/*',
         'fontawesome/*'
     ];
-
-    exec('rm -rf public/vendor', function(error, stdout) {
-        sys.puts(stdout);
-    });
 
     bowerFilesToMove.forEach(function(filespec){
         gulp.src('./bower_components/'+filespec+'.css')
@@ -48,6 +45,22 @@ gulp.task('bower', function(){
     gulp.src('./bower_components/fontawesome/fonts/*')
         .pipe(gulp.dest('public/vendor/fonts'));
 
+    gulp.src('./bower_components/jcrop/css/*.gif')
+        .pipe(gulp.dest('public/vendor/css'));
+
+    gulp.src(['./bower_components/select2/*.png',
+            './bower_components/select2/*.png'])
+        .pipe(gulp.dest('public/vendor/css'));
+
+});
+
+gulp.task('clean', function(){
+    return gulp.src('./public/vendor')
+        .pipe(clean({force: true}));
+});
+
+gulp.task('load', function(){
+    return bower();
 });
 
 gulp.task('phpunit', function() {
