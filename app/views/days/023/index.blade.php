@@ -24,7 +24,7 @@
         <h1>Hello @{{yourName}}!</h1>
     </div>
 
-<script type="text/javascript" src="/js/angular.min.js"></script>
+<script type="text/javascript" src="/vendor/js/angular.min.js"></script>
 
 </body>
 </html>

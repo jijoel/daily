@@ -1,12 +1,8 @@
 @section('js')
 
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.core.min.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.position.min.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.menu.min.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.autocomplete.min.js"></script>
-<script type="text/javascript" src="/js/underscore-min.js"></script>
+<script type="text/javascript" src="/vendor/js/jquery.min.js"></script>
+<script type="text/javascript" src="/vendor/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/vendor/js/underscore.min.js"></script>
 
 <script type="text/javascript">
 

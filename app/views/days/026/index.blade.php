@@ -38,8 +38,8 @@
 
     </div>
 
-<script type="text/javascript" src="/js/angular.min.js"></script>
-<script type="text/javascript" src="/js/angular-resource.min.js"></script>
+<script type="text/javascript" src="/vendor/js/angular.min.js"></script>
+<script type="text/javascript" src="/vendor/js/angular-resource.min.js"></script>
 <script type="text/javascript">
     angular.module('todos', ['ngResource'])
         .controller('TodosController', function($scope, $resource) {

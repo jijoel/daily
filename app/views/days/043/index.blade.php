@@ -63,7 +63,7 @@
 
 
 @section('js')
-    <script type="text/javascript" src="/js/select2.min.js"></script>    
+    <script type="text/javascript" src="/vendor/js/select2.min.js"></script>    
     <script type="text/javascript">
         $(function(){
             $('#test1').select2();
@@ -102,8 +102,8 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/select2.css">
-    <link rel="stylesheet" type="text/css" href="/css/select2-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/css/select2.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/css/select2-bootstrap.css">
     <style type="text/css">
         .test {
             background-color: green;

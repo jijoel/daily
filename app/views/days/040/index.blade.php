@@ -27,7 +27,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/css/bootstrap-theme.min.css">
     <style type="text/css">
         .wizard .btn {
             border-radius: 15px;

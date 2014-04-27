@@ -61,7 +61,7 @@
 
     </div><!-- '.container' -->
 
-<script type="text/javascript" src="/js/angular.min.js"></script>
+<script type="text/javascript" src="/vendor/js/angular.min.js"></script>
 <script>
 
 var uid = 4;

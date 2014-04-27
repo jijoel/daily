@@ -5,7 +5,7 @@
     <title>Day {{ $day }} - {{ $dayTitle }}</title>
 
     @section('styles')
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/vendor/css/bootstrap.min.css">
         <link href="/css/home.css" type="text/css" rel="stylesheet" />
         @yield('css')
     @show
@@ -25,9 +25,9 @@
     </div><!-- .container -->
 
 @section('script')
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/vendor/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/vendor/js/angular.min.js"></script>
     @yield('js')
 @show
 

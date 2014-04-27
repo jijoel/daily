@@ -31,7 +31,7 @@ rect {
 @stop
 
 @section('js')
-<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="/vendor/js/d3.js"></script>
 <script type="text/javascript">
 
 
