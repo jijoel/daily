@@ -6,6 +6,12 @@
 composer.phar
 composer.lock
 
+# Assets
+/bower_components
+/node_modules
+/public/vendor
+/public/assets
+
 # OS
 .DS_Store
 
@@ -13,5 +19,3 @@ composer.lock
 /app/config/local
 /app/config/staging
 /app/config/production
-
-/public/day044_files
