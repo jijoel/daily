@@ -455,5 +455,5 @@ form
 
 
 @section('css')
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    {{ HTML::css('font-awesome')}}
 @stop

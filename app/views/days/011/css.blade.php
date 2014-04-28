@@ -1,7 +1,8 @@
 @section('css')
 
-    <link href="/css/home.css" type="text/css" rel="stylesheet" />
-    <link href="/css/jquery.Jcrop.min.css" type="text/css" rel="stylesheet" />
+    {{ HTML::css('home')}}
+    {{ HTML::css('jquery-jcrop')}}
+
     <style type="text/css">
         input {
             width: 4em;

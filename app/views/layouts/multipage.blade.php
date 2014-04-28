@@ -5,8 +5,8 @@
     <title>Day {{ $day }} - {{ $dayTitle }}</title>
 
     @section('css')
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="/css/home.css" type="text/css" rel="stylesheet" />
+        {{ HTML::css('bootstrap2')}}
+        {{ HTML::css('home')}}
         @yield('styles')
     @show
 

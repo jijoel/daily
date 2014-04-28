@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Day 10</title>
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    {{ HTML::css('font-awesome')}}
 
 <style type="text/css">
     /* Colors */
@@ -684,11 +684,9 @@
         <div class="class6"></div>    
     </div>
 
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.core.min.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.mouse.min.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.draggable.min.js"></script>
+{{ HTML::js('jquery')}}
+{{ HTML::js('jquery-ui')}}
+
 <script type="text/javascript">
 $(function() {
     $('.huge.fa-heart').draggable();
