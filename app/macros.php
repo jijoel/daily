@@ -1,6 +1,6 @@
 <?php
 
-Form::macro('css', function($file){
+HTML::macro('css', function($file){
     $href = Config::get('assets.css.'.$file);
 
     if (! $href)
@@ -9,7 +9,7 @@ Form::macro('css', function($file){
     return '<link href="'.$href.'" type="text/css" rel="stylesheet" />';
 });
 
-Form::macro('js', function($file){
+HTML::macro('js', function($file){
     $href = Config::get('assets.js.'.$file);
 
     if (! $href)
