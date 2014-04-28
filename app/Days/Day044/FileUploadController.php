@@ -37,7 +37,7 @@ class FileUploadController extends BaseController
             
             $image = Image::make($file->getRealPath())
                 ->resize(300,200,true,false)
-                ->save(public_path().'/day044_files/'.$filename);
+                ->save(public_path().'/days/day044_files/'.$filename);
         }
 
         $record = new Day044File;
@@ -51,7 +51,7 @@ class FileUploadController extends BaseController
     public function destroy($id)
     {
         $found = Day044File::findOrFail($id);
-        unlink(public_path().'/day044_files/'.$found->thumbnail);
+        unlink(public_path().'/days/day044_files/'.$found->thumbnail);
 
         $found->delete();
     }
