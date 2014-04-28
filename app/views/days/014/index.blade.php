@@ -1,5 +1,6 @@
 @section('css')
-    <link href="/css/home.css" type="text/css" rel="stylesheet" />
+    {{ HTML::css('home')}}
+
     <style type="text/css">
     .table-wrapper {
         max-width: 100%;

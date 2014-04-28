@@ -24,7 +24,7 @@
 
 
 @section('js')
-<script type="text/javascript" src="/vendor/js/angular-route.min.js"></script>
+{{ HTML::js('angular-route')}}
 <script type="text/javascript">
 
 var GridApp = angular.module('GridApp', ['ngRoute'])    

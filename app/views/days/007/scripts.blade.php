@@ -1,6 +1,6 @@
 @section('js')
 
-<script type="text/javascript" src="/vendor/js/jquery.min.js"></script>
+{{ HTML::js('jquery')}}
 
 <script type="text/javascript">
 $(document).ready(function()

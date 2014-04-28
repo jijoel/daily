@@ -8,7 +8,7 @@
 
 @section('js')
 
-<script type="text/javascript" src="/vendor/js/d3.min.js"></script>
+{{ HTML::js('d3')}}
 <script type="text/javascript">
 
 svg = d3.select("#workspace").append('svg').attr({

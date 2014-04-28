@@ -1,8 +1,8 @@
 @section('js')
 
-<script type="text/javascript" src="/vendor/js/jquery.min.js"></script>    
-<script type="text/javascript" src="/vendor/js/jquery-ui.min.js"></script>    
-<script type="text/javascript" src="/vendor/js/jquery-ui-timepicker-addon.js"></script>    
+{{ HTML::js('jquery')}}
+{{ HTML::js('jquery-ui')}}
+{{ HTML::js('timepicker')}}
 
 <script type="text/javascript">
 

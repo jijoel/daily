@@ -31,7 +31,7 @@ rect {
 @stop
 
 @section('js')
-<script type="text/javascript" src="/vendor/js/d3.js"></script>
+{{ HTML::js('d3')}}
 <script type="text/javascript">
 
 

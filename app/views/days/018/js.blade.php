@@ -1,8 +1,8 @@
 @section('js')
 
-<script type="text/javascript" src="/vendor/js/jquery.min.js"></script>
-<script type="text/javascript" src="/vendor/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/vendor/js/underscore.min.js"></script>
+{{ HTML::js('jquery')}}
+{{ HTML::js('jquery-ui')}}
+{{ HTML::js('underscore')}}
 
 <script type="text/javascript">
 

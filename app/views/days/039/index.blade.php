@@ -53,7 +53,7 @@
 @section('js')
 <script type="text/javascript">
     // $.getScript('/vendor/js/jquery.bootstrap.wizard.min.js', function(){
-    $.getScript('/js/jquery.bootstrap.wizard.min.js', function(){
+    $.getScript("{{ Config::get('assets.js.bootstrap-wizard') }}", function(){
         $('#wizard').bootstrapWizard({
             'tabClass': 'nav nav-stacked',
             'onTabShow': function(tab, navigation, index) {

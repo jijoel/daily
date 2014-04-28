@@ -63,7 +63,7 @@
 
 
 @section('js')
-    <script type="text/javascript" src="/vendor/js/select2.min.js"></script>    
+    {{ HTML::js('select2')}}
     <script type="text/javascript">
         $(function(){
             $('#test1').select2();
@@ -102,8 +102,8 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/vendor/css/select2.css">
-    <link rel="stylesheet" type="text/css" href="/vendor/css/select2-bootstrap.css">
+    {{ HTML::css('select2')}}
+    {{ HTML::css('select2-bootstrap')}}
     <style type="text/css">
         .test {
             background-color: green;

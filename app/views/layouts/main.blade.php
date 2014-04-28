@@ -5,7 +5,7 @@
     <title>Day {{ $day }} - {{ $dayTitle }}</title>
 
     @section('css')
-    <link href="/css/home.css" type="text/css" rel="stylesheet" />
+        {{ HTML::css('home')}}
     @show
 
 </head>

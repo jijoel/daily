@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Day {{ $day }} - {{ $dayTitle }}</title>
 
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link href="/css/home.css" type="text/css" rel="stylesheet" />
+    {{ HTML::css('bootstrap2')}}
+    {{ HTML::css('home')}}
 
 </head>
 <body>
@@ -21,10 +21,10 @@
         <input type="text" ng-model="yourName" placeholder="Enter a name here">
 
         <hr>
-        <h1>Hello @{{yourName}}!</h1>
+        <h1 ng-show="yourName">Hello @{{yourName}}!</h1>
     </div>
 
-<script type="text/javascript" src="/vendor/js/angular.min.js"></script>
+{{ HTML::js('angular')}}
 
 </body>
 </html>

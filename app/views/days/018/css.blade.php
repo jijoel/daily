@@ -1,5 +1,5 @@
 @section('styles')
 
-    <link href="/vendor/css/themes/smoothness/jquery-ui.min.css" rel="stylesheet">
+    {{ HTML::css('jquery-ui')}}
 
 @show

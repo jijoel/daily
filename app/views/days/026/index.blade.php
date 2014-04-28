@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <title>Day {{ $day }} - {{ $dayTitle }}</title>
 
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link href="/css/home.css" type="text/css" rel="stylesheet" />
-
-    <style type="text/css">
-    </style>
+    {{ HTML::css('bootstrap2')}}
+    {{ HTML::css('home')}}
 </head>
 <body>
 
@@ -38,8 +35,9 @@
 
     </div>
 
-<script type="text/javascript" src="/vendor/js/angular.min.js"></script>
-<script type="text/javascript" src="/vendor/js/angular-resource.min.js"></script>
+{{ HTML::js('angular')}}
+{{ HTML::js('angular-resource')}}
+
 <script type="text/javascript">
     angular.module('todos', ['ngResource'])
         .controller('TodosController', function($scope, $resource) {

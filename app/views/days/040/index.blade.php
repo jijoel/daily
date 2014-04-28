@@ -27,7 +27,8 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/vendor/css/bootstrap-theme.min.css">
+    {{ HTML::css('bootstrap-theme')}}
+
     <style type="text/css">
         .wizard .btn {
             border-radius: 15px;
