@@ -1,53 +1,84 @@
 var gulp = require('gulp');
-var bower = require('gulp-bower-files');
 var filter = require('gulp-filter');
 var flatten = require('gulp-flatten');
 var phpunit = require('gulp-phpunit');
 var plumber = require('gulp-plumber');
+var clean = require('gulp-clean');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var bower = require('gulp-bower');
 var exec = require('child_process').exec;
 var sys = require('sys');
 
-gulp.task('bower', function(){
+var src = './bower_components/';
+var dest = './public/vendor/';
+
+gulp.task('bower', ['clean', 'load'], function(){
     var bowerFilesToMove = [
         'angular*/*',
-        'bootstrap/dist/*',
-        'd3/*.css',
-        'jasny-bootstrap/dist/*',
+        'bootstrap/dist/**/*',
+        'd3/*',
+        'jasny-bootstrap/dist/**/*',
         'jcrop/css/*',
         'jcrop/js/*',
         'jquery/dist/*',
         'jquery-autosize/*',
-        'jqueryui/ui/minified/*',
+        'jqueryui-timepicker-addon/dist/*',
+        'jquery-ui/ui/minified/*',
         'select2/*',
+        'twitter-bootstrap-wizard/jquery*',
         'underscore/*',
-        'fontawesome/*'
+        'fontawesome/css/*'
     ];
 
-    exec('rm -rf public/vendor', function(error, stdout) {
-        sys.puts(stdout);
+    bowerFilesToMove.forEach(function(filespec){
+        gulp.src(src+''+filespec+'.css')
+            .pipe(flatten())
+            .pipe(gulp.dest(dest+'css'));
     });
 
     bowerFilesToMove.forEach(function(filespec){
-        gulp.src('./bower_components/'+filespec+'.css')
+        gulp.src(src+''+filespec+'.js')
             .pipe(flatten())
-            .pipe(gulp.dest('public/vendor/css'));
+            .pipe(gulp.dest(dest+'js'));
     });
 
     bowerFilesToMove.forEach(function(filespec){
-        gulp.src('./bower_components/'+filespec+'.js')
+        gulp.src(src+''+filespec+'.map')
             .pipe(flatten())
-            .pipe(gulp.dest('public/vendor/js'));
+            .pipe(gulp.dest(dest+'css'))
+            .pipe(gulp.dest(dest+'js'));
     });
 
-    gulp.src('./bower_components/jqueryui/themes/*')
-        .pipe(gulp.dest('public/vendor/css/themes'));
+    gulp.src(src+'jquery-ui/themes/**/*')
+        .pipe(gulp.dest(dest+'css/themes'));
 
-    gulp.src('./bower_components/bootstrap/dist/fonts/*')
-        .pipe(gulp.dest('public/vendor/fonts'));
+    gulp.src(src+'bootstrap/dist/fonts/*')
+        .pipe(gulp.dest(dest+'fonts'));
 
-    gulp.src('./bower_components/fontawesome/fonts/*')
-        .pipe(gulp.dest('public/vendor/fonts'));
+    gulp.src(src+'fontawesome/fonts/*')
+        .pipe(gulp.dest(dest+'fonts'));
 
+    gulp.src(src+'jcrop/css/*.gif')
+        .pipe(gulp.dest(dest+'css'));
+
+    gulp.src([src+'select2/*.png', src+'select2/*.gif'])
+        .pipe(gulp.dest(dest+'css'));
+
+    gulp.src([src+'underscore/underscore.js'])
+        .pipe(rename('underscore.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(dest+'js'));
+
+});
+
+gulp.task('clean', function(){
+    return gulp.src(dest)
+        .pipe(clean({force: true}));
+});
+
+gulp.task('load', function(){
+    return bower();
 });
 
 gulp.task('phpunit', function() {

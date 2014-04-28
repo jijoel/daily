@@ -17,18 +17,24 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "*",
     "angular": "*",
     "angular-resource": "*",
     "angular-route": "*",
     "bootstrap": "*",
-    "jasny-bootstrap": "~3.1.2",
-    "jqueryui": "~1.10.4",
-    "underscore": "~1.6.0",
-    "select2": "~3.4.6",
-    "jquery-autosize": "*",
-    "jcrop": "*",
     "d3": "*",
-    "fontawesome": "*"
+    "jasny-bootstrap": "~3.1.2",
+    "jcrop": "*",
+    "jquery": "*",
+    "jquery-ui": "~1.10.4",
+    "jquery-autosize": "*",
+    "jqueryui-timepicker-addon": "*",
+    "fontawesome": "*",
+    "select2": "~3.4.6",
+    "twitter-bootstrap-wizard": "master",
+    "underscore": "~1.6.0"
+  },
+  "resolutions": {
+    "jquery-ui": "~1.10.4",
+    "bootstrap": "3.1.1"
   }
 }

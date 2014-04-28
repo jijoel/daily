@@ -1,3 +1,4 @@
+<script type="text/javascript">
 angular.module('Wizard', [])
 .controller('WizardController', function($scope) {
 
@@ -128,3 +129,4 @@ angular.module('Wizard', [])
         $scope.submissionResult();
     };
 });
+</script>

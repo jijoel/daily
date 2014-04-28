@@ -8,6 +8,9 @@
     "gulp-phpunit": "^0.5.1",
     "gulp-notify": "^1.2.5",
     "gulp-plumber": "^0.6.1",
-    "gulp-clean": "^0.2.4"
+    "gulp-clean": "^0.2.4",
+    "gulp-bower": "0.0.4",
+    "gulp-uglify": "^0.2.1",
+    "gulp-rename": "^1.2.0"
   }
 }

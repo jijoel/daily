@@ -19,29 +19,29 @@
             <div class="content">
                 @include('days.039.first')
             </div>
-            @include('partials.wizard-pager')
+            @include('days.039.wizard-pager')
         </div>
 
         <div class="tab-pane" id="second">
             <div class="content">
                 @include('days.039.second')
             </div>
-            @include('partials.wizard-pager')
+            @include('days.039.wizard-pager')
         </div>
 
         <div class="tab-pane" id="third">
             <p>This is the third page</p>
-            @include('partials.wizard-pager')
+            @include('days.039.wizard-pager')
         </div>
 
         <div class="tab-pane" id="fourth">
             <p>This is the fourth page</p>
-            @include('partials.wizard-pager')
+            @include('days.039.wizard-pager')
         </div>
 
         <div class="tab-pane" id="last">
             <p>This is the last page</p>
-            @include('partials.wizard-pager')
+            @include('days.039.wizard-pager')
         </div>
 
 
@@ -52,7 +52,8 @@
 
 @section('js')
 <script type="text/javascript">
-    $.getScript('/js/jquery.bootstrap.wizard.min.js', function(){
+    // $.getScript('/vendor/js/jquery.bootstrap.wizard.min.js', function(){
+    $.getScript("{{ Config::get('assets.js.bootstrap-wizard') }}", function(){
         $('#wizard').bootstrapWizard({
             'tabClass': 'nav nav-stacked',
             'onTabShow': function(tab, navigation, index) {

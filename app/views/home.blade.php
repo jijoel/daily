@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Daily Practice</title>
 
-    <link href="/css/home.css" type="text/css" rel="stylesheet" />
+    {{ HTML::css('home')}}
 </head>
 
 <body>

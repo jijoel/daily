@@ -31,7 +31,7 @@
 @stop
 
 @section('js')
-    <script type="text/javascript" src="/js/daily-wizard.js"></script>
+    @include('days.042.daily-wizard-js')
 
     <script type="text/javascript">
         $(function() {
