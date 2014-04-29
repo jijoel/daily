@@ -7,7 +7,7 @@
 @foreach($files as $file)
     <div class="col-sm-3 uploaded-image">
         <div class="thumbnail">
-            <img src="days/day044_files/{{$file->thumbnail}}" alt="{{$file->thumbnail}}">
+            <img src="days/day044/{{$file->thumbnail}}" alt="{{$file->thumbnail}}">
             <div class="caption">
                 <p class="delete-button" style="float:right">
                     <a href="#" data-id="{{$file->id}}">[x]</a>
