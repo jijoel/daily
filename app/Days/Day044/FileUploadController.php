@@ -9,6 +9,8 @@ use BaseController;
 
 class FileUploadController extends BaseController 
 {
+    const FILE_PATH = '/days/day044/';
+
     protected $layout = 'layouts.bootstrap3';
     
     protected $rules = array(
@@ -37,7 +39,7 @@ class FileUploadController extends BaseController
             
             $image = Image::make($file->getRealPath())
                 ->resize(300,200,true,false)
-                ->save(public_path().'/days/day044_files/'.$filename);
+                ->save(public_path().self::FILE_PATH.$filename);
         }
 
         $record = new Day044File;
@@ -51,7 +53,9 @@ class FileUploadController extends BaseController
     public function destroy($id)
     {
         $found = Day044File::findOrFail($id);
-        unlink(public_path().'/days/day044_files/'.$found->thumbnail);
+        try {
+            unlink(public_path().self::FILE_PATH.$found->thumbnail);
+        } catch (ErrorException $e) {}
 
         $found->delete();
     }

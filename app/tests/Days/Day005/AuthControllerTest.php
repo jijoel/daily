@@ -55,7 +55,7 @@ class Day5_AuthControllerTest extends ControllerTestCase
     public function testAuthControllerRequestsDataFromGoogle()
     {
         Input::replace(array('code'=>'foo'));
-        Config::shouldReceive('get')->once()->andReturn('google');
+        Config::shouldReceive('get')->atLeast()->once()->andReturn('google');
         $mock = Mockery::mock('day005_google')
             ->shouldReceive('requestAccessToken')->once()
             ->shouldReceive('request')->once()
