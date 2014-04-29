@@ -10,7 +10,7 @@ var bower = require('gulp-bower');
 var exec = require('child_process').exec;
 var sys = require('sys');
 
-var src = './bower_components/';
+var src = './vendor/bower/';
 var dest = './public/vendor/';
 
 gulp.task('bower', ['clean', 'load'], function(){

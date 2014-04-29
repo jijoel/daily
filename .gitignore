@@ -7,7 +7,6 @@ composer.phar
 composer.lock
 
 # Assets
-/bower_components
 /node_modules
 /public/vendor
 /public/assets
