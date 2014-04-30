@@ -3,7 +3,15 @@
 return array(
 
     'js' => array(
+
+        // 'angular' => "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js",
+        // 'angular-bootstrap' => "http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js",
+        // 'jquery'=>"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js",
+        // 'bootstrap'=>'cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
+        // 'bootstrap3'=>'cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
+
         'angular'           => '/vendor/js/angular.min.js',
+        'angular-bootstrap' => '/vendor/js/ui-bootstrap-tpls.min.js',
         'angular-resource'  => '/vendor/js/angular-resource.min.js',
         'angular-route'     => '/vendor/js/angular-route.min.js',
         'bootstrap'         => '/vendor/js/bootstrap.min.js',
@@ -21,7 +29,7 @@ return array(
 
     'css' => array(
         'home'              => '/css/home.css',
-
+        
         'bootstrap'         => '/vendor/css/bootstrap.min.css',
         'bootstrap2'        => '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css',
         'bootstrap3'        => '/vendor/css/bootstrap.min.css',
