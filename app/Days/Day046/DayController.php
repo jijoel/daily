@@ -2,6 +2,7 @@
 
 use View;
 use Input;
+use Response;
 use BaseController;
 
 class DayController extends BaseController 
@@ -21,7 +22,7 @@ class DayController extends BaseController
     public function store()
     {
         $this->form->validate(Input::all());
-        return '';    // TODO: Change to success state and success message
+        return Response::json(array('message'=>'Your data has been validated successfully'));
     }
 }
 

@@ -29,7 +29,10 @@ App::error(function(Days\Day046\FormValidationException $exception, $code)
 
 App::error(function(Days\Day046\AjaxFormValidationException $exception, $code)
 {
-    // TODO: Include error state and error message
-    return $exception->getErrors();
+    return Response::json(array('error'=> array(
+        'type' => 'FormValidationException',
+        'message' => 'Please see below for validation errors',
+        'messages' => $exception->getErrors()->toArray(),
+    )));
 });
 

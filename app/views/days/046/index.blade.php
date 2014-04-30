@@ -7,7 +7,10 @@
 <div class="well col-md-6 col-md-offset-3" ng-app="formApp" ng-controller="formController">
     <form id="angular" ng-submit="processForm()">
         <legend>Angular Form</legend>
-        <div class="message" ng-class="messageClass" ng-show="message" ng-bind-html="renderHtml(message)"></div>
+        <div class="message" ng-class="message.class" ng-show="message">
+            <h4>@{{message.title}}</h4>
+            <p>@{{message.text}}</p>
+        </div>
 
         <!-- NAME -->
         <div class="form-group name-control" ng-class="{ 'has-error' : errorData.name }">
@@ -41,24 +44,36 @@
     // create angular controller and pass in $scope and $http
     function formController($scope, $http, $sce) {
         $scope.formData = {};
+        $scope.message = {};
 
         $scope.processForm = function() {
             $http.post('/day046', $scope.formData)
                 .success(function(data) {
-                    $scope.errorData = {};
-                    $.each(data, function(index,value){
-                        $scope.errorData[index] = data[index][0];
-                    });
-
-                    if (data.length !== 0) {
-                        $scope.message = '<h4>Errors</h4><p>Please see below for errors</p>';
-                        $scope.messageClass = 'alert alert-danger';
-                    } else {
-                        $scope.message = '<h4>Success</h4><p>Your data has been added successfully</p>';
-                        $scope.messageClass = 'alert alert-success';
+                    if (data.error) {
+                        return $scope.handleErrorMessages(data);
                     }
+                    $scope.message={};
+                    $scope.errorData = {};
+                    $scope.message.title = 'Success';
+                    $scope.message.text = data.message;
+                    $scope.message.class = 'alert alert-success';
+                })
+                .error(function(response) {
+                    $scope.handleErrorMessages(response);
                 });
         };
+
+        $scope.handleErrorMessages = function(response) {
+            $scope.message={};
+            $scope.errorData = {};
+            $scope.message.title = 'Error';
+            $scope.message.text = response.error.message;
+            $scope.message.class = 'alert alert-danger';
+            $.each(response.error.messages, function(index,value){
+                $scope.errorData[index] = response.error.messages[index][0]; 
+            });
+        };
+
 
         $scope.renderHtml = function(html_code)
         {
