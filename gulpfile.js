@@ -13,7 +13,7 @@ var sys = require('sys');
 var src = './vendor/bower/';
 var dest = './public/vendor/';
 
-gulp.task('bower', ['clean', 'load'], function(){
+gulp.task('bower', ['clean'], function(){
     var bowerFilesToMove = [
         'angular*/*',
         'bootstrap/dist/**/*',
@@ -21,14 +21,14 @@ gulp.task('bower', ['clean', 'load'], function(){
         'jasny-bootstrap/dist/**/*',
         'jcrop/css/*',
         'jcrop/js/*',
-        'jquery/dist/*',
         'jquery-autosize/*',
         'jqueryui-timepicker-addon/dist/*',
         'jquery-ui/ui/minified/*',
         'select2/*',
         'twitter-bootstrap-wizard/jquery*',
         'underscore/*',
-        'fontawesome/css/*'
+        'fontawesome/css/*',
+        'jquery/dist/*'
     ];
 
     bowerFilesToMove.forEach(function(filespec){
