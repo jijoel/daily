@@ -246,6 +246,8 @@ Route::resource('day045', 'Days\Day045\AjaxFormController',
     array('only'=>array('index','store')));
 
 // Day 46 --------------------------------------------------------
-Route::resource('day046', 'Days\Day046\DayController',
-    array('only'=>array('index','store')));
+foreach(['046', '047'] as $index) {
+    Route::resource("day$index", "Days\Day$index\DayController",
+        array('only'=>array('index','store')));    
+}
 
