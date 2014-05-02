@@ -245,9 +245,15 @@ Route::resource('day044', 'Days\Day044\FileUploadController',
 Route::resource('day045', 'Days\Day045\AjaxFormController',
     array('only'=>array('index','store')));
 
-// Day 46 --------------------------------------------------------
+// Index/Store only ----------------------------------------------
 foreach(['046', '047'] as $index) {
     Route::resource("day$index", "Days\Day$index\DayController",
         array('only'=>array('index','store')));    
+}
+
+// Index/Store/Destroy Only ---------------------------------------
+foreach(['048'] as $index) {
+    Route::resource("day$index", "Days\Day$index\DayController",
+        array('only'=>array('index','store','destroy')));
 }
 
