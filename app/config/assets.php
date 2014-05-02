@@ -21,6 +21,7 @@ return array(
         'jasny-bootstrap'   => '/vendor/js/jasny-bootstrap.min.js',
         'jquery'            => '/vendor/js/jquery.min.js',
         'jquery-autosize'   => '/vendor/js/jquery.autosize.min.js',
+        'jquery-form'       => '/vendor/js/jquery.form.js',
         'jquery-jcrop'      => '/vendor/js/jquery.Jcrop.min.js',
         'jquery-ui'         => '/vendor/js/jquery-ui.min.js',
         'select2'           => '/vendor/js/select2.min.js',

@@ -28,6 +28,7 @@
     "jcrop": "*",
     "jquery": "*",
     "jquery-autosize": "*",
+    "jquery-form": "*",
     "jquery-ui": "~1.10.4",
     "jqueryui-timepicker-addon": "*",
     "select2": "~3.4.6",
