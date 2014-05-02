@@ -1,0 +1,48 @@
+#@day:Day Number (eg, 012)
+#[obj]=trim([day])
+#[Class]=trim([Day])
+#
+#>app/tests/Days/Day[day]/[Class][day]ControllerTest.php
+<?php
+
+/**
+ * @group now
+ */
+class [Class][day]ControllerTest extends TestCase
+{
+    public function testIndex()
+    {
+        $this->call('GET', '/day[day]');
+        $this->assertResponseOk();
+    }
+}
+
+#>app/Days/Day[day]/[Class]Controller.php
+<?php namespace Days\Day[day];
+
+use View;
+use BaseController;
+
+class [Class]Controller extends BaseController 
+{
+    protected $layout = 'layouts.bootstrap3';
+    
+    public function index()
+    {
+        $this->layout->content = View::make('days.[day].index');
+    }
+
+    public function store()
+    {
+    
+    }
+}
+
+#>app/views/days/[day]/index.blade.php
+@section('content')
+
+<p class="note">This is ...
+@include('partials.github')</p>
+
+@stop
+
