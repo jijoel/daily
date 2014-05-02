@@ -1,4 +1,4 @@
-<div class="well col-md-6 col-md-offset-3">
+<div class="well">
     <form id="jquery">
         <legend>JQuery Form</legend>
         <div class="message"></div>
@@ -17,6 +17,20 @@
             <span class="help-block"></span>
         </div>
 
+        <!-- NEMESIS -->
+        <div class="form-group nemesis-control">
+            <label class="control-label">Nemesis</label>
+            <input type="text" name="nemesis" class="form-control" placeholder="Villain" value="{{$nemesis}}">
+            <span class="help-block"></span>
+        </div>
+
+        <!-- DETAILS -->
+        <div class="form-group details-control">
+            <label class="control-label">Details</label>
+            <textarea name="details" class="form-control"></textarea>
+            <span class="help-block"></span>
+        </div>
+
         <!-- SUBMIT BUTTON -->
         <button type="submit" class="btn btn-success btn-sm btn-block">
             <span class="glyphicon glyphicon-flash"></span> Submit!
@@ -26,8 +40,10 @@
 
 
 @section('jquery_js')
+
 <script type="text/javascript">
 $(function(){
+
     $('form#jquery').submit(function(event) {
         event.preventDefault();
 
