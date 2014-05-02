@@ -23,11 +23,13 @@ gulp.task('bower', ['clean'], function(){
         'jcrop/css/*',
         'jcrop/js/jquery.Jcrop*',
         'jcrop/js/jquery.color',
+        'jquery-form/*',
         'jquery-autosize/*',
         'jquery-ui/ui/minified/*',
         'jqueryui-timepicker-addon/dist/*',
         'select2/*',
         'twitter-bootstrap-wizard/jquery*',
+        'jquery/jquery*',
         'jquery/dist/*',
         'underscore/*'
     ];
