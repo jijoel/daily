@@ -3,6 +3,8 @@
 return array(
 
     //  Day #    path             Title
+    array('49',  'day049',        'Ajax (jQuery) Image Upload'),
+    array('48',  'day048',        'Image Upload'),
     array('47',  'day047',        'Angular Tabs'),
     array('46',  'day046',        'Form Validation'),
     array('45',  'day045',        'Ajax Forms (jQuery vs Angular)'),

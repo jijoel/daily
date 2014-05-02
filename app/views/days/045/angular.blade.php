@@ -1,7 +1,10 @@
-<div class="well col-md-6 col-md-offset-3" ng-app="formApp" ng-controller="formController">
+<div class="well" ng-app="formApp" ng-controller="formController">
     <form id="angular" ng-submit="processForm()">
         <legend>Angular Form</legend>
-        <div class="message" ng-class="messageClass" ng-show="message" ng-bind-html="renderHtml(message)"></div>
+        <div class="message" ng-class="message.class">
+            <h4>@{{message.title}}</h4>
+            <p>@{{message.text}}</p>
+        </div>
 
         <!-- NAME -->
         <div class="form-group name-control" ng-class="{ 'has-error' : errorData.name }">
@@ -15,6 +18,20 @@
             <label class="control-label">Superhero Alias</label>
             <input type="text" name="alias" class="form-control" placeholder="Caped Crusader" ng-model="formData.alias">
             <span class="help-block" ng-show="errorData.alias">@{{errorData.alias}}</span>
+        </div>
+
+        <!-- NEMESIS -->
+        <div class="form-group nemesis-control" ng-class="{ 'has-error' : errorData.nemesis }">
+            <label class="control-label">Nemesis</label>
+            <input type="text" name="nemesis" class="form-control" placeholder="Villain" ng-model="formData.nemesis">
+            <span class="help-block" ng-show="errorData.nemesis">@{{errorData.nemesis}}</span>
+        </div>
+
+        <!-- DETAILS -->
+        <div class="form-group details-control" ng-class="{ 'has-error' : errorData.details }">
+            <label class="control-label">Details</label>
+            <textarea name="details" class="form-control" ng-model="formData.details"></textarea>
+            <span class="help-block" ng-show="errorData.alias">@{{errorData.details}}</span>
         </div>
 
         <!-- SUBMIT BUTTON -->
@@ -31,8 +48,11 @@
     var formApp = angular.module('formApp', []);
 
     // create angular controller and pass in $scope and $http
-    function formController($scope, $http, $sce) {
-        $scope.formData = {};
+    function formController($scope, $http) {
+        $scope.formData = {
+            nemesis: "{{$nemesis}}",
+        };
+        $scope.message = {};
 
         $scope.processForm = function() {
             $http.post('/day045', $scope.formData)
@@ -43,19 +63,17 @@
                     });
 
                     if (data.length !== 0) {
-                        $scope.message = '<h4>Errors</h4><p>Please see below for errors</p>';
-                        $scope.messageClass = 'alert alert-danger';
+                        $scope.message.title='Errors';
+                        $scope.message.text='Please see below for errors';
+                        $scope.message.class = 'alert alert-danger';
                     } else {
-                        $scope.message = '<h4>Success</h4><p>Your data has been added successfully</p>';
-                        $scope.messageClass = 'alert alert-success';
+                        $scope.message.title='Success';
+                        $scope.message.text='Your data has been added successfully';
+                        $scope.message.class='alert alert-success';
                     }
                 });
         };
 
-        $scope.renderHtml = function(html_code)
-        {
-            return $sce.trustAsHtml(html_code);
-        };
     }
 
 </script>
