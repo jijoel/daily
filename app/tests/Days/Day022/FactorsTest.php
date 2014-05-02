@@ -2,9 +2,7 @@
 
 use Days\Day022\Factors;
 
-/**
- * @group now
- */
+
 class FactorsTest extends PHPUnit_Framework_TestCase
 {
     /**
