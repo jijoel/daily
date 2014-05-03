@@ -14,6 +14,7 @@ return array(
         'angular-bootstrap' => '/vendor/js/ui-bootstrap-tpls.min.js',
         'angular-resource'  => '/vendor/js/angular-resource.min.js',
         'angular-route'     => '/vendor/js/angular-route.min.js',
+        'angular-upload'    => '/vendor/js/angular-file-upload.min.js',
         'bootstrap'         => '/vendor/js/bootstrap.min.js',
         'bootstrap3'        => '/vendor/js/bootstrap.min.js',
         'bootstrap-wizard'  => '/vendor/js/jquery.bootstrap.wizard.min.js',
