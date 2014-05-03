@@ -25,7 +25,7 @@ class DayController extends BaseController
     public function index()
     {
         $this->layout->content = View::make('days.049.index')
-            ->with('files', Day044File::paginate(20));
+            ->with('files', Day044File::paginate(7));
     }
 
 
