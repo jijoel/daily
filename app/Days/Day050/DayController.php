@@ -1,4 +1,4 @@
-<?php namespace Days\Day049;
+<?php namespace Days\Day050;
 
 use View;
 use Input;
@@ -21,11 +21,16 @@ class DayController extends BaseController
         'title' => 'required|max:80',
         'thumbnail' => 'required|image',
     );
-    
+
+    public function getView()
+    {
+        $this->layout->content = View::make('days.050.index')
+            ->with('files', Day044File::paginate(20));
+    }
+
     public function index()
     {
-        $this->layout->content = View::make('days.049.index')
-            ->with('files', Day044File::paginate(7));
+        return Day044File::all()->toJson();
     }
 
 
@@ -37,11 +42,18 @@ class DayController extends BaseController
         if ($validation->fails()) {
             return Response::json([
                 'success'=>false,
-                'message'=>View::make('days.049.error')
-                    ->withErrors($validation->errors())->render(),
+                'errors'=>$validation->errors()->toArray(),
             ]);
         }
 
+        return Response::json([
+            'success'=>true,
+            'file'=>$this->saveRecord()->toArray(),
+        ]);
+    }
+
+    private function saveRecord()
+    {
         if (Input::hasFile('thumbnail')) {
             $file = Input::file('thumbnail');
             $filename = time().'-'.$file->getClientOriginalName();
@@ -56,11 +68,7 @@ class DayController extends BaseController
         $record->thumbnail = $filename;
         $record->save();
 
-        return Response::json([
-            'success'=>true,
-            'message'=>View::make('days.049.item')
-                ->withFile($record)->render(),
-        ]);
+        return $record;
     }
 
     public function destroy($id)

@@ -26,10 +26,11 @@
                     </div>
                 </div>
                 <div id="upload-errors"></div>
-        
+            </div>
         {{ KForm::close() }}
     </div>
-</div>
+
+</div><!-- row -->
 
 {{ $files->links() }}
 
