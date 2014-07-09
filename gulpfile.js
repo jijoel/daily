@@ -19,6 +19,7 @@ gulp.task('bower', ['clean'], function(){
         'bootstrap/dist/**/*',
         'd3/*',
         'fontawesome/css/*',
+        'highlightjs/*',
         'jasny-bootstrap/dist/**/*',
         'jcrop/css/*',
         'jcrop/js/jquery.Jcrop*',
@@ -63,6 +64,9 @@ gulp.task('bower', ['clean'], function(){
     gulp.src(src+'fontawesome/fonts/*')
         .pipe(gulp.dest(dest+'fonts'));
 
+    gulp.src(src+'highlightjs/styles/*')
+        .pipe(gulp.dest(dest+'css/highlightjs'));
+
     gulp.src(src+'jcrop/css/*.gif')
         .pipe(gulp.dest(dest+'css'));
 
@@ -73,7 +77,6 @@ gulp.task('bower', ['clean'], function(){
         .pipe(rename('underscore.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(dest+'js'));
-
 });
 
 gulp.task('clean', function(){
