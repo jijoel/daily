@@ -10,40 +10,45 @@ var bower = require('gulp-bower');
 var exec = require('child_process').exec;
 var sys = require('sys');
 
-var src = './bower_components/';
+var src = './vendor/bower/';
 var dest = './public/vendor/';
 
 gulp.task('bower', ['clean'], function(){
-    var bowerFilesToMove = [
+    var bowerFilesToCopy = [
         'angular*/*',
         'bootstrap/dist/**/*',
         'd3/*',
+        'fontawesome/css/*',
+        'highlightjs/*',
         'jasny-bootstrap/dist/**/*',
         'jcrop/css/*',
-        'jcrop/js/*',
+        'jcrop/js/jquery.Jcrop*',
+        'jcrop/js/jquery.color',
+        'jquery-form/*',
         'jquery-autosize/*',
-        'jqueryui-timepicker-addon/dist/*',
         'jquery-ui/ui/minified/*',
+        'jqueryui-timepicker-addon/dist/*',
+        'ng-file-upload/*',
         'select2/*',
         'twitter-bootstrap-wizard/jquery*',
-        'underscore/*',
-        'fontawesome/css/*',
-        'jquery/dist/*'
+        'jquery/jquery*',
+        'jquery/dist/*',
+        'underscore/*'
     ];
 
-    bowerFilesToMove.forEach(function(filespec){
+    bowerFilesToCopy.forEach(function(filespec){
         gulp.src(src+''+filespec+'.css')
             .pipe(flatten())
             .pipe(gulp.dest(dest+'css'));
     });
 
-    bowerFilesToMove.forEach(function(filespec){
+    bowerFilesToCopy.forEach(function(filespec){
         gulp.src(src+''+filespec+'.js')
             .pipe(flatten())
             .pipe(gulp.dest(dest+'js'));
     });
 
-    bowerFilesToMove.forEach(function(filespec){
+    bowerFilesToCopy.forEach(function(filespec){
         gulp.src(src+''+filespec+'.map')
             .pipe(flatten())
             .pipe(gulp.dest(dest+'css'))
@@ -59,6 +64,9 @@ gulp.task('bower', ['clean'], function(){
     gulp.src(src+'fontawesome/fonts/*')
         .pipe(gulp.dest(dest+'fonts'));
 
+    gulp.src(src+'highlightjs/styles/*')
+        .pipe(gulp.dest(dest+'css/highlightjs'));
+
     gulp.src(src+'jcrop/css/*.gif')
         .pipe(gulp.dest(dest+'css'));
 
@@ -69,7 +77,6 @@ gulp.task('bower', ['clean'], function(){
         .pipe(rename('underscore.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(dest+'js'));
-
 });
 
 gulp.task('clean', function(){

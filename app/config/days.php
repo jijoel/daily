@@ -3,6 +3,11 @@
 return array(
 
     //  Day #    path             Title
+    array('52',  'day052',        'Pre-defined Carbon formats'),
+    array('51',  'day051',        'Performance tests'),
+    array('50',  'day050',        'Angular Image Upload'),
+    array('49',  'day049',        'Ajax (jQuery) Image Upload'),
+    array('48',  'day048',        'Image Upload'),
     array('47',  'day047',        'Angular Tabs'),
     array('46',  'day046',        'Form Validation'),
     array('45',  'day045',        'Ajax Forms (jQuery vs Angular)'),

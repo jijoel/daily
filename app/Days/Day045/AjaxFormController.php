@@ -12,11 +12,13 @@ class AjaxFormController extends BaseController
     protected $rules = array(
         'name' => 'required',
         'alias' => 'required',
+        'nemesis' => 'required',
     );
 
     public function index()
     {
-        $this->layout->content = View::make('days.045.index');
+        $this->layout->content = View::make('days.045.index')
+            ->withNemesis('Joker');
     }
 
     public function store()
