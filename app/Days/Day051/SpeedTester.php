@@ -11,6 +11,7 @@ class SpeedTester
         return [
             $this->testFunctionSpeeds(),
             $this->testStringSpeeds(),
+            $this->testMagicMethodSpeeds(),
         ];
     }
 
@@ -92,6 +93,47 @@ class SpeedTester
         $text = join($arr);
     }
 
+    public function testMagicMethodSpeeds()
+    {
+        $result = $this->wrap([
+            ['Regular Method','testRegularMethod',[10000,100000,1000000]],
+            ['Magic Method'  ,'testMagicMethod',  [10000,100000,1000000]],
+        ]);
+
+        $code = $this->export('testRegularMethod')
+            . $this->export('testMagicMethod')
+            . $this->export('getSomething')
+            . $this->export('__get');
+
+        return new DataTransferObject([
+            'title' => 'Speed of regular method calls vs magic methods',
+            'result' => $result,
+            'code' => $code,
+        ]);
+    }
+
+    private function testRegularMethod($iterations)
+    {
+        for($i=0; $i<$iterations; $i++)
+            $j = $this->getSomething();
+    }
+
+    private function testMagicMethod($iterations)
+    {
+        for($i=0; $i<$iterations; $i++)
+            $j = $this->getSomething;
+    }
+
+    private function getSomething()
+    {
+        return 'something';
+    }
+
+    private function __get($value)
+    {
+        return $this->$value();
+    }
+
 
 // Helper Methods --------------------------------------------------------------
 
@@ -111,7 +153,7 @@ class SpeedTester
     {
         $output = '<table><thead><tr><td></td>';
         foreach($items[0][2] as $iterations)
-            $output .= '<td>'.$iterations.'</td>';
+            $output .= '<td>'.number_format($iterations).'</td>';
         $output .= '</tr></thead><tbody>';
 
         foreach($items as $item) {
