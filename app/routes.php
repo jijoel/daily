@@ -257,7 +257,7 @@ foreach(['051'] as $index) {
 }
 
 // Index/Store only ----------------------------------------------
-foreach(['046', '047','052'] as $index) {
+foreach(['046', '047','052','053'] as $index) {
     Route::resource("day$index", "Days\Day$index\DayController",
         array('only'=>array('index','store')));    
 }
