@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('53',  'day053',        'Test for protected data elements'),
     array('52',  'day052',        'Pre-defined Carbon formats'),
     array('51',  'day051',        'Performance tests'),
     array('50',  'day050',        'Angular Image Upload'),
