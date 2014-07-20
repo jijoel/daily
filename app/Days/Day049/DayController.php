@@ -47,8 +47,10 @@ class DayController extends BaseController
             $filename = time().'-'.$file->getClientOriginalName();
             
             $image = Image::make($file->getRealPath())
-                ->resize(300,200,true,false)
-                ->save(public_path().self::FILE_PATH.$filename);
+                ->resize(300, 200, function($constraint){
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->save(public_path().self::FILE_PATH.$filename);
         }
 
         $record = new Day044File;
