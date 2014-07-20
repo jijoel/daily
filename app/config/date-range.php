@@ -103,7 +103,7 @@ return array(
             'before' => 'start=',
             'middle' => '&end=',
             'end'    => '',
-            'only'   => '&date=',
+            'only'   => 'date=',
         ],
     ),
 
