@@ -19,43 +19,33 @@ class DateRange
         $this->setDates($start, $end);
     }
 
-    // public static function make($start=Null, $end=Null)
-    // {
-    //     return new self($start, $end);
-    // }
-
     public function setDates($start, $end)
     {
         if (! $end)
             $end = $start;
 
-        $this->start = $this->setDate($start);
-        $this->end = $this->setDate($end);
+        $this->start = $this->getCarbonDate($start);
+        $this->end = $this->getCarbonDate($end);
 
         if ($this->canCompareDates() && $this->start->gt($this->end))
             throw new DateOrderException('Start date must precede end date');
     }
 
-    private function setDate($date)
+    private function getCarbonDate($date)
     {
+        if ($date === self::NONE)
+            return $this->getConfig('none.default');
+
         if ($date instanceof Carbon)
             return $date;
 
         if ($date instanceof DateTime)
             return Carbon::instance($date);
 
-        if ($date == self::NONE)
-            return $this->getConfig('none.default');
-
         if (is_numeric($date))
             return Carbon::createFromTimestamp($date);
 
         return Carbon::parse($date);
-    }
-
-    private function getConfig($value, $default='')
-    {
-        return $this->config->get('date-range.'.$value, $default);
     }
 
     public function start()
@@ -85,11 +75,6 @@ class DateRange
         return $this->isSameDay();
     }
 
-    private function canCompareDates()
-    {
-        return $this->start instanceof Carbon && $this->end instanceof Carbon;
-    }
-
     public function fullDay()
     {
         $this->start->startOfDay();
@@ -98,26 +83,17 @@ class DateRange
         return $this;
     }
 
-    // public function days()
-    // {
-    //     return $this->end->diffInDays($this->start);
-    // }
-
     public function overlaps(DateRange $other)
     {
         return ($this->start->lt($other->end)
             && $this->end->gt($other->start));
     }
 
-
-
     public function isAdjacentTo(DateRange $other)
     {
         return ($this->start->eq($other->end)
             || $this->end->eq($other->start));
     }
-
-
 
 
 // Get formatted output -------------------------------------------------------
@@ -127,18 +103,19 @@ class DateRange
         if (method_exists($this, $name)) 
             return $this->$name();
 
-        list($value, $format) = $this->getComponentsToFormat($name);
-        if ($value == 'range')
-            return $this->formatRange($format);
+        list($value, $process) = $this->splitValueFromProcess($name);
 
-        $prefix = $this->getConfig("range.$format.only");
-        if ($prefix)
-            return $prefix.$this->formatDate($this->$value(), $format);
-        
-        return $this->formatDate($this->$value(), $format);
+        $closure = $this->getConfig("calculations.$process");
+        if ($closure)
+            return($this->executeClosure($value,$closure));
+
+        if ($value == 'range')
+            return $this->applyStyleToRange($process);
+
+        return $this->applyStyleToDate($value, $process);
     }
 
-    private function getComponentsToFormat($value)
+    private function splitValueFromProcess($value)
     {
         foreach(['start','end','range'] as $date)
             if (strpos($value, $date) === 0)
@@ -147,51 +124,87 @@ class DateRange
         return array('range', $value);
     }
 
-    public function formatDate($date, $format)
+    private function executeClosure($value, $closure)
     {
-        if ( ! is_object($date)) {
-            $defaultForFormat = $this->getConfig('none.'.$format, '(n/a)');
-            return ($defaultForFormat<>'(n/a)') ? $defaultForFormat : $date;            
-        }
+        if ($value == 'range')
+            return $closure($this->start, $this->end);
 
-        $dateFormat = $this->getConfig('formats.'.$format);
-        if ($dateFormat)
-            return $date->format($dateFormat);
-
-        return $date->format($this->getConfig('formats.default'));
+        return $closure($this->$value);
     }
 
-    private function formatRange($format)
+    private function applyStyleToRange($requestedStyle)
     {
-        list($delimiters, $dateFormat) = $this->getRangeDelimitersAndFormat($format);
+        list($delimiters, $style) = $this->splitDelimitersFromStyle($requestedStyle);
 
         if ($this->start == $this->end)
-            return $delimiters['only'] . $this->formatDate($this->start, $dateFormat);
+            return $delimiters['only'] . $this->formatDate($this->start, $style);
 
         return $delimiters['before']
-            . $this->formatDate($this->start, $dateFormat)
+            . $this->formatDate($this->start, $style)
             . $delimiters['middle'] 
-            . $this->formatDate($this->end, $dateFormat)
+            . $this->formatDate($this->end, $style)
             . $delimiters['end'];
     }
 
-    private function getRangeDelimitersAndFormat($format)
+    private function splitDelimitersFromStyle($requestedStyle)
     {
-        if ( ! strpos($format, '_')) 
-            return array($this->getRangeDelimiters($format), $format);
+        if ( ! strpos($requestedStyle, '_')) 
+            return array(
+                $this->getDelimiters($requestedStyle), 
+                $requestedStyle
+            );
 
-        $parts = explode('_', $format);        
-        list($dateFormat, $rangeFormat) = $parts;
-        return array($this->getRangeDelimiters($rangeFormat), $dateFormat);
+        list($dateStyle, $rangeStyle) = explode('_', $requestedStyle);        
+
+        return array(
+            $this->getDelimiters($rangeStyle), 
+            $dateStyle
+        );
     }
 
-    private function getRangeDelimiters($format)
+    private function getDelimiters($style)
     {
-        $delimiters = $this->getConfig('range.'.$format);
+        $delimiters = $this->getConfig('range.'.$style);
         if ($delimiters)
             return $delimiters;
 
         return $this->getConfig('range.default');
+    }
+
+    private function applyStyleToDate($value, $style)
+    {
+        $prefix = $this->getConfig("range.$style.only");
+        if ($prefix)
+            return $prefix.$this->formatDate($this->$value(), $style);
+        
+        return $this->formatDate($this->$value(), $style);
+    }
+
+    public function formatDate($date, $style)
+    {
+        if ( ! is_object($date)) {
+            $default = $this->getConfig('none.'.$style, '(n/a)');
+            return ($default<>'(n/a)') ? $default : $date;            
+        }
+
+        $formatString = $this->getConfig('styles.'.$style);
+        if ($formatString)
+            return $date->format($formatString);
+
+        return $date->format($this->getConfig('styles.default'));
+    }
+
+
+// Helper Methods -------------------------------------------------------------
+
+    private function getConfig($value, $default='')
+    {
+        return $this->config->get('date-range.'.$value, $default);
+    }
+
+    private function canCompareDates()
+    {
+        return $this->start instanceof Carbon && $this->end instanceof Carbon;
     }
 
 }

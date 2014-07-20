@@ -32,16 +32,17 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Formats
+    | Styles
     |--------------------------------------------------------------------------
     |
-    | Specific php date format strings to use when a given style is requested.
+    | Return specific php date format strings to use when a given style 
+    | is requested.
     |
-    | To request a specific format, a developer will use <value>_<format>
+    | To request a specific style, a developer will use <value>_<style>
     | (eg, start_short for a short format of the start date)
     |
     */
-    'formats' => array(
+    'styles' => array(
 
         /**
          * Default format, when no format is sent
@@ -104,6 +105,27 @@ return array(
             'end'    => '',
             'only'   => '&date=',
         ],
+    ),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Calculations
+    |--------------------------------------------------------------------------
+    |
+    | We can use a closure to calculate other values. 
+    |
+    | Pass $start and $end or $date values to the closure. 
+    |
+    */
+    'calculations' => array(
+
+        'days' => function($start, $end) { return $end->diffInDays($start); },
+
+        'decimal' => function($date) {
+            $hours = $date->hour + ($date->minute / 60);
+            return round($hours,1);
+        },
+
     ),
 
 );

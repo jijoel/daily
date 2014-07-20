@@ -310,6 +310,18 @@ class DateRangeTest extends TestCase
         );
     }
 
+    public function testShouldBeAbleToGetDifferenceInDaysViaClosure()
+    {
+        $test = new DateRange(self::DATE1_SHORT, self::DATE2_SHORT);
+        $this->assertEquals(3, $test->days);
+    }
 
+    public function testShouldGetDecimalTimeViaClosure()
+    {
+        $test = new DateRange('10:00am', '10:30am');
+        $this->assertEquals(10, $test->decimal);
+        $this->assertEquals(10, $test->start_decimal);
+        $this->assertEquals(10.5, $test->end_decimal);
+    }
 }
 
