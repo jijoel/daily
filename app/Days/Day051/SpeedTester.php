@@ -129,7 +129,7 @@ class SpeedTester
         return 'something';
     }
 
-    private function __get($value)
+    public function __get($value)
     {
         return $this->$value();
     }
