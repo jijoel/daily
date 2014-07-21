@@ -36,6 +36,7 @@ return array(
         'Intervention\Image\ImageServiceProvider',
         'Kalani\FormBuilder\FormBuilderServiceProvider', 
         'Former\FormerServiceProvider',
+        'VTalbot\Markdown\MarkdownServiceProvider',
 
         'Kalani\Generator\GeneratorServiceProvider', 
     ),

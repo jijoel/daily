@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('55',  'day055',        'Simple Blog'),
     array('54',  'day054',        'DateRange formats'),
     array('53',  'day053',        'Test for protected data elements'),
     array('52',  'day052',        'Pre-defined Carbon formats'),
