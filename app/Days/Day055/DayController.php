@@ -16,6 +16,10 @@ class DayController extends BaseController
 
     public function __construct(Day055Blog $blog)
     {
+        $this->beforeFilter(function(){
+            if (Auth::guest()) return Redirect::route('day055.index');
+        }, ['except' => ['index','show']]);
+
         $this->blog = $blog;
     }
 
