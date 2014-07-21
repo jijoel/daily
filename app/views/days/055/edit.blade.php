@@ -18,4 +18,9 @@
 
 @stop
 
-
+@section('js')
+    {{HTML::js('jquery-autosize')}}
+    <script type="text/javascript">
+        $('textarea').autosize();
+    </script>
+@stop

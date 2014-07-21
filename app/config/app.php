@@ -112,6 +112,7 @@ return array(
         'Intervention\Image\ImageServiceProvider',
         'Kalani\FormBuilder\FormBuilderServiceProvider', 
         'Former\FormerServiceProvider',
+        'VTalbot\Markdown\MarkdownServiceProvider',
 
     ),
 
@@ -183,7 +184,7 @@ return array(
         'Image'           => 'Intervention\Image\Facades\Image',
         'KForm'           => 'Kalani\FormBuilder\FormBuilderFacade', 
         'Former'          => 'Former\Facades\Former',
-
+        'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
     ),
 
 );

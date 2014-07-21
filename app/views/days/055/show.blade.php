@@ -7,7 +7,7 @@
             <div class="date">on {{ $item->date->short }}</div>
         </header>
         <hr>
-        <div class="text">{{$item->text}}</div>
+        <div class="text">{{Markdown::string($item->text)}}</div>
     </article>
 
 @stop

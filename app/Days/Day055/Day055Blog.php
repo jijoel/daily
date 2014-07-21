@@ -30,7 +30,7 @@ class Day055Blog extends Eloquent
 
     public function getTeaserAttribute()
     {
-        return strip_tags($this->firstXChars($this->text),60);
+        return strip_tags($this->firstXChars($this->attributes['text']),60);
     }
 
     private function firstXChars($string, $chars = 100)
