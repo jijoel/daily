@@ -250,6 +250,12 @@ Route::get('day050', 'Days\Day050\DayController@getView');
 Route::resource('day050/api', 'Days\Day050\DayController',
     array('only'=>array('index','store','destroy')));
 
+// Extras for Day 56 ---------------------------------------------
+Route::resource('day056/tags', 'Days\Day056\TagController',
+    array('only'=>['index','destroy']));
+Route::post('day056/login', 'Days\Day056\AuthController@login');
+Route::post('day056/logout', 'Days\Day056\AuthController@logout');
+
 // Index only ----------------------------------------------------
 foreach(['051'] as $index) {
     Route::resource("day$index", "Days\Day$index\DayController",
@@ -269,6 +275,6 @@ foreach(['048','049'] as $index) {
 }
 
 // All routes -----------------------------------------------------
-foreach(['055'] as $index) {
+foreach(['055','056'] as $index) {
     Route::resource("day$index", "Days\Day$index\DayController");
 }

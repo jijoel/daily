@@ -77,6 +77,9 @@ gulp.task('bower', ['clean'], function(){
         .pipe(rename('underscore.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(dest+'js'));
+
+    gulp.src([src+'select2-bootstrap-css/select2-bootstrap.css'])
+        .pipe(gulp.dest(dest+'css'));
 });
 
 gulp.task('clean', function(){
