@@ -34,9 +34,10 @@ return array(
         'RoutingServiceProvider',
         'Artdarek\OAuth\OAuthServiceProvider',
         'Intervention\Image\ImageServiceProvider',
-        'Kalani\FormBuilder\FormBuilderServiceProvider', 
         'Former\FormerServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
+        'Kalani\FormBuilder\FormBuilderServiceProvider',
+        'Kalani\DateRange\DateRangeServiceProvider', 
 
         'Kalani\Generator\GeneratorServiceProvider', 
     ),

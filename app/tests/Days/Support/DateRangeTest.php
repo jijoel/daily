@@ -215,22 +215,22 @@ class DateRangeTest extends TestCase
             [Null,self::DATE2_TINY, 'end_tiny', self::DATE2_TINY],
 
             [self::DATE1_TINY,self::DATE2_TINY, 'short', 
-             self::DATE1_SHORT.' &ndash; '.SELF::DATE2_SHORT],
+             self::DATE1_SHORT.' &ndash; '.self::DATE2_SHORT],
             [self::DATE1_TINY,self::DATE2_TINY, 'range_short', 
-             self::DATE1_SHORT.' &ndash; '.SELF::DATE2_SHORT],
+             self::DATE1_SHORT.' &ndash; '.self::DATE2_SHORT],
 
             [self::DATE1_TINY,self::DATE2_TINY, 'short_title', 
-             'From '.self::DATE1_SHORT.' to '.SELF::DATE2_SHORT],
+             'From '.self::DATE1_SHORT.' to '.self::DATE2_SHORT],
             [self::DATE1_TINY,self::DATE2_TINY, 'range_short_title', 
-             'From '.self::DATE1_SHORT.' to '.SELF::DATE2_SHORT],
+             'From '.self::DATE1_SHORT.' to '.self::DATE2_SHORT],
 
             [self::DATE1_TINY,self::DATE2_TINY, 'title', 
-             'From '.self::DATE1_TITLE.' to '.SELF::DATE2_TITLE],
+             'From '.self::DATE1_TITLE.' to '.self::DATE2_TITLE],
             [self::DATE1_TINY,self::DATE2_TINY, 'range_title', 
-             'From '.self::DATE1_TITLE.' to '.SELF::DATE2_TITLE],
+             'From '.self::DATE1_TITLE.' to '.self::DATE2_TITLE],
 
             [self::DATE1_TINY,self::DATE2_TINY, 'url', 
-             'start='.self::DATE1_SQL.'&end='.SELF::DATE2_SQL],
+             'start='.self::DATE1_SQL.'&end='.self::DATE2_SQL],
         );
     }
 
