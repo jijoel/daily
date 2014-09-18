@@ -110,9 +110,10 @@ return array(
         'RoutingServiceProvider',
         'Artdarek\OAuth\OAuthServiceProvider',
         'Intervention\Image\ImageServiceProvider',
-        'Kalani\FormBuilder\FormBuilderServiceProvider', 
         'Former\FormerServiceProvider',
         'VTalbot\Markdown\MarkdownServiceProvider',
+        'Kalani\FormBuilder\FormBuilderServiceProvider', 
+        'Kalani\DateRange\DateRangeServiceProvider', 
 
     ),
 
@@ -182,9 +183,10 @@ return array(
 
         'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
         'Image'           => 'Intervention\Image\Facades\Image',
-        'KForm'           => 'Kalani\FormBuilder\FormBuilderFacade', 
         'Former'          => 'Former\Facades\Former',
         'Markdown'        => 'VTalbot\Markdown\Facades\Markdown',
+        'KForm'           => 'Kalani\FormBuilder\FormBuilderFacade', 
+        'KDate'           => 'Kalani\DateRange\Facades\DateRange',
     ),
 
 );
