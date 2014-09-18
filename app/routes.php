@@ -257,24 +257,28 @@ Route::post('day056/login', 'Days\Day056\AuthController@login');
 Route::post('day056/logout', 'Days\Day056\AuthController@logout');
 
 // Index only ----------------------------------------------------
-foreach(['051'] as $index) {
+foreach([51,58] as $day) {
+    $index = substr('000'.$day,-3);
     Route::resource("day$index", "Days\Day$index\DayController",
         array('only'=>array('index')));    
 }
 
 // Index/Store only ----------------------------------------------
-foreach(['046', '047','052','053','054','057'] as $index) {
+foreach([46,47,52,53,54,57] as $day) {
+    $index = substr('000'.$day,-3);
     Route::resource("day$index", "Days\Day$index\DayController",
         array('only'=>array('index','store')));    
 }
 
 // Index/Store/Destroy Only ---------------------------------------
-foreach(['048','049'] as $index) {
+foreach([48,49] as $day) {
+    $index = substr('000'.$day,-3);
     Route::resource("day$index", "Days\Day$index\DayController",
         array('only'=>array('index','store','destroy')));
 }
 
 // All routes -----------------------------------------------------
-foreach(['055','056'] as $index) {
+foreach([55,56] as $day) {
+    $index = substr('000'.$day,-3);
     Route::resource("day$index", "Days\Day$index\DayController");
 }

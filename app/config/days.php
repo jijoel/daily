@@ -3,6 +3,7 @@
 return array(
 
     //  Day #    path             Title
+    array('58',  'day058',        'Multiple Selections with JQuery MultiSelect'),
     array('57',  'day057',        'Image cropping with Bootstrap'),
     array('56',  'day056',        'Simple Blog with Tags'),
     array('55',  'day055',        'Simple Blog'),

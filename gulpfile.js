@@ -80,6 +80,12 @@ gulp.task('bower', ['clean'], function(){
 
     gulp.src([src+'select2-bootstrap-css/select2-bootstrap.css'])
         .pipe(gulp.dest(dest+'css'));
+
+    gulp.src([src+'multiselect/src/*.js'])
+        .pipe(gulp.dest(dest+'js'));
+
+    gulp.src([src+'multiselect/jquery.multiselect*.css'])
+        .pipe(gulp.dest(dest+'css'));
 });
 
 gulp.task('clean', function(){
