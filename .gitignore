@@ -4,7 +4,6 @@
 
 # Composer
 composer.phar
-composer.lock
 
 # Assets
 /node_modules
