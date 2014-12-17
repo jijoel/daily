@@ -23,11 +23,11 @@ class DayComposer
 
     protected function loadPropertyFromConfig($name, $configField)
     {
-        $evt = $this->view->getEnvironment();
+        // $evt = $this->view->getEnvironment();
 
-        if( $evt->shared($name)){
-            return;
-        }
+        // if( $evt->shared($name)){
+        //     return;
+        // }
 
         $this->view->with(
             $name, 
@@ -38,7 +38,7 @@ class DayComposer
     protected function getConfigField($field)
     {
         $settings = $this->getConfigSettingsForCurrentDay();
-
+        
         return $settings[$field];
     }
 

@@ -48,21 +48,21 @@ return array(
 
         'codeception' => array(
             'driver'   => 'sqlite',
-            'database' => __DIR__.'/../tests/codeception/_data/db.sqlite',
+            'database' => app_path().'/tests/codeception/_data/db.sqlite',
             'prefix'   => '',
         ),
 
-        'mysql' => array(
-            'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'database',
-            'username'  => 'root',
-            'password'  => '',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-        ),
-    ),
+    //     'mysql' => array(
+    //         'driver'    => 'mysql',
+    //         'host'      => 'localhost',
+    //         'database'  => 'database',
+    //         'username'  => 'root',
+    //         'password'  => '',
+    //         'charset'   => 'utf8',
+    //         'collation' => 'utf8_unicode_ci',
+    //         'prefix'    => '',
+    //     ),
+    // ),
 
     /*
     |--------------------------------------------------------------------------
@@ -88,15 +88,15 @@ return array(
     |
     */
 
-    'redis' => array(
+    // 'redis' => array(
 
-        'cluster' => true,
+    //     'cluster' => true,
 
-        'default' => array(
-            'host'     => '127.0.0.1',
-            'port'     => 6379,
-            'database' => 0,
-        ),
+    //     'default' => array(
+    //         'host'     => '127.0.0.1',
+    //         'port'     => 6379,
+    //         'database' => 0,
+    //     ),
 
     ),
 

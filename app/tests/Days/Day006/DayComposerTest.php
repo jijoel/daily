@@ -17,6 +17,7 @@ class Day006_DayComposerTest extends TestCase
 
         $this->setupMockConfig();
         $view = $this->getMockView('fizz', 'buzz');
+        $view->shouldReceive('with');
         
         $this->assertNull($test->compose($view));
     }
@@ -28,6 +29,7 @@ class Day006_DayComposerTest extends TestCase
         $this->setupMockConfig();
         $view = $this->getMockView(Null, 'fizz');
         $view->shouldReceive('with')->with('day', Mockery::any())->once();
+        $view->shouldReceive('with')->with('dayTitle', Mockery::any());
 
         $test->compose($view);
     }
@@ -38,6 +40,7 @@ class Day006_DayComposerTest extends TestCase
 
         $this->setupMockConfig();
         $view = $this->getMockView('fizz', Null);
+        $view->shouldReceive('with')->with('day', Mockery::any());
         $view->shouldReceive('with')->with('dayTitle', Mockery::any())->once();
 
         $test->compose($view);
@@ -71,10 +74,10 @@ class Day006_DayComposerTest extends TestCase
     {
         $view = Mockery::mock('day006_view');
 
-        $view->shouldReceive('getEnvironment')
-            ->andReturn($view);
-        $view->shouldReceive('shared')->times(2)
-            ->andReturn($day, $dayTitle);
+        // $view->shouldReceive('getEnvironment')
+        //     ->andReturn($view);
+        // $view->shouldReceive('shared')->times(2)
+        //     ->andReturn($day, $dayTitle);
 
         return $view;
     }
